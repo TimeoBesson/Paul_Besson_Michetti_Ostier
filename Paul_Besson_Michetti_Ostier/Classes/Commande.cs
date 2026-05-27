@@ -158,19 +158,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public List<Contient> Produits
-        {
-            get
-            {
-                return this.produits;
-            }
-
-            set
-            {
-                this.produits = value;
-            }
-        }
-
         
 
         public CategorieEvenement CategorieEvenement
