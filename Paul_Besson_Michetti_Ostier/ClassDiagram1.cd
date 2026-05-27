@@ -11,27 +11,24 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Paul_Besson_Michetti_Ostier.Classes.Commande">
-    <Position X="8" Y="1" Width="1.5" />
+    <Position X="7.75" Y="1" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AIAgAAGiAAACIoAgACiAAAAoQAAAQEAMAEAADAAAIAQ=</HashCode>
+      <HashCode>AIAgAAGiAAACYoAgAAiAAAEIRAABQEAIAEAADAAAIAQ=</HashCode>
       <FileName>Classes\Commande.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Paul_Besson_Michetti_Ostier.Classes.Contient">
-    <Position X="2" Y="1" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="1.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAEAACAEAAAABAAAAAAAAAAAAAAAAgAAAAIAAAABAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAABAAAAAAAAAAAAAAAAgAAAAIBQAAAAU=</HashCode>
       <FileName>Classes\Contient.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Paul_Besson_Michetti_Ostier.Classes.Produit">
-    <Position X="4" Y="1" Width="1.5" />
+    <Position X="3.5" Y="1" Width="2.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -51,7 +48,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Paul_Besson_Michetti_Ostier.Classes.CategorieEvenement">
-    <Position X="12" Y="2" Width="1.5" />
+    <Position X="12" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Commande.cs</FileName>

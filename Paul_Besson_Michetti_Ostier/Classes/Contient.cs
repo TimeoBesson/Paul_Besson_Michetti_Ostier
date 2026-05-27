@@ -10,15 +10,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     {
         private int quantite;
         private int estDecoupe;
-        private int idProduit;
-        private int idCommande;
+        private Produit unProduit;
+        private Commande uneCommande;
 
-        public Contient(int quantite, int estDecoupe, int idProduit, int idCommande)
+        public Contient(int quantite, int estDecoupe, Produit unProduit, Commande uneCommande)
         {
             this.Quantite = quantite;
             this.EstDecoupe = estDecoupe;
-            this.IdProduit = idProduit;
-            this.IdCommande = idCommande;
+            this.UnProduit = unProduit;
+            this.UneCommande = uneCommande;
         }
 
         public int Quantite
@@ -47,29 +47,31 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public int IdProduit
+        
+
+        public Produit UnProduit
         {
             get
             {
-                return this.idProduit;
+                return this.unProduit;
             }
 
             set
             {
-                this.idProduit = value;
+                this.unProduit = value;
             }
         }
 
-        public int IdCommande
+        public Commande UneCommande
         {
             get
             {
-                return this.idCommande;
+                return this.uneCommande;
             }
 
             set
             {
-                this.idCommande = value;
+                this.uneCommande = value;
             }
         }
     }

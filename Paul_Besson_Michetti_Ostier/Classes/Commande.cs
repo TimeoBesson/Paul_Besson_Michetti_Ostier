@@ -22,10 +22,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private DateOnly dateEvenement;
         private int nbPersonne;
         private List<Contient> produits;
-        private int idClient;
-        private CategorieEvenement idCategorieEvenement;
+        private Client unClient;
+        private CategorieEvenement categorieEvenement;
 
-        public Commande(int idCommande, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne, List<Contient> produits, int idClient, CategorieEvenement idCategorieEvenement)
+        public Commande(int idCommande, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne, List<Contient> produits, Client unClient, CategorieEvenement categorieEvenement)
         {
             this.IdCommande = idCommande;
             this.DateCreation = dateCreation;
@@ -37,8 +37,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
             this.Produits = produits;
-            this.IdClient = idClient;
-            this.IdCategorieEvenement = idCategorieEvenement;
+            this.UnClient = unClient;
+            this.CategorieEvenement = categorieEvenement;
         }
 
         public int IdCommande
@@ -171,29 +171,31 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public int IdClient
+        
+
+        public CategorieEvenement CategorieEvenement
         {
             get
             {
-                return this.idClient;
+                return this.categorieEvenement;
             }
 
             set
             {
-                this.idClient = value;
+                this.categorieEvenement = value;
             }
         }
 
-        public CategorieEvenement IdCategorieEvenement
+        public Client UnClient
         {
             get
             {
-                return this.idCategorieEvenement;
+                return this.unClient;
             }
 
             set
             {
-                this.idCategorieEvenement = value;
+                this.unClient = value;
             }
         }
 
