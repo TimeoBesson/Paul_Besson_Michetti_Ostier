@@ -64,7 +64,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Paul_Besson_Michetti_Ostier.Classes.Recette">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
