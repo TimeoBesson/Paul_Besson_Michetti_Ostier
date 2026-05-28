@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Paul_Besson_Michetti_Ostier.Windows
 {
     /// <summary>
-    /// Logique d'interaction pour Gerer_Produit.xaml
+    /// Logique d'interaction pour UC_Chef.xaml
     /// </summary>
-    public partial class Gerer_Produit : Window
+    public partial class UC_Chef : UserControl
     {
-        public Gerer_Produit()
+        public UC_Chef()
         {
             InitializeComponent();
-        }
-
-        private void TabControl_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
