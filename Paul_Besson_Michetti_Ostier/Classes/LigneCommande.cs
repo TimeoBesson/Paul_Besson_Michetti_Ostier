@@ -33,6 +33,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.EstDecoupe = estDecoupe;
         }
 
+        public LigneCommande()
+        {
+        }
         public int Quantite
         {
             get
