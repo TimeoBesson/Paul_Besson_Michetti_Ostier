@@ -16,7 +16,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private bool estIndisponible;
         private int nbParts;
         private decimal prix;
-        private Recette recette;
+        private Recette uneRecette;
 
         public Produit(int idProduit, int idRecette, bool estIndisponible, int nbParts, decimal prix)
         {
@@ -27,10 +27,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Prix = prix;
         }
 
-        public Produit(int idProduit, Recette recette, bool estIndisponible, int nbParts, decimal prix)
+        public Produit(int idProduit, Recette uneRecette, bool estIndisponible, int nbParts, decimal prix)
         {
             this.IdProduit = idProduit;
-            this.Recette = recette;
+            this.UneRecette = uneRecette;
             this.EstIndisponible = estIndisponible;
             this.NbParts = nbParts;
             this.Prix = prix;
@@ -89,16 +89,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public Recette Recette
+        public Recette UneRecette
         {
             get
             {
-                return this.recette;
+                return this.uneRecette;
             }
 
             set
             {
-                this.recette = value;
+                this.uneRecette = value;
             }
         }
 
@@ -123,61 +123,30 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into produit (categorie_evenement_id,client_id,date_creation,date_retrait,acompte,est_prete,est_recuperee,total,date_evenement,nb_personne) values (@categorie_evenement_id,@client_id,@date_creation,@date_retrait,@acompte,@est_prete,@est_recuperee,@total,@date_evenement,@nb_personne) RETURNING commande_id"))
+            using (var cmdInsert = new NpgsqlCommand("insert into produit (recette_id,est_indisponible,nb_parts,prix) values (@recette_id,@est_indisponible,@nb_parts,@prix) RETURNING produit_id"))
             {
-                cmdInsert.Parameters.AddWithValue("EST_INDISPONIBLE", this.EstIndisponible);
-                cmdInsert.Parameters.AddWithValue("RECETTE_ID", this.IdRecette);
-                cmdInsert.Parameters.AddWithValue("NB_PARTS", this.NbParts);
-                cmdInsert.Parameters.AddWithValue("PRIX", this.Prix);
+                cmdInsert.Parameters.AddWithValue("recette_id", this.IdRecette);
+                cmdInsert.Parameters.AddWithValue("est_indisponible", this.EstIndisponible);
+                cmdInsert.Parameters.AddWithValue("nb_parts", this.NbParts);
+                cmdInsert.Parameters.AddWithValue("prix", this.Prix);
                 nb = DataAccess.ExecuteInsert(cmdInsert);
             }
             this.IdProduit = nb;
             return nb;
         }
 
-        public int Delete()
-        {
-            using (var cmdUpdate = new NpgsqlCommand("delete from Produit  where produit_id =@id;"))
-            {
-                cmdUpdate.Parameters.AddWithValue("id", this.IdProduit);
-                return DataAccess.ExecuteSet(cmdUpdate);
-            }
-        }
-
-        public List<Produit> FindAll()
-        {
-            List<Produit> lesProduits = new List<Produit>();
-
-            return lesProduits;
-        }
-
-        public List<Produit> FindBySelection(string criteres)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ModifierProduit()
-        {
-        }
-
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  Client  where idClient =@id;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from produit where produit_id = @idproduit;"))
             {
-                cmdSelect.Parameters.AddWithValue("PRODUIT_ID", this.IdProduit);
+                cmdSelect.Parameters.AddWithValue("idproduit", this.IdProduit);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
-                this.IdRecette = (int)dt.Rows[0]["RECETTE_ID"];
-                this.EstIndisponible = (bool)dt.Rows[0]["EST_INDISPONIBLE"];
-                this.NbParts = (int)dt.Rows[0]["NB_PARTS"];
-                this.Prix = (decimal)dt.Rows[0]["PRIX"];
-
-
+                this.IdRecette = (int)dt.Rows[0]["recette_id"];
+                this.EstIndisponible = (bool)dt.Rows[0]["est_indisponible"];
+                this.NbParts = (int)dt.Rows[0]["nb_parts"];
+                this.Prix = (decimal)dt.Rows[0]["prix"];
             }
-        }
-
-        public void RendreProduitIndisponible()
-        {
         }
 
         public int Update()
@@ -192,11 +161,50 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
+        public List<Produit> FindAll()
+        {
+            List<Produit> lesProduits = new List<Produit>();
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from produit;"))
+            {
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+                foreach (DataRow dr in dt.Rows)
+                    lesProduits.Add(new Produit((int)dt.Rows[0]["produit_id"],
+                                                (int)dt.Rows[0]["recette_id"],
+                                                (bool)dt.Rows[0]["est_indisponible"],
+                                                (int)dt.Rows[0]["nb_parts"],
+                                                (decimal)dt.Rows[0]["prix"]));
+            }
+            return lesProduits;
+        }
+
+        public List<Produit> FindBySelection(string criteres)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete()
+        {
+            using (var cmdUpdate = new NpgsqlCommand("delete from produit where produit_id =@idproduit;"))
+            {
+                cmdUpdate.Parameters.AddWithValue("idproduit", this.IdProduit);
+                return DataAccess.ExecuteSet(cmdUpdate);
+            }
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is Produit Produit &&
                    this.IdProduit == Produit.IdProduit;
         }
+
+        public void ModifierProduit()
+        {
+        }
+
+        public void RendreProduitIndisponible()
+        {
+        }
+
     }
 }
 
