@@ -242,7 +242,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into commandes (categorie_evenement_id,client_id,date_creation,date_retrait,acompte,est_prete,est_recuperee,total,date_evenement,nb_personne) values (@categorie_evenement_id,@client_id,@date_creation,@date_retrait,@acompte,@est_prete,@est_recuperee,@total,@date_evenement,@nb_personne) RETURNING commande_id"))
+            using (var cmdInsert = new NpgsqlCommand("insert into commande (categorie_evenement_id,client_id,date_creation,date_retrait,acompte,est_prete,est_recuperee,total,date_evenement,nb_personne) values (@categorie_evenement_id,@client_id,@date_creation,@date_retrait,@acompte,@est_prete,@est_recuperee,@total,@date_evenement,@nb_personne) RETURNING commande_id"))
             {
                 cmdInsert.Parameters.AddWithValue("categorie_evenement_id", this.IdCategorieEvenement);
                 cmdInsert.Parameters.AddWithValue("client_id", this.IdClient);
@@ -262,7 +262,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  commandes  where commande_id =@idcommande;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from  commande  where commande_id =@idcommande;"))
             {
                 cmdSelect.Parameters.AddWithValue("idcommande", this.IdCommande);
 
@@ -282,7 +282,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update commandes set categorie_evenement_id = @categorie_evenement_id, client_id = @client_id, date_creation = @date_creation, date_retrait = @dateretrait, acompte = @acompte, est_prete = @est_prete, est_recuperee = @est_recuperee, total = @total, date_evenement = @date_evenement, nb_personne = @nb_personne where commande_id = @commande_id;"))
+            using (var cmdUpdate = new NpgsqlCommand("update commande set categorie_evenement_id = @categorie_evenement_id, client_id = @client_id, date_creation = @date_creation, date_retrait = @dateretrait, acompte = @acompte, est_prete = @est_prete, est_recuperee = @est_recuperee, total = @total, date_evenement = @date_evenement, nb_personne = @nb_personne where commande_id = @commande_id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("categorie_evenement_id", this.IdCategorieEvenement);
                 cmdUpdate.Parameters.AddWithValue("client_id", this.IdClient);
@@ -302,7 +302,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public List<Commande> FindAll()
         {
             List<Commande> lesCommandes = new List<Commande>();
-            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commandes ;"))
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande ;"))
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
@@ -328,7 +328,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from commandes where commande_id =@commande_id;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from commande where commande_id =@commande_id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("commande_id", this.IdCommande);
                 return DataAccess.ExecuteSet(cmdUpdate);
