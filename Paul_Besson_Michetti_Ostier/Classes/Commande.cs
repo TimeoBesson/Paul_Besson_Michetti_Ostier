@@ -21,11 +21,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private decimal total;
         private DateOnly dateEvenement;
         private int nbPersonne;
-        private List<Contient> produits;
+        private List<LigneCommande> produits;
         private Client unClient;
         private CategorieEvenement categorieEvenement;
 
-        public Commande(int idCommande, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne, List<Contient> produits, Client unClient, CategorieEvenement categorieEvenement)
+        public Commande(int idCommande, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne, List<LigneCommande> produits, Client unClient, CategorieEvenement categorieEvenement)
         {
             this.IdCommande = idCommande;
             this.DateCreation = dateCreation;
@@ -183,6 +183,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             set
             {
                 this.unClient = value;
+            }
+        }
+
+        public List<LigneCommande> Produits
+        {
+            get
+            {
+                return this.produits;
+            }
+
+            set
+            {
+                this.produits = value;
             }
         }
 
