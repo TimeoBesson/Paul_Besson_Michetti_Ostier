@@ -1,6 +1,6 @@
 
 
-namespace Paul_Besson_Michetti_Ostier.Model
+namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public interface ICrud<T>
    {
