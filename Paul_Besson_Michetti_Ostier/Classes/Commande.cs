@@ -12,7 +12,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     {
         
     }
-    public class Commande
+    public class Commande : ICrud<Commande>
     {
         private int idCommande;
         private DateOnly dateCreation;
@@ -23,13 +23,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private decimal total;
         private DateOnly dateEvenement;
         private int nbPersonne;
-        private List<LigneCommande> produits;
         private Client unClient;
+        private int idClient;
         private CategorieEvenement categorieEvenement;
+        private int idCategorieEvenement;
 
-        public Commande(int idCommande, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne, List<LigneCommande> produits, Client unClient, CategorieEvenement categorieEvenement)
+        public Commande(int idCommande, CategorieEvenement categorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             this.IdCommande = idCommande;
+            this.CategorieEvenement = categorieEvenement;
+            this.UnClient = unClient;
             this.DateCreation = dateCreation;
             this.DateRetrait = dateRetrait;
             this.Accompte = accompte;
@@ -38,9 +41,21 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Total = total;
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
-            this.Produits = produits;
-            this.UnClient = unClient;
-            this.CategorieEvenement = categorieEvenement;
+        }
+
+        public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        {
+            this.IdCommande = idCommande;
+            this.IdCategorieEvenement = idCategorieEvenement;
+            this.IdClient = idClient;
+            this.DateCreation = dateCreation;
+            this.DateRetrait = dateRetrait;
+            this.Accompte = accompte;
+            this.EstPrete = estPrete;
+            this.EstRecuperee = estRecuperee;
+            this.Total = total;
+            this.DateEvenement = dateEvenement;
+            this.NbPersonne = nbPersonne;
         }
 
         public int IdCommande
@@ -188,16 +203,29 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public List<LigneCommande> Produits
+        public int IdClient
         {
             get
             {
-                return this.produits;
+                return this.idClient;
             }
 
             set
             {
-                this.produits = value;
+                this.idClient = value;
+            }
+        }
+
+        public int IdCategorieEvenement
+        {
+            get
+            {
+                return this.idCategorieEvenement;
+            }
+
+            set
+            {
+                this.idCategorieEvenement = value;
             }
         }
 
@@ -216,8 +244,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             int nb = 0;
             using (var cmdInsert = new NpgsqlCommand("insert into commandes (categorie_evenement_id,client_id,date_creation,date_retrait,acompte,est_prete,est_recuperee,total,date_evenement,nb_personne) values (@categorie_evenement_id,@client_id,@date_creation,@date_retrait,@acompte,@est_prete,@est_recuperee,@total,@date_evenement,@nb_personne) RETURNING commande_id"))
             {
-                cmdInsert.Parameters.AddWithValue("categorie_evenement_id", this.CategorieEvenement);
-                cmdInsert.Parameters.AddWithValue("client_id", this.UnClient.IdClient);
+                cmdInsert.Parameters.AddWithValue("categorie_evenement_id", this.IdCategorieEvenement);
+                cmdInsert.Parameters.AddWithValue("client_id", this.IdClient);
                 cmdInsert.Parameters.AddWithValue("date_creation", this.DateCreation);
                 cmdInsert.Parameters.AddWithValue("date_retrait", this.DateRetrait);
                 cmdInsert.Parameters.AddWithValue("acompte", this.Accompte);
@@ -234,59 +262,75 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  commandes  where idclient =@id;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from  commandes  where commande_id =@idcommande;"))
             {
-                cmdSelect.Parameters.AddWithValue("id", this.IdCommande);
+                cmdSelect.Parameters.AddWithValue("idcommande", this.IdCommande);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
-                this.CategorieEvenement = (CategorieEvenement)dt.Rows[0]["nom"];
-                this.UnClient.IdClient = (String)dt.Rows[0]["maitre"];
-                this.DateCreation = (double)dt.Rows[0]["poids"];
-                this.DateRetrait = (double)dt.Rows[0]["poids"];
-                this.Accompte = (double)dt.Rows[0]["poids"];
-                this.EstPrete = (double)dt.Rows[0]["poids"];
-                this.EstRecuperee = (double)dt.Rows[0]["poids"];
-                this.Total = (double)dt.Rows[0]["poids"];
-                this.DateEvenement = (double)dt.Rows[0]["poids"];
-                this.NbPersonne = (double)dt.Rows[0]["poids"];
+                this.CategorieEvenement = (CategorieEvenement)dt.Rows[0]["categorie_evenement_id"];
+                this.UnClient.IdClient = (int)dt.Rows[0]["client_id"];
+                this.DateCreation = (DateOnly)dt.Rows[0]["date_creation"];
+                this.DateRetrait = (DateOnly)dt.Rows[0]["date_retrait"];
+                this.Accompte = (decimal)dt.Rows[0]["acompte"];
+                this.EstPrete = (bool)dt.Rows[0]["est_prete"];
+                this.EstRecuperee = (bool)dt.Rows[0]["est_recuperee"];
+                this.Total = (decimal)dt.Rows[0]["total"];
+                this.DateEvenement = (DateOnly)dt.Rows[0]["date_evenement"];
+                this.NbPersonne = (int)dt.Rows[0]["nb_personne"];
             }
         }
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update commandes set nom =@nom ,  maitre = @maitre,  poids = @poids  where idclient =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("update commandes set categorie_evenement_id = @categorie_evenement_id, client_id = @client_id, date_creation = @date_creation, date_retrait = @dateretrait, acompte = @acompte, est_prete = @est_prete, est_recuperee = @est_recuperee, total = @total, date_evenement = @date_evenement, nb_personne = @nb_personne where commande_id = @commande_id;"))
             {
-                cmdUpdate.Parameters.AddWithValue("nom", this.Nom);
-                cmdUpdate.Parameters.AddWithValue("maitre", this.Maitre);
-                cmdUpdate.Parameters.AddWithValue("poids", this.Poids);
-                cmdUpdate.Parameters.AddWithValue("id", this.Id);
+                cmdUpdate.Parameters.AddWithValue("categorie_evenement_id", this.IdCategorieEvenement);
+                cmdUpdate.Parameters.AddWithValue("client_id", this.IdClient);
+                cmdUpdate.Parameters.AddWithValue("date_creation", this.DateCreation);
+                cmdUpdate.Parameters.AddWithValue("date_retrait", this.DateRetrait);
+                cmdUpdate.Parameters.AddWithValue("acompte", this.Accompte);
+                cmdUpdate.Parameters.AddWithValue("est_prete", this.EstPrete);
+                cmdUpdate.Parameters.AddWithValue("est_recuperee", this.EstRecuperee);
+                cmdUpdate.Parameters.AddWithValue("total", this.Total);
+                cmdUpdate.Parameters.AddWithValue("date_evenement", this.DateEvenement);
+                cmdUpdate.Parameters.AddWithValue("nb_personne", this.NbPersonne);
+                cmdUpdate.Parameters.AddWithValue("commande_id", this.IdCommande);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
 
-        public List<Client> FindAll()
+        public List<Commande> FindAll()
         {
-            List<Client> lesCommandes = new List<Client>();
+            List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commandes ;"))
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesCommandes.Add(new Client((int)dr["idclient"], (String)dr["nom"],
-                    (String)dr["maitre"], (double)dr["poids"]));
+                    lesCommandes.Add(new Commande((int)dt.Rows[0]["commande_id"],
+                                                  (int)dt.Rows[0]["categorie_evenement_id"],
+                                                  (int)dt.Rows[0]["client_id"],
+                                                  (DateOnly)dt.Rows[0]["date_creation"],
+                                                  (DateOnly)dt.Rows[0]["date_retrait"],
+                                                  (decimal)dt.Rows[0]["acompte"],
+                                                  (bool)dt.Rows[0]["est_prete"],
+                                                  (bool)dt.Rows[0]["est_recuperee"],
+                                                  (decimal)dt.Rows[0]["total"],
+                                                  (DateOnly)dt.Rows[0]["date_evenement"],
+                                                  (int)dt.Rows[0]["nb_personne"]));
             }
             return lesCommandes;
         }
 
-        public List<Client> FindBySelection(string criteres)
+        public List<Commande> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from commandes  where idclient =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from commandes where commande_id =@commande_id;"))
             {
-                cmdUpdate.Parameters.AddWithValue("id", this.Id);
+                cmdUpdate.Parameters.AddWithValue("commande_id", this.IdCommande);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
