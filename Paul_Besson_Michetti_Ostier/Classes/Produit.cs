@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
-using Npgsql;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
@@ -136,12 +137,18 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            throw new NotImplementedException();
+            using (var cmdUpdate = new NpgsqlCommand("delete from Produit  where produit_id =@id;"))
+            {
+                cmdUpdate.Parameters.AddWithValue("id", this.IdProduit);
+                return DataAccess.ExecuteSet(cmdUpdate);
+            }
         }
 
         public List<Produit> FindAll()
         {
-            throw new NotImplementedException();
+            List<Produit> lesProduits = new List<Produit>();
+
+            return lesProduits;
         }
 
         public List<Produit> FindBySelection(string criteres)
@@ -155,7 +162,18 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            throw new NotImplementedException();
+            using (var cmdSelect = new NpgsqlCommand("select * from  Client  where idClient =@id;"))
+            {
+                cmdSelect.Parameters.AddWithValue("PRODUIT_ID", this.IdProduit);
+
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+                this.IdRecette = (int)dt.Rows[0]["RECETTE_ID"];
+                this.EstIndisponible = (bool)dt.Rows[0]["EST_INDISPONIBLE"];
+                this.NbParts = (int)dt.Rows[0]["NB_PARTS"];
+                this.Prix = (decimal)dt.Rows[0]["PRIX"];
+
+
+            }
         }
 
         public void RendreProduitIndisponible()
@@ -164,7 +182,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            throw new NotImplementedException();
+            using (var cmdUpdate = new NpgsqlCommand("update Produits set recette_id =@idrecette ,  est_indisponible = @estindisponible,  nb_parts = @nbparts, prix= @prix  where idClient =@id;"))
+            {
+                cmdUpdate.Parameters.AddWithValue("nom", this.IdRecette);
+                cmdUpdate.Parameters.AddWithValue("prenom", this.EstIndisponible);
+                cmdUpdate.Parameters.AddWithValue("telephone", this.NbParts);
+                cmdUpdate.Parameters.AddWithValue("mail", this.Prix);
+                return DataAccess.ExecuteSet(cmdUpdate);
+            }
         }
     }
 }
