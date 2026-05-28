@@ -26,19 +26,6 @@ namespace Paul_Besson_Michetti_Ostier
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                this.ToutesLesRecettes = new ChargeRecettes();
-                this.ToutLesClients = new ChargeClients();
-                this.ToutesLesCommandes = new ChargeCommandes();
-                this.TousLesProduits = new ChargeProduits();
-                this.ToutesLesLignesCommandes = new ChargeLignesCommandes();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message+ex, "Erreur de chargement : ", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
     }
 }
