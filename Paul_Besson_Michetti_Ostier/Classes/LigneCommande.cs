@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public class Contient
+    public class LigneCommande
     {
         private int quantite;
         private int estDecoupe;
         private Produit unProduit;
         private Commande uneCommande;
 
-        public Contient(int quantite, int estDecoupe, Produit unProduit, Commande uneCommande)
+        public LigneCommande(int quantite, int estDecoupe, Produit unProduit, Commande uneCommande)
         {
             this.Quantite = quantite;
             this.EstDecoupe = estDecoupe;
