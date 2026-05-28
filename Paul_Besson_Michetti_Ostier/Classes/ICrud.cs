@@ -1,6 +1,6 @@
 
 
-namespace TD3_BindingBDPension.Model
+namespace Paul_Besson_Michetti_Ostier.Model
 {
     public interface ICrud<T>
    {
