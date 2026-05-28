@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using Npgsql;
 
-namespace TD3_BindingBDPension.Model
+namespace Paul_Besson_Michetti_Ostier.Classes
 {
 
     public  class DataAccess
