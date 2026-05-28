@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public class Client
+    public class Client : ICrud<Client>
     {
         private int idClient;
         private string nom;
@@ -110,7 +110,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into Clients (nom,prenom,telephone,mail ) values (@nom,@prenom,@telephone,@mail) RETURNING idClient"))
+            using (var cmdInsert = new NpgsqlCommand("insert into Client (nom,prenom,telephone,mail ) values (@nom,@prenom,@telephone,@mail) RETURNING idClient"))
             {
                 cmdInsert.Parameters.AddWithValue("nom", this.Nom);
                 cmdInsert.Parameters.AddWithValue("prenom", this.Prenom);
@@ -124,7 +124,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  Clients  where idClient =@id;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from  Client  where idClient =@id;"))
             {
                 cmdSelect.Parameters.AddWithValue("id", this.IdClient);
 
@@ -141,7 +141,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update Clients set nom =@nom ,  maitre = @maitre,  poids = @poids  where idClient =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("update Client set nom =@nom ,  maitre = @maitre,  poids = @poids  where idClient =@id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("nom", this.Nom);
                 cmdUpdate.Parameters.AddWithValue("prenom", this.Prenom);
@@ -154,9 +154,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public List<Client> FindAll()
         {
-            List<Client> lesClients = new List<Client>();
+            List<Client> lesClient = new List<Client>();
 
-            return lesClients;
+            return lesClient;
         }
 
 
@@ -168,7 +168,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from Clients  where client_id =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from Client  where client_id =@id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("id", this.IdClient);
                 return DataAccess.ExecuteSet(cmdUpdate);
@@ -178,7 +178,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public override bool Equals(object? obj)
         {
             return obj is Client Client &&
-                   this.NumeroTelephone == Client.NumeroTelephone;
+                   this.IdClient == Client.IdClient;
         }
 
         
