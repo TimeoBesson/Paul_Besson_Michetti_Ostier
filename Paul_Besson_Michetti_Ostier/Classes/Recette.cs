@@ -111,7 +111,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into recette (categorie_id, recette_nom,recette_description) values (@idcategorierecette,nomrecette,descriptionrecette)"))
+            using (var cmdInsert = new NpgsqlCommand("insert into recette (categorie_id, recette_nom,recette_description) values (@idcategorierecette,@nomrecette,@descriptionrecette)"))
             {
                 
             }
@@ -121,9 +121,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  recette  where recette_id =@idrecette;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from recette where recette_id =@idrecette;"))
             {
-                cmdSelect.Parameters.AddWithValue("idcommande", this.IdRecette);
+                cmdSelect.Parameters.AddWithValue("idrecette", this.IdRecette);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 this.IdRecette = (int)dt.Rows[0]["recette_id"];
@@ -155,9 +155,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
                     lesRecettes.Add(new Recette((int)dr["recette_id"],
-                                              (string)dr["recette_nom"],
-                                              (string)dr["recette_description"],
-                                              (int)dr["categorie_id"]));
+                                                (string)dr["recette_nom"],
+                                                (string)dr["recette_description"],
+                                                (int)dr["categorie_id"]));
             }
             return lesRecettes;
         }
@@ -169,12 +169,17 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from recette where recette_id =@idrecette;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from recette where recette_id = @idrecette;"))
             {
                 cmdUpdate.Parameters.AddWithValue("idrecette", this.IdRecette);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is Recette Recette &&
+                   this.IdRecette == Recette.IdRecette;
+        }
     }
 }

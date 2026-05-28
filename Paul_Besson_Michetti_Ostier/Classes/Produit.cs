@@ -166,6 +166,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             throw new NotImplementedException();
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Produit Produit &&
+                   this.IdProduit == Produit.IdProduit;
+        }
     }
 }
 

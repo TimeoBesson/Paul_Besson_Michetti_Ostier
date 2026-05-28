@@ -10,22 +10,29 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public class Client : ICrud<Client>
     {
+        private Client unClient;
         private int idClient;
         private string nom;
         private string prenom;
         private string numeroTelephone;
         private string mail;
-        private List<Commande> commandes;
 
-        public Client(int idClient, string nom, string prenom, string numeroTelephone, string mail, List<Commande> commandes)
+        public Client(Client unClient, string nom, string prenom, string numeroTelephone, string mail)
+        {
+            this.UnClient = unClient;
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.NumeroTelephone = numeroTelephone;
+            this.Mail = mail;
+        }
+
+        public Client(int idClient, string nom, string prenom, string numeroTelephone, string mail)
         {
             this.IdClient = idClient;
             this.Nom = nom;
             this.Prenom = prenom;
             this.NumeroTelephone = numeroTelephone;
             this.Mail = mail;
-            this.commandes = commandes;
-            
         }
 
         public int IdClient
@@ -93,24 +100,23 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public List<Commande> Commandes
+        public Client UnClient
         {
             get
             {
-                return this.commandes;
+                return this.unClient;
             }
 
             set
             {
-                this.commandes = value;
+                this.unClient = value;
             }
         }
-
 
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into Client (nom,prenom,telephone,mail ) values (@nom,@prenom,@telephone,@mail) RETURNING idClient"))
+            using (var cmdInsert = new NpgsqlCommand("insert into client (nom,prenom,telephone,mail) values (@nom,@prenom,@telephone,@mail) RETURNING client_id"))
             {
                 cmdInsert.Parameters.AddWithValue("nom", this.Nom);
                 cmdInsert.Parameters.AddWithValue("prenom", this.Prenom);
@@ -124,9 +130,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  Client  where idClient =@id;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from  client  where client_id =@idclient;"))
             {
-                cmdSelect.Parameters.AddWithValue("id", this.IdClient);
+                cmdSelect.Parameters.AddWithValue("idclient", this.IdClient);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 this.Nom = (String)dt.Rows[0]["nom"];
@@ -141,7 +147,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update Client set nom =@nom ,  maitre = @maitre,  poids = @poids  where idClient =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("update client set nom = @nom , maitre = @maitre, poids = @poids where client_id =@idclient;"))
             {
                 cmdUpdate.Parameters.AddWithValue("nom", this.Nom);
                 cmdUpdate.Parameters.AddWithValue("prenom", this.Prenom);
@@ -154,9 +160,18 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public List<Client> FindAll()
         {
-            List<Client> lesClient = new List<Client>();
-
-            return lesClient;
+            List<Client> lesClients = new List<Client>();
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from client;"))
+            {
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+                foreach (DataRow dr in dt.Rows)
+                    lesClients.Add(new Client((int)dt.Rows[0]["id_client"],
+                                              (String)dt.Rows[0]["nom"],
+                                              (String)dt.Rows[0]["prenom"],
+                                              (String)dt.Rows[0]["telephone"],
+                                              (String)dt.Rows[0]["mail"]));
+            }
+            return lesClients;
         }
 
 
@@ -168,9 +183,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from Client  where client_id =@id;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from client where client_id = @idclient;"))
             {
-                cmdUpdate.Parameters.AddWithValue("id", this.IdClient);
+                cmdUpdate.Parameters.AddWithValue("idclient", this.IdClient);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
@@ -180,8 +195,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return obj is Client Client &&
                    this.IdClient == Client.IdClient;
         }
-
-        
     }
 }
 

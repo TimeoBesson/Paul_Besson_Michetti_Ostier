@@ -334,5 +334,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Commande Commande &&
+                   this.IdCommande == Commande.IdCommande;
+        }
     }
 }
