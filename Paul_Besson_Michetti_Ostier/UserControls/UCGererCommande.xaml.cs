@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Paul_Besson_Michetti_Ostier.Windows
+namespace Paul_Besson_Michetti_Ostier.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour UC_Chef.xaml
+    /// Logique d'interaction pour UCGererCommande.xaml
     /// </summary>
-    public partial class UC_Chef : UserControl
+    public partial class UCGererCommande : UserControl
     {
-        public UC_Chef()
+        public UCGererCommande()
         {
             InitializeComponent();
+        }
+
+        private void butAValider_MouseEnter(object sender, MouseEventArgs e)
+        {
+            butAValider. = Brushes.Transparent;
         }
     }
 }

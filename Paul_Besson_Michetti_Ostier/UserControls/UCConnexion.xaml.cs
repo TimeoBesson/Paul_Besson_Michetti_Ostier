@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Paul_Besson_Michetti_Ostier.Windows
+namespace Paul_Besson_Michetti_Ostier.UserControls
 {
     /// <summary>
     /// Logique d'interaction pour UCConnexion.xaml
@@ -40,24 +40,19 @@ namespace Paul_Besson_Michetti_Ostier.Windows
             fondIdentifiant.Opacity = 0.1;
         }
 
-        private void pbIdentifiant_GotFocus(object sender, RoutedEventArgs e)
+        private void pbMdp_GotFocus(object sender, RoutedEventArgs e)
         {
             labelMdp.Content = string.Empty;
             imgMdp.Opacity = 1;
             fondMdp.Opacity = 1;
         }
 
-        private void pbIdentifiant_LostFocus(object sender, RoutedEventArgs e)
+        private void pbMdp_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(pbIdentifiant.Password))
+            if (String.IsNullOrWhiteSpace(pbMdp.Password))
                 labelMdp.Content = "••••••••";
             imgMdp.Opacity = 0.5;
             fondMdp.Opacity = 0.1;
-        }
-
-        private void btnConnexion_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

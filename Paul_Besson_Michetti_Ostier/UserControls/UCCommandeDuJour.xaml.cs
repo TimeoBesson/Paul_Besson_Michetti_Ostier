@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Paul_Besson_Michetti_Ostier.Windows
+namespace Paul_Besson_Michetti_Ostier.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
+    /// Logique d'interaction pour UCCommandeDuJour.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class UCCommandeDuJour : UserControl
     {
-        public UserControl1()
+        public UCCommandeDuJour()
         {
             InitializeComponent();
         }

@@ -10,7 +10,12 @@
 
   <ItemGroup>
     <None Remove="Images\Icone_cadenas.png" />
+    <None Remove="Images\Icone_croissant.png" />
     <None Remove="Images\Icone_face.png" />
+    <None Remove="Images\Icone_gérer_commandes.png" />
+    <None Remove="Images\Icone_gérer_produits.png" />
+    <None Remove="Images\Icone_sortie.png" />
+    <None Remove="Images\Image_fraisier.png" />
     <None Remove="Images\Logo_Paul.png" />
   </ItemGroup>
 
@@ -22,7 +27,22 @@
     <Resource Include="Images\Icone_cadenas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_croissant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_face.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_gérer_commandes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_gérer_produits.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_sortie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Image_fraisier.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Logo_Paul.png">

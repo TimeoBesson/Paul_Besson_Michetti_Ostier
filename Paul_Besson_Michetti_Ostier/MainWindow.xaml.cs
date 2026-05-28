@@ -1,4 +1,5 @@
 ﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+using Paul_Besson_Michetti_Ostier.UserControls;
 using System;
 using System.Text;
 using System.Windows;
@@ -26,6 +27,20 @@ namespace Paul_Besson_Michetti_Ostier
         public MainWindow()
         {
             InitializeComponent();
+            AfficherConnexion();
+        }
+
+        public void AfficherConnexion()
+        {
+            UCConnexion connexion = new UCConnexion();
+            Window.Content = connexion;
+            connexion.btnConnexion.Click += AfficherGererCommandes;
+        }
+
+        public void AfficherGererCommandes(object sender, RoutedEventArgs e)
+        {
+            UCGererCommande gererCommandes = new UCGererCommande();
+            Window.Content = gererCommandes;
         }
     }
 }

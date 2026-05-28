@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Paul_Besson_Michetti_Ostier.UserControls.UCChef"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Paul_Besson_Michetti_Ostier.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#F0EEE9">
+        <Image Source="/Images/Logo_Paul.png" Stretch="Fill" Width="155" Height="155" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Chef Boulanger\Pâtissier" Foreground="#504443" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10" FontFamily="Work Sans" Margin="18,160,0,0"/>
+        <TabControl TabStripPlacement="Left" BorderBrush="Transparent">
+            <TabItem Header="Gérer les commandes" Margin="0,200,0,0" Width="150" Padding="0,10,0,10" Foreground="#BD928F" Background="#321716" BorderBrush="Transparent" Height="25" FontSize="10" IsSelected="True">
+                <Grid Background="Aqua" Height="460" Width="675">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Gérer les produits" Margin="0,200,0,0" Width="150" Padding="0,10,0,10" Foreground="#504443" Background="Transparent" BorderBrush="Transparent" Height="25" FontSize="10">
+                <Grid Background="Green" Height="460" Width="675"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
