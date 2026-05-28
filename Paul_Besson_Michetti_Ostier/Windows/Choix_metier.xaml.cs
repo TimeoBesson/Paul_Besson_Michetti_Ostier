@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Paul_Besson_Michetti_Ostier
+namespace Paul_Besson_Michetti_Ostier.Windows
 {
     /// <summary>
-    /// Logique d'interaction pour Window1.xaml
+    /// Logique d'interaction pour Choix_metier.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Choix_metier : Window
     {
-        public Window1()
+        public Choix_metier()
         {
             InitializeComponent();
         }
