@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Paul_Besson_Michetti_Ostier.Windows
 {
     /// <summary>
-    /// Logique d'interaction pour Choix_metier.xaml
+    /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
-    public partial class Choix_metier : Window
+    public partial class UserControl1 : UserControl
     {
-        public Choix_metier()
+        public UserControl1()
         {
             InitializeComponent();
         }

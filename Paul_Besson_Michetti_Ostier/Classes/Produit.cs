@@ -36,7 +36,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Prix = prix;
         }
 
-
+        public Produit()
+        {
+        }
         public int IdProduit
         {
             get
@@ -106,12 +108,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             get
             {
-                return this.IdRecette;
+                return this.idRecette;
             }
 
             set
             {
-                this.IdRecette = value;
+                this.idRecette = value;
             }
         }
 

@@ -10,21 +10,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public class Client : ICrud<Client>
     {
-        private Client unClient;
+        
         private int idClient;
         private string nom;
         private string prenom;
         private string numeroTelephone;
         private string mail;
 
-        public Client(Client unClient, string nom, string prenom, string numeroTelephone, string mail)
-        {
-            this.UnClient = unClient;
-            this.Nom = nom;
-            this.Prenom = prenom;
-            this.NumeroTelephone = numeroTelephone;
-            this.Mail = mail;
-        }
+       
 
         public Client(int idClient, string nom, string prenom, string numeroTelephone, string mail)
         {
@@ -34,6 +27,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.NumeroTelephone = numeroTelephone;
             this.Mail = mail;
         }
+
+        public Client()
+        {
+            this.nom = "";
+            this.prenom = "";
+
+        }
+
 
         public int IdClient
         {
@@ -100,18 +101,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public Client UnClient
-        {
-            get
-            {
-                return this.unClient;
-            }
-
-            set
-            {
-                this.unClient = value;
-            }
-        }
+       
 
         public int Create()
         {
@@ -165,7 +155,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesClients.Add(new Client((int)dt.Rows[0]["id_client"],
+                    lesClients.Add(new Client((int)dt.Rows[0]["client_id"],
                                               (String)dt.Rows[0]["nom"],
                                               (String)dt.Rows[0]["prenom"],
                                               (String)dt.Rows[0]["telephone"],

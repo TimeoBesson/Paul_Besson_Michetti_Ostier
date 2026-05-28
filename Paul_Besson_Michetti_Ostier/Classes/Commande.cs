@@ -14,6 +14,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     }
     public class Commande : ICrud<Commande>
     {
+        
         private int idCommande;
         private DateOnly dateCreation;
         private DateOnly dateRetrait;
@@ -58,6 +59,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.NbPersonne = nbPersonne;
         }
 
+        public Commande()
+        {         
+        }
         public int IdCommande
         {
             get
@@ -228,6 +232,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.idCategorieEvenement = value;
             }
         }
+
+        
 
         public void ValiderCommande()
         {

@@ -41,6 +41,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.idCategorieRecette = idCategorieRecette;
         }
 
+        public Recette()
+        {
+            this.nomRecette = "";
+            this.descriptionRecette = "";
+        }
         public int IdRecette
         {
             get

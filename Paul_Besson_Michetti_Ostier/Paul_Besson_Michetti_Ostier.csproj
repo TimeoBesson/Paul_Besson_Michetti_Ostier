@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Icone_cadenas.png" />
+    <None Remove="Images\Icone_face.png" />
     <None Remove="Images\Logo_Paul.png" />
   </ItemGroup>
 
@@ -17,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Icone_cadenas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_face.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Logo_Paul.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
