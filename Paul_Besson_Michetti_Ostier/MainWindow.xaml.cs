@@ -19,6 +19,7 @@ namespace Paul_Besson_Michetti_Ostier
         public MainWindow()
         {
             InitializeComponent();
+            Connexion.Content = new Windows.UCConnexion();
         }
     }
 }
