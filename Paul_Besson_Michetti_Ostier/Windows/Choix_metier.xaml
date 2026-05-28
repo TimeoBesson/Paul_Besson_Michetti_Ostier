@@ -13,6 +13,8 @@
         <Rectangle HorizontalAlignment="Left" Height="50" Margin="200,210,0,0" VerticalAlignment="Center" Width="150" RadiusX="20" RadiusY="20" Fill="#FFF0EEE9"/>
         <Label Content="Espace vendeur" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="229,309,0,0"/>
         <Rectangle HorizontalAlignment="Center" Height="250" Stroke="White" VerticalAlignment="Center" Width="200" Margin="250,60,0,0" RadiusX="20" RadiusY="20" Fill="White"/>
-        
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="450,297,0,0" VerticalAlignment="Top" Width="150" RadiusX="20" RadiusY="20" Fill="#FFF0EEE9"/>
+        <Label Content="Espace chef" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="489,309,0,0"/>
+
     </Grid>
 </Window>
