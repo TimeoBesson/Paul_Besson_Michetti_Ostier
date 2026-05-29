@@ -118,7 +118,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             int nb = 0;
             using (var cmdInsert = new NpgsqlCommand("insert into recette (categorie_id, recette_nom,recette_description) values (@idcategorierecette,@nomrecette,@descriptionrecette)"))
             {
-                
+                cmdInsert.Parameters.AddWithValue("categorie_id", this.IdCategorieRecette);
+                cmdInsert.Parameters.AddWithValue("recette_nom", this.NomRecette);
+                cmdInsert.Parameters.AddWithValue("recette_description", this.DescriptionRecette);
+                nb = DataAccess.ExecuteInsert(cmdInsert);
             }
             this.IdRecette = nb;
             return nb;
@@ -132,10 +135,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 this.IdRecette = (int)dt.Rows[0]["recette_id"];
-                this.NomRecette = (string)dt.Rows[0]["recette_nom"];
-                this.DescriptionRecette = (string)dt.Rows[0]["recette_description"];
                 this.IdCategorieRecette = (int)dt.Rows[0]["categorie_id"];
-                
+                this.NomRecette = (string)dt.Rows[0]["recette_nom"];
+                this.DescriptionRecette = (string)dt.Rows[0]["recette_description"];                
             }
         }
 

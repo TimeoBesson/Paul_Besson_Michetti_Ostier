@@ -1,4 +1,5 @@
-﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+﻿using Paul_Besson_Michetti_Ostier.Classes;
+using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using Paul_Besson_Michetti_Ostier.UserControls;
 using System;
 using System.Text;
@@ -32,9 +33,30 @@ namespace Paul_Besson_Michetti_Ostier
 
         public void AfficherConnexion()
         {
-            UCConnexion connexion = new UCConnexion();
-            Window.Content = connexion;
-            connexion.btnConnexion.Click += AfficherGererCommandes;
+            UCConnexion connexion;
+            if (Window.Content is UCConnexion)
+                connexion = (UCConnexion)Window.Content;
+            else
+            {
+                connexion = new UCConnexion();
+                Window.Content = connexion;
+            }
+            connexion.butConnexion.Click += VerifierConnexion;
+        }
+
+        public void VerifierConnexion(object sender, RoutedEventArgs e)
+        {
+            UCConnexion connexion = (UCConnexion)Window.Content;
+            if (String.IsNullOrWhiteSpace(connexion.tbIdentifiant.Text) || String.IsNullOrWhiteSpace(connexion.pbMdp.Password))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs pour vous connecter.", "Champs manquants", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                if (Employe.Connexion(connexion.tbIdentifiant.Text, connexion.pbMdp.Password))
+                    connexion.butConnexion.Click += AfficherGererCommandes;
+            }
+            AfficherConnexion();
         }
 
         public void AfficherGererCommandes(object sender, RoutedEventArgs e)

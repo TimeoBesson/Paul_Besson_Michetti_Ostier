@@ -110,7 +110,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         }
 
         // pour requêtes avec une seule valeur retour  (ex : 1 colonne, ou COUNT, SUM) 
-        public static  string  ExecuteSelectOneValue(NpgsqlCommand cmd)
+        public static string ExecuteSelectOneValue(NpgsqlCommand cmd)
         {
             object res = null;
             try

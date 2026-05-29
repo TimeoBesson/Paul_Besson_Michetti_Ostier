@@ -27,7 +27,8 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void tbIdentifiant_GotFocus(object sender, RoutedEventArgs e)
         {
-            labelIdentifiant.Content = string.Empty;
+            if (String.IsNullOrWhiteSpace(tbIdentifiant.Text))
+                labelIdentifiant.Content = string.Empty;
             imgIdentifiant.Opacity = 1;
             fondIdentifiant.Opacity = 1;
         }

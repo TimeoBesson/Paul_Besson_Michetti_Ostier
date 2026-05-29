@@ -30,7 +30,7 @@
             <Rectangle x:Name="fondIdentifiant" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Stroke="Black" RadiusX="3" RadiusY="3" Margin="0,80,0,0" Opacity="0.1" />
             <Image x:Name="imgIdentifiant" Source="/Images/Icone_face.png" Stretch="Fill" Width="9" Height="10" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,90,0,0"/>
             <Label x:Name="labelIdentifiant" Content="Identifiant" FontFamily="Global User Interface" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,80,0,0" Opacity="0.5" Height="30" FontSize="9" VerticalContentAlignment="Center"/>
-            <TextBox x:Name="tbIdentifiant" Text="" VerticalContentAlignment="Center" MaxLength="50" FontSize="9" Padding="30,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Margin="0,80,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
+            <TextBox x:Name="tbIdentifiant" Text="" VerticalContentAlignment="Center" MaxLength="30" FontSize="9" Padding="30,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Margin="0,80,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
             <Label Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,132,0,0" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold"/>
             <Rectangle x:Name="fondMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="64,150,0,0" Stroke="Black" RadiusX="3" RadiusY="3" Opacity="0.1"/>
             <Image x:Name="imgMdp" Source="/Images/Icone_cadenas.png" Margin="75,160,0,0" Opacity="0.5" Height="11" Width="9" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -38,7 +38,7 @@
             <PasswordBox x:Name="pbMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="64,150,0,0" Padding="24,0,0,0" VerticalContentAlignment="Center" FontSize="12" MaxLength="20" BorderBrush="Transparent" Background="Transparent" GotFocus="pbMdp_GotFocus" LostFocus="pbMdp_LostFocus"/>
             <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,268,0,0"/>
             <Label Content="SE CONNECTER" Foreground="White" FontFamily="72 Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Margin="0,274,0,0"/>
-            <Button x:Name="btnConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,268,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent"/>
+            <Button x:Name="butConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,268,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent"/>
         </Grid>
     </Grid>
 </UserControl>
