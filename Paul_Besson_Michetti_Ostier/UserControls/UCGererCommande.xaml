@@ -21,18 +21,18 @@
                 <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
                 <Image Source="/Images/Icone_gérer_commandes.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
                 <Label Content="Gérer les commandes" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
-                <Button x:Name="butGererCommandes" Background="Transparent" BorderBrush="Transparent"/>
+                <Button x:Name="butGererCommandes" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
             </Grid>
             <Grid Margin="4,1,4,0">
                 <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
                 <Image Height="10" Width="9" Source="/Images/Icone_gérer_produits.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Label Content="Gérer les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
-                <Button x:Name="butGererProduits" Background="Transparent" BorderBrush="Transparent"/>
+                <Button x:Name="butGererProduits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
             </Grid>
             <StackPanel Orientation="Horizontal" Margin="4,120,4,0">
                 <Image Height="10" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="10" Margin="12,0,0,0"/>
                 <Label Content="Se déconnecter" FontSize="10" Foreground="#504443" Margin="4,-1,0,1"/>
-                <Button x:Name="butDeconnecter" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
+                <Button x:Name="butDeconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
@@ -51,7 +51,7 @@
                     <Grid Margin="20,0,0,0" VerticalAlignment="Center">
                         <Label Content="Voir les informations" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial"/>
                         <Rectangle Width="107" Height="0.4" Fill="Black" Margin="0,11,0,0"/>
-                        <Button x:Name="butVoirInfos" Background="Transparent" BorderBrush="Transparent" Margin="3,0,3,0" Height="20"/>
+                        <Button x:Name="butVoirInfos" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="3,0,3,0" Height="20"/>
                     </Grid>
                     <Grid Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Label Content="Statut" Margin="-15,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
@@ -61,7 +61,8 @@
                     </Grid>
                     <Grid Margin="50,0,0,0" VerticalAlignment="Center">
                         <Rectangle Fill="White" Stroke="Black" Width="150" Height="30" RadiusX="3" RadiusY="3"/>
-                        <Button x:Name="butAValider" Content="À VALIDER" Background="Transparent" BorderBrush="Transparent" Height="30" Width="150" FontWeight="SemiBold" Foreground="#36B015"/>
+                        <Label Content="À VALIDER" Height="30" Width="150" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#36B015" FontWeight="SemiBold"/>
+                        <Button x:Name="butAValider" Opacity="0" Background="Transparent" BorderBrush="Transparent" Height="30" Width="150"/>
                     </Grid>
                 </StackPanel>
             </StackPanel>

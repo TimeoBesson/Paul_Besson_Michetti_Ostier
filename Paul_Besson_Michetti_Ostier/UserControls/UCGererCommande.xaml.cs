@@ -27,7 +27,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void butAValider_MouseEnter(object sender, MouseEventArgs e)
         {
-            butAValider. = Brushes.Transparent;
+            butAValider.Background = Brushes.Transparent;
         }
     }
 }
