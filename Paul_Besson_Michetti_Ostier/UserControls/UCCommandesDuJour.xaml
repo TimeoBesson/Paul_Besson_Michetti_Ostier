@@ -17,30 +17,41 @@
         <StackPanel Grid.Column="0" Background="#FFF0EEE9">
             <Image Source="/Images/Logo_Paul.png"/>
             <Label Content="Vendeur" FontSize="12" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
-            <StackPanel Orientation="Vertical" Margin="4,60,4,0">
+            <StackPanel Orientation="Vertical" Margin="4,60,4,0" VerticalAlignment="Center">
                 <Grid>
                     <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_gérer_commandes.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
-                    <Label Content="Gérer les commandes" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
-                    <Button x:Name="butGererCommandes" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Image Source="/Images/Icone_commande_du_jour.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="10" Width="10"/>
+                    <Label Content="Commandes du jour" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
+                    <Button x:Name="butCommandesDuJour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid>
+                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_creer_commande.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="11" RenderTransformOrigin="0.5,0.5" Width="11"/>
+                    <Label Content="Créer une commande" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
+                    <Button x:Name="butCreerCommande" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid>
+                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_consulter_les_produits.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
+                    <Label Content="Consulter les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
+                    <Button x:Name="butConsulterProduits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid Margin="0,1,0,0">
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Height="10" Width="9" Source="/Images/Icone_gérer_produits.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <Label Content="Gérer les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
-                    <Button x:Name="butGererProduits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Label Content="Rechercher un client" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
+                    <Button x:Name="butRechercherClient" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="4,120,4,0">
+            <StackPanel Orientation="Horizontal" Margin="4,70,4,0">
                 <Image Height="10" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="10" Margin="12,0,0,0"/>
                 <Label Content="Se déconnecter" FontSize="10" Foreground="#504443" Margin="4,-1,0,1"/>
                 <Button x:Name="butDeconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Gérer les commandes" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Commandes actuelles" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Cliquer sur une commande pour la modifier" Foreground="Black" Opacity="0.5" FontFamily="Miriam Libre" FontSize="8" Margin="200,98,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Commandes du jour" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Commandes à livrer aujourd'hui" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <StackPanel Margin="20,130,20,0">
                 <Rectangle Fill="#FBF9F4" RadiusX="10" RadiusY="10" Stroke="#FFEFEEEA" Height="83"/>
                 <StackPanel Orientation="Horizontal" Height="83" Margin="0,-83,0,0">
@@ -50,21 +61,26 @@
                         <Label Content="Paul Dupont" FontSize="14" FontWeight="Bold" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#1B1C19"/>
                         <Label Content="#000001" FontSize="9" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#504443" Opacity="0.7"/>
                     </StackPanel>
-                    <Grid Margin="20,0,0,0" VerticalAlignment="Center">
+                    <Grid VerticalAlignment="Center">
                         <Label Content="Voir les informations" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial"/>
                         <Rectangle Width="107" Height="0.4" Fill="Black" Margin="0,11,0,0"/>
                         <Button x:Name="butVoirInfos" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="3,0,3,0" Height="20"/>
                     </Grid>
-                    <Grid Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Grid Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Label Content="Statut" Margin="-15,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <Rectangle Fill="#FFDDB0" RadiusX="10" RadiusY="10" Width="60" Height="20" />
                         <Rectangle Fill="#785000" RadiusX="10" RadiusY="10" Width="5" Height="5" Margin="-40,0,0,0"/>
                         <Label Content="Prête" FontFamily="Miriam Libre" Foreground="#785000" Margin="12,0,0,0"/>
                     </Grid>
-                    <Grid Margin="50,0,0,0" VerticalAlignment="Center">
-                        <Rectangle Fill="White" Stroke="Black" Width="150" Height="30" RadiusX="3" RadiusY="3"/>
-                        <Label Content="À VALIDER" Height="30" Width="150" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#36B015" FontWeight="SemiBold"/>
-                        <Button x:Name="butAValider" Opacity="0" Background="Transparent" BorderBrush="Transparent" Height="30" Width="150"/>
+                    <Grid Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Label Content="Reste à régler" Margin="0,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Label Content="149,25 €" FontFamily="Miriam Libre" Foreground="Black" Margin="0,0,0,0" FontSize="15"/>
+                    </Grid>
+                    <Grid Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Rectangle Fill="#4A2C2A" Stroke="#FF382120"  Width="130" Height="30" RadiusX="3" RadiusY="3"/>
+                        <Label Content="REMETTRE LA COMMANDE" HorizontalContentAlignment="Right" Height="30" Width="150" VerticalContentAlignment="Center" Foreground="#BD928F" FontWeight="SemiBold" FontSize="8" Margin="-25,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Image Source="/Images/Icone_remettre_commande.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="10" Margin="9,1,0,0" />
+                        <Button x:Name="butRemettreCommande" Opacity="0" Background="Transparent" BorderBrush="Transparent" Height="30" Width="130"/>
                     </Grid>
                 </StackPanel>
             </StackPanel>

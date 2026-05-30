@@ -10,10 +10,11 @@
 
   <ItemGroup>
     <None Remove="Images\Icone_cadenas.png" />
+    <None Remove="Images\Icone_commande_du_jour.png" />
+    <None Remove="Images\Icone_consulter_les_produits.png" />
+    <None Remove="Images\Icone_creer_commande.png" />
     <None Remove="Images\Icone_croissant.png" />
     <None Remove="Images\Icone_face.png" />
-    <None Remove="Images\Icone_gérer_commandes.png" />
-    <None Remove="Images\Icone_gérer_produits.png" />
     <None Remove="Images\Icone_sortie.png" />
     <None Remove="Images\Image_fraisier.png" />
     <None Remove="Images\Logo_Paul.png" />
@@ -27,16 +28,25 @@
     <Resource Include="Images\Icone_cadenas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_commande_du_jour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_consulter_les_produits.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_creer_commande.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_croissant.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_face.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Icone_gérer_commandes.png">
+    <Resource Include="Images\Icone_gerer_commandes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Icone_gérer_produits.png">
+    <Resource Include="Images\Icone_gerer_produits.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_sortie.png">

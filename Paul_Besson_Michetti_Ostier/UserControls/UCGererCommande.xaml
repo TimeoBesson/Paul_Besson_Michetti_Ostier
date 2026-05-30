@@ -20,13 +20,13 @@
             <StackPanel Margin="4,60,4,0">
                 <Grid>
                     <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_gérer_commandes.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
+                    <Image Source="/Images/Icone_gerer_commandes.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
                     <Label Content="Gérer les commandes" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
                     <Button x:Name="butGererCommandes" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid Margin="0,1,0,0">
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Height="10" Width="9" Source="/Images/Icone_gérer_produits.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Image Height="10" Width="9" Source="/Images/Icone_gerer_produits.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <Label Content="Gérer les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
                     <Button x:Name="butGererProduits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
