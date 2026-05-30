@@ -81,7 +81,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             try
             {
-                using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM employe WHERE login = @login AND password = @password"))
+                using (var cmd = new NpgsqlCommand("select count(*) FROM employe where login = @login and password = @password"))
                 {
                     cmd.Parameters.AddWithValue("login", login);
                     cmd.Parameters.AddWithValue("password", password);
@@ -94,6 +94,24 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 MessageBox.Show("L'identifiant ou le mot de passe est incorrect", "Employé inconnu", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
+            }
+        }
+
+        public static string RoleEmploye(string login)
+        {
+            try
+            {
+                using (var cmd = new NpgsqlCommand("select role FROM employe where login = @login"))
+                {
+                    cmd.Parameters.AddWithValue("login", login);
+                    string result = DataAccess.ExecuteSelectOneValue(cmd);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("L'employé n'a pas de role attribué", "Employé inconnu", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return "null";
             }
         }
 

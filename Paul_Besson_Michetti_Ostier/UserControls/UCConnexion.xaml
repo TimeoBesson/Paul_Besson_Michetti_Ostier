@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Paul_Besson_Michetti_Ostier.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Width="800" Height="450">
     <Grid Background="#FFF0EEE9" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
@@ -17,28 +17,36 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="Black" Grid.ColumnSpan="7"/>
         <Grid Grid.Row="0" Grid.Column="3">
             <Image Source="/Images/Logo_Paul.png" Stretch="Fill" Grid.Column="3"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="1">
-            <Rectangle HorizontalAlignment="Center" Height="280" VerticalAlignment="Center" Width="230" RadiusX="20" RadiusY="20" Fill="White"/>
-            <Label Content="Identifiant" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,62,0,0" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold" Height="24" Width="66"/>
-            <Rectangle x:Name="fondIdentifiant" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Stroke="Black" RadiusX="3" RadiusY="3" Margin="0,80,0,0" Opacity="0.1" />
-            <Image x:Name="imgIdentifiant" Source="/Images/Icone_face.png" Stretch="Fill" Width="9" Height="10" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,90,0,0"/>
-            <Label x:Name="labelIdentifiant" Content="Identifiant" FontFamily="Global User Interface" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,80,0,0" Opacity="0.5" Height="30" FontSize="9" VerticalContentAlignment="Center"/>
-            <TextBox x:Name="tbIdentifiant" Text="" VerticalContentAlignment="Center" MaxLength="30" FontSize="9" Padding="30,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Margin="0,80,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
-            <Label Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,132,0,0" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold"/>
-            <Rectangle x:Name="fondMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="64,150,0,0" Stroke="Black" RadiusX="3" RadiusY="3" Opacity="0.1"/>
-            <Image x:Name="imgMdp" Source="/Images/Icone_cadenas.png" Margin="75,160,0,0" Opacity="0.5" Height="11" Width="9" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label x:Name="labelMdp" Content="••••••••" FontFamily="72"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,150,0,0" Opacity="0.3" Height="30" VerticalContentAlignment="Center"/>
-            <PasswordBox x:Name="pbMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="64,150,0,0" Padding="24,0,0,0" VerticalContentAlignment="Center" FontSize="12" MaxLength="20" BorderBrush="Transparent" Background="Transparent" GotFocus="pbMdp_GotFocus" LostFocus="pbMdp_LostFocus"/>
-            <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,268,0,0"/>
-            <Label Content="SE CONNECTER" Foreground="White" FontFamily="72 Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Margin="0,274,0,0"/>
-            <Button x:Name="butConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,268,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent"/>
+        <Grid Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Rectangle Height="280" Width="230" RadiusX="20" RadiusY="20" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,25,64,0">
+                <Label Content="Identifiant" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold" Height="24" Width="66"/>
+                <Rectangle x:Name="fondIdentifiant" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Stroke="Black" RadiusX="3" RadiusY="3" Margin="0,18,0,0" Opacity="0.1" />
+                <Image x:Name="imgIdentifiant" Source="/Images/Icone_face.png" Stretch="Fill" Width="9" Height="10" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,28,0,0"/>
+                <Label x:Name="labelIdentifiant" Content="Identifiant" FontFamily="Global User Interface" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,18,0,0" Opacity="0.5" Height="30" FontSize="9" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="tbIdentifiant" Text="" VerticalContentAlignment="Center" MaxLength="30" FontSize="9" Padding="26,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,20,64,0">
+                <Label Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,70,0,0" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold"/>
+                <Rectangle x:Name="fondMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,88,0,0" Stroke="Black" RadiusX="3" RadiusY="3" Opacity="0.1"/>
+                <Image x:Name="imgMdp" Source="/Images/Icone_cadenas.png" Margin="11,98,0,0" Opacity="0.5" Height="11" Width="9" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="labelMdp" Content="••••••••" FontFamily="72"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,88,0,0" Opacity="0.3" Height="30" VerticalContentAlignment="Center"/>
+                <PasswordBox x:Name="pbMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,88,0,0" Padding="29,0,0,0" VerticalContentAlignment="Center" FontSize="12" MaxLength="20" BorderBrush="Transparent" Background="Transparent" GotFocus="pbMdp_GotFocus" LostFocus="pbMdp_LostFocus"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,20,64,0">
+                <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,200,0,0"/>
+                <Label x:Name="labelConnexion" Content="SE CONNECTER" Foreground="White" FontWeight="SemiBold" FontFamily="72 Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Margin="0,205,0,0"/>
+                <Button x:Name="butConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,200,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent"/>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

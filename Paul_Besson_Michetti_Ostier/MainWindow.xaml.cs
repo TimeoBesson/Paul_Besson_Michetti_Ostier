@@ -41,7 +41,27 @@ namespace Paul_Besson_Michetti_Ostier
                 connexion = new UCConnexion();
                 Window.Content = connexion;
             }
-            connexion.butConnexion.Click += VerifierConnexion;
+            //connexion.butConnexion.Click += VerifierConnexion;
+            connexion.butConnexion.Click += AfficherGererCommandes;
+        }
+
+        public void RetourConnexion(object sender, RoutedEventArgs e)
+        {
+            AfficherConnexion();
+        }
+
+        public void VerifierRole()
+        {
+            UCConnexion connexion = (UCConnexion)Window.Content;
+            string role = Employe.RoleEmploye(connexion.tbIdentifiant.Text);
+            if (role == "patissier")
+            {
+                connexion.butConnexion.Click += AfficherCommandesDuJour;
+            }
+            else if (role == "vendeur")
+            {
+                connexion.butConnexion.Click += AfficherGererCommandes;
+            }
         }
 
         public void VerifierConnexion(object sender, RoutedEventArgs e)
@@ -50,19 +70,32 @@ namespace Paul_Besson_Michetti_Ostier
             if (String.IsNullOrWhiteSpace(connexion.tbIdentifiant.Text) || String.IsNullOrWhiteSpace(connexion.pbMdp.Password))
             {
                 MessageBox.Show("Veuillez remplir tous les champs pour vous connecter.", "Champs manquants", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
             else
             {
+                Mouse.OverrideCursor = Cursors.Wait;
                 if (Employe.Connexion(connexion.tbIdentifiant.Text, connexion.pbMdp.Password))
-                    connexion.butConnexion.Click += AfficherGererCommandes;
+                {
+                    Mouse.OverrideCursor = Cursors.Arrow;
+                    VerifierRole();
+                }
+                Mouse.OverrideCursor = Cursors.Arrow;
             }
-            AfficherConnexion();
         }
 
         public void AfficherGererCommandes(object sender, RoutedEventArgs e)
         {
             UCGererCommande gererCommandes = new UCGererCommande();
             Window.Content = gererCommandes;
+            gererCommandes.butDeconnecter.Click += RetourConnexion;
+        }
+
+        public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
+        {
+            UCCommandesDuJour commmandeDuJour = new UCCommandesDuJour();
+            Window.Content = commmandeDuJour;
+            commmandeDuJour.butDeconnecter.Click += RetourConnexion;
         }
     }
 }

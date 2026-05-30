@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Paul_Besson_Michetti_Ostier"
         mc:Ignorable="d"
-        Title="Connexion" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Connexion" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="800" Height="450" WindowState="Maximized">
     <Grid>
         <ContentControl x:Name="Window"/>
     </Grid>

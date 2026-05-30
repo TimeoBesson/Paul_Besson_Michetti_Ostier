@@ -18,9 +18,9 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
     /// <summary>
     /// Logique d'interaction pour UCCommandeDuJour.xaml
     /// </summary>
-    public partial class UCCommandeDuJour : UserControl
+    public partial class UCCommandesDuJour : UserControl
     {
-        public UCCommandeDuJour()
+        public UCCommandesDuJour()
         {
             InitializeComponent();
         }
