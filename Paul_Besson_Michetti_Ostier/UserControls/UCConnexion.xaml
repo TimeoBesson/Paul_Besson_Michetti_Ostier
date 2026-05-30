@@ -45,7 +45,7 @@
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,20,64,0">
                 <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,200,0,0"/>
                 <Label x:Name="labelConnexion" Content="SE CONNECTER" Foreground="White" FontWeight="SemiBold" FontFamily="72 Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Margin="0,205,0,0"/>
-                <Button x:Name="butConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,200,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent"/>
+                <Button x:Name="butConnexion" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="35" Margin="0,200,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent" IsDefault="True"/>
             </Grid>
         </Grid>
     </Grid>

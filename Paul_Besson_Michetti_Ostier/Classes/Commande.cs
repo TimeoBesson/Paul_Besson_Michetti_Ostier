@@ -268,7 +268,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from  commande  where commande_id =@idcommande;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from commande where commande_id = @idcommande;"))
             {
                 cmdSelect.Parameters.AddWithValue("idcommande", this.IdCommande);
 

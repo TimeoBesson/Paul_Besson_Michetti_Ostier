@@ -20,11 +20,12 @@ namespace Paul_Besson_Michetti_Ostier
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ChargeClients ToutLesClients { get; set; }
+        public ChargeClients TousLesClients { get; set; }
         public ChargeCommandes ToutesLesCommandes { get; set; }
         public ChargeProduits TousLesProduits { get; set; }
         public ChargeLignesCommandes ToutesLesLignesCommandes { get; set; }
         public ChargeRecettes ToutesLesRecettes { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();

@@ -81,7 +81,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             try
             {
-                using (var cmd = new NpgsqlCommand("select count(*) FROM employe where login = @login and password = @password"))
+                using (var cmd = new NpgsqlCommand("select count(*) from employe where login = @login and password = @password"))
                 {
                     cmd.Parameters.AddWithValue("login", login);
                     cmd.Parameters.AddWithValue("password", password);
@@ -101,7 +101,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             try
             {
-                using (var cmd = new NpgsqlCommand("select role FROM employe where login = @login"))
+                using (var cmd = new NpgsqlCommand("select role from employe where login = @login"))
                 {
                     cmd.Parameters.AddWithValue("login", login);
                     string result = DataAccess.ExecuteSelectOneValue(cmd);

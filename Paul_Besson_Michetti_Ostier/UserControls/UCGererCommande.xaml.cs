@@ -23,12 +23,6 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCGererCommande()
         {
             InitializeComponent();
-            
-        }
-
-        private void butAValider_MouseEnter(object sender, MouseEventArgs e)
-        {
-            butAValider.Background = Brushes.Transparent;
         }
     }
 }
