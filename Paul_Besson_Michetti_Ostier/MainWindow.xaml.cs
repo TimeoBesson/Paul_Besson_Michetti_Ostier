@@ -41,8 +41,8 @@ namespace Paul_Besson_Michetti_Ostier
                 connexion = new UCConnexion();
                 Window.Content = connexion;
             }
-            //connexion.butConnexion.Click += VerifierConnexion;
-            connexion.butConnexion.Click += AfficherGererCommandes;
+            connexion.butConnexion.Click += VerifierConnexion;
+            //connexion.butConnexion.Click += AfficherGererCommandes;
         }
 
         public void RetourConnexion(object sender, RoutedEventArgs e)
@@ -56,11 +56,11 @@ namespace Paul_Besson_Michetti_Ostier
             string role = Employe.RoleEmploye(connexion.tbIdentifiant.Text);
             if (role == "patissier")
             {
-                connexion.butConnexion.Click += AfficherCommandesDuJour;
+                AfficherGererCommandes();
             }
             else if (role == "vendeur")
             {
-                connexion.butConnexion.Click += AfficherGererCommandes;
+                AfficherCommandesDuJour();
             }
         }
 
@@ -80,18 +80,20 @@ namespace Paul_Besson_Michetti_Ostier
                     Mouse.OverrideCursor = Cursors.Arrow;
                     VerifierRole();
                 }
+                else
+                    MessageBox.Show("L'identifiant ou le mot de passe est incorrect", "Employé inconnu", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Mouse.OverrideCursor = Cursors.Arrow;
             }
         }
 
-        public void AfficherGererCommandes(object sender, RoutedEventArgs e)
+        public void AfficherGererCommandes()
         {
             UCGererCommande gererCommandes = new UCGererCommande();
             Window.Content = gererCommandes;
             gererCommandes.butDeconnecter.Click += RetourConnexion;
         }
 
-        public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
+        public void AfficherCommandesDuJour()
         {
             UCCommandesDuJour commmandeDuJour = new UCCommandesDuJour();
             Window.Content = commmandeDuJour;

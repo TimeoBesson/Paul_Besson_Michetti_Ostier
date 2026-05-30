@@ -92,7 +92,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("L'identifiant ou le mot de passe est incorrect", "Employé inconnu", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("La connexion a échouée", "Connexion échouée", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
         }
