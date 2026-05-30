@@ -15,6 +15,7 @@
     <None Remove="Images\Icone_creer_commande.png" />
     <None Remove="Images\Icone_croissant.png" />
     <None Remove="Images\Icone_face.png" />
+    <None Remove="Images\Icone_remettre_commande.png" />
     <None Remove="Images\Icone_sortie.png" />
     <None Remove="Images\Image_fraisier.png" />
     <None Remove="Images\Logo_Paul.png" />
@@ -47,6 +48,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_gerer_produits.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_remettre_commande.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_sortie.png">
