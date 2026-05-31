@@ -19,31 +19,31 @@
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Source="/Images/Icone_commande_du_jour.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="10" Width="10"/>
                     <Label Content="Commandes du jour" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#504443" Margin="25,0,0,0"/>
-                    <Button x:Name="butCommandesDuJour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button x:Name="butCommandesDuJour" Content="_Commandes du jour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid>
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Source="/Images/Icone_creer_commande.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="11" RenderTransformOrigin="0.5,0.5" Width="11"/>
                     <Label Content="Créer une commande" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
-                    <Button x:Name="butCreerCommande" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button x:Name="butCreerCommande" Content="_Créer une commande" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid>
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Source="/Images/Icone_consulter_les_produits.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
                     <Label Content="Consulter les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
-                    <Button x:Name="butConsulterProduits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button x:Name="butConsulterProduits" Content="_Consulter les produits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid Margin="0,1,0,0">
                     <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Height="10" Width="9" Source="/Images/Icone_rechercher_client_2.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <Label Content="Rechercher un client" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
-                    <Button x:Name="butRechercherClient" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button x:Name="butRechercherClient" Content="_Rechercher un client" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="4,70,4,0">
                 <Image Height="10" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="10" Margin="12,0,0,0"/>
                 <Label Content="Se déconnecter" FontSize="10" Foreground="#504443" Margin="4,-1,0,1"/>
-                <Button x:Name="butDeconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
+                <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">

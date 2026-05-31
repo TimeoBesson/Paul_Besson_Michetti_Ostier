@@ -33,7 +33,7 @@
                 <Rectangle x:Name="fondIdentifiant" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Height="30" Stroke="Black" RadiusX="3" RadiusY="3" Margin="0,18,0,0" Opacity="0.1" />
                 <Image x:Name="imgIdentifiant" Source="/Images/Icone_face.png" Stretch="Fill" Width="9" Height="10" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,28,0,0"/>
                 <Label x:Name="labelIdentifiant" Content="Identifiant" FontFamily="Global User Interface" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,18,0,0" Opacity="0.5" Height="30" FontSize="9" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="tbIdentifiant" Text="" VerticalContentAlignment="Center" MaxLength="30" FontSize="9" Padding="26,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
+                <TextBox x:Name="tbIdentifiant" VerticalContentAlignment="Center" MaxLength="30" FontSize="9" Padding="26,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" BorderBrush="Transparent" GotFocus="tbIdentifiant_GotFocus" LostFocus="tbIdentifiant_LostFocus" Background="Transparent"/>
             </Grid>
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,20,64,0">
                 <Label Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,70,0,0" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold"/>
