@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Paul_Besson_Michetti_Ostier.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour UCGererCommande.xaml
+    /// Logique d'interaction pour UCGererCommandes.xaml
     /// </summary>
-    public partial class UCGererCommande : UserControl
+    public partial class UCGererCommandes : UserControl
     {
-        public UCGererCommande()
+        public UCGererCommandes()
         {
             InitializeComponent();
         }

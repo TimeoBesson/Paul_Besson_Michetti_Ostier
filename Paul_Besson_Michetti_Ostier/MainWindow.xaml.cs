@@ -43,7 +43,6 @@ namespace Paul_Besson_Michetti_Ostier
                 Window.Content = connexion;
             }
             connexion.butConnexion.Click += VerifierConnexion;
-            //connexion.butConnexion.Click += AfficherGererCommandes;
         }
 
         public void RetourConnexion(object sender, RoutedEventArgs e)
@@ -89,25 +88,58 @@ namespace Paul_Besson_Michetti_Ostier
 
         public void AfficherGererCommandes(object sender, RoutedEventArgs e)
         {
-            UCGererCommande gererCommandes = new UCGererCommande();
+            UCGererCommandes gererCommandes = new UCGererCommandes();
             Window.Content = gererCommandes;
+            gererCommandes.butGererProduits.Click += AfficherGererProduits;
             gererCommandes.butDeconnecter.Click += RetourConnexion;
+        }
+
+        public void AfficherGererProduits(object sender, RoutedEventArgs e)
+        {
+            UCGererProduits gererProduits = new UCGererProduits();
+            Window.Content = gererProduits;
+            gererProduits.butGererCommandes.Click += AfficherGererCommandes;
+            gererProduits.butDeconnecter.Click += RetourConnexion;
         }
 
         public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
         {
             UCCommandesDuJour commandesDuJour = new UCCommandesDuJour();
             Window.Content = commandesDuJour;
-            commandesDuJour.butDeconnecter.Click += RetourConnexion;
+            commandesDuJour.butConsulterProduits.Click += AfficherConsulterProduits;
+            commandesDuJour.butCreerCommande.Click += AfficherCreerCommande;
             commandesDuJour.butRechercherClient.Click += AfficherRechercherClient;
+            commandesDuJour.butDeconnecter.Click += RetourConnexion;
+        }
+
+        public void AfficherConsulterProduits(object sender, RoutedEventArgs e)
+        {
+            UCConsulterProduits consulterProduits = new UCConsulterProduits();
+            Window.Content = consulterProduits;
+            consulterProduits.butCommandesDuJour.Click += AfficherCommandesDuJour;
+            consulterProduits.butCreerCommande.Click += AfficherCreerCommande;
+            consulterProduits.butRechercherClient.Click += AfficherRechercherClient;
+            consulterProduits.butDeconnecter.Click += RetourConnexion;
+        }
+
+        public void AfficherCreerCommande(object sender, RoutedEventArgs e)
+        {
+            UCCreerCommande creerCommande = new UCCreerCommande();
+            Window.Content = creerCommande;
+            creerCommande.butCommandesDuJour.Click += AfficherCommandesDuJour;
+            creerCommande.butConsulterProduits.Click += AfficherConsulterProduits;
+            creerCommande.butRechercherClient.Click += AfficherRechercherClient;
+            creerCommande.butDeconnecter.Click += RetourConnexion;
         }
 
         public void AfficherRechercherClient(object sender, RoutedEventArgs e)
         {
             UCRechercherClient rechercherClient = new UCRechercherClient();
             Window.Content = rechercherClient;
-            rechercherClient.butDeconnecter.Click += RetourConnexion;
             rechercherClient.butCommandesDuJour.Click += AfficherCommandesDuJour;
+            rechercherClient.butConsulterProduits.Click += AfficherConsulterProduits;
+            rechercherClient.butCreerCommande.Click += AfficherCreerCommande;
+            rechercherClient.butDeconnecter.Click += RetourConnexion;
         }
     }
 }

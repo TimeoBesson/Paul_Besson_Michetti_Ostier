@@ -11,16 +11,13 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Background="#FFF0EEE9">
             <Image Source="/Images/Logo_Paul.png"/>
             <Label Content="Vendeur" FontSize="12" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
             <StackPanel Orientation="Vertical" Margin="4,60,4,0" VerticalAlignment="Center">
                 <Grid>
                     <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_commande_du_jour_2.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="10" Width="10"/>
+                    <Image Source="/Images/Icone_commande_du_jour.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="10" Width="10"/>
                     <Label Content="Commandes du jour" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#504443" Margin="25,0,0,0"/>
                     <Button x:Name="butCommandesDuJour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
@@ -38,7 +35,7 @@
                 </Grid>
                 <Grid Margin="0,1,0,0">
                     <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Height="10" Width="9" Source="/Images/Icone_rechercher_client.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Image Height="10" Width="9" Source="/Images/Icone_rechercher_client_2.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <Label Content="Rechercher un client" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
                     <Button x:Name="butRechercherClient" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
