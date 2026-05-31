@@ -51,17 +51,17 @@ namespace Paul_Besson_Michetti_Ostier
             AfficherConnexion();
         }
 
-        public void VerifierRole()
+        public void VerifierRole(object sender, RoutedEventArgs e)
         {
             UCConnexion connexion = (UCConnexion)Window.Content;
             string role = Employe.RoleEmploye(connexion.tbIdentifiant.Text);
             if (role == "patissier")
             {
-                AfficherGererCommandes();
+                AfficherGererCommandes(sender, e);
             }
             else if (role == "vendeur")
             {
-                AfficherCommandesDuJour();
+                AfficherCommandesDuJour(sender, e);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Paul_Besson_Michetti_Ostier
                 if (Employe.Connexion(connexion.tbIdentifiant.Text, connexion.pbMdp.Password))
                 {
                     Mouse.OverrideCursor = Cursors.Arrow;
-                    VerifierRole();
+                    VerifierRole(sender, e);
                 }
                 else
                     MessageBox.Show("L'identifiant ou le mot de passe est incorrect", "Employé inconnu", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -87,18 +87,27 @@ namespace Paul_Besson_Michetti_Ostier
             }
         }
 
-        public void AfficherGererCommandes()
+        public void AfficherGererCommandes(object sender, RoutedEventArgs e)
         {
             UCGererCommande gererCommandes = new UCGererCommande();
             Window.Content = gererCommandes;
             gererCommandes.butDeconnecter.Click += RetourConnexion;
         }
 
-        public void AfficherCommandesDuJour()
+        public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
         {
-            UCCommandesDuJour commmandeDuJour = new UCCommandesDuJour();
-            Window.Content = commmandeDuJour;
-            commmandeDuJour.butDeconnecter.Click += RetourConnexion;
+            UCCommandesDuJour commandesDuJour = new UCCommandesDuJour();
+            Window.Content = commandesDuJour;
+            commandesDuJour.butDeconnecter.Click += RetourConnexion;
+            commandesDuJour.butRechercherClient.Click += AfficherRechercherClient;
+        }
+
+        public void AfficherRechercherClient(object sender, RoutedEventArgs e)
+        {
+            UCRechercherClient rechercherClient = new UCRechercherClient();
+            Window.Content = rechercherClient;
+            rechercherClient.butDeconnecter.Click += RetourConnexion;
+            rechercherClient.butCommandesDuJour.Click += AfficherCommandesDuJour;
         }
     }
 }

@@ -11,10 +11,14 @@
   <ItemGroup>
     <None Remove="Images\Icone_cadenas.png" />
     <None Remove="Images\Icone_commande_du_jour.png" />
+    <None Remove="Images\Icone_commande_du_jour_2.png" />
     <None Remove="Images\Icone_consulter_les_produits.png" />
     <None Remove="Images\Icone_creer_commande.png" />
     <None Remove="Images\Icone_croissant.png" />
     <None Remove="Images\Icone_face.png" />
+    <None Remove="Images\Icone_nouveau_client.png" />
+    <None Remove="Images\Icone_rechercher.png" />
+    <None Remove="Images\Icone_rechercher_client.png" />
     <None Remove="Images\Icone_remettre_commande.png" />
     <None Remove="Images\Icone_sortie.png" />
     <None Remove="Images\Image_fraisier.png" />
@@ -32,6 +36,9 @@
     <Resource Include="Images\Icone_commande_du_jour.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_commande_du_jour_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_consulter_les_produits.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -44,10 +51,25 @@
     <Resource Include="Images\Icone_face.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_consulter_les_produits_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_gerer_commandes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_rechercher_client_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_gerer_produits.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_nouveau_client.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_rechercher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_rechercher_client.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_remettre_commande.png">
