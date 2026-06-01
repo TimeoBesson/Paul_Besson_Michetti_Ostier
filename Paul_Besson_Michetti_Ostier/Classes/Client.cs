@@ -155,11 +155,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesClients.Add(new Client((int)dt.Rows[0]["client_id"],
-                                              (String)dt.Rows[0]["nom"],
-                                              (String)dt.Rows[0]["prenom"],
-                                              (String)dt.Rows[0]["telephone"],
-                                              (String)dt.Rows[0]["mail"]));
+                    lesClients.Add(new Client((int)dr["client_id"],
+                                              (String)dr["nom"],
+                                              (String)dr["prenom"],
+                                              (String)dr["telephone"],
+                                              (String)dr["mail"]));
             }
             return lesClients;
         }

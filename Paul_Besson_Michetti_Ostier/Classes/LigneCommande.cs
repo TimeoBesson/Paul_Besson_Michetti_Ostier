@@ -164,10 +164,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesLignesCommandes.Add(new LigneCommande((int)dt.Rows[0]["commande_id"],
-                                                  (int)dt.Rows[0]["produit_id"],
-                                                  (int)dt.Rows[0]["quantite"],
-                                                  (bool)dt.Rows[0]["est_decoupe"]));
+                    lesLignesCommandes.Add(new LigneCommande((int)dr["commande_id"],
+                                                  (int)dr["produit_id"],
+                                                  (int)dr["quantite"],
+                                                  (bool)dr["est_decoupe"]));
             }
             return lesLignesCommandes;
         }

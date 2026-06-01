@@ -170,11 +170,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesProduits.Add(new Produit((int)dt.Rows[0]["produit_id"],
-                                                (int)dt.Rows[0]["recette_id"],
-                                                (bool)dt.Rows[0]["est_indisponible"],
-                                                (int)dt.Rows[0]["nb_parts"],
-                                                (decimal)dt.Rows[0]["prix"]));
+                    lesProduits.Add(new Produit((int)dr["produit_id"],
+                                                (int)dr["recette_id"],
+                                                (bool)dr["est_indisponible"],
+                                                (int)dr["nb_parts"],
+                                                (decimal)dr["prix"]));
             }
             return lesProduits;
         }
@@ -206,7 +206,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public void RendreProduitIndisponible()
         {
         }
-
     }
 }
 

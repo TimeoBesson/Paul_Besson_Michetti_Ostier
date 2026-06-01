@@ -10,12 +10,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public enum Allergene
     {
-      
+        
     }
     public enum CategorieRecette
     {
 
     }
+
     public class Recette : ICrud<Recette>
     { 
         private int idRecette;

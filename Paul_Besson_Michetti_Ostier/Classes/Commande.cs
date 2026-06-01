@@ -312,17 +312,17 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesCommandes.Add(new Commande((int)dt.Rows[0]["commande_id"],
-                                                  (int)dt.Rows[0]["categorie_evenement_id"],
-                                                  (int)dt.Rows[0]["client_id"],
-                                                  (DateOnly)dt.Rows[0]["date_creation"],
-                                                  (DateOnly)dt.Rows[0]["date_retrait"],
-                                                  (decimal)dt.Rows[0]["acompte"],
-                                                  (bool)dt.Rows[0]["est_prete"],
-                                                  (bool)dt.Rows[0]["est_recuperee"],
-                                                  (decimal)dt.Rows[0]["total"],
-                                                  (DateOnly)dt.Rows[0]["date_evenement"],
-                                                  (int)dt.Rows[0]["nb_personne"]));
+                    lesCommandes.Add(new Commande((int)dr["commande_id"],
+                                                  (int)dr["categorie_evenement_id"],
+                                                  (int)dr["client_id"],
+                                                  (DateOnly)dr["date_creation"],
+                                                  (DateOnly)dr["date_retrait"],
+                                                  (decimal)dr["acompte"],
+                                                  (bool)dr["est_prete"],
+                                                  (bool)dr["est_recuperee"],
+                                                  (decimal)dr["total"],
+                                                  (DateOnly)dr["date_evenement"],
+                                                  (int)dr["nb_personne"]));
             }
             return lesCommandes;
         }

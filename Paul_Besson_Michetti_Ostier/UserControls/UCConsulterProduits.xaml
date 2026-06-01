@@ -43,11 +43,11 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Background="White">
+        <Grid Grid.Column="1" Background="White" VerticalAlignment="Top">
             <Label Content="Consulter les produits" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Grid Margin="25,0,0,0">
+            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <StackPanel Orientation="Horizontal" Margin="25,125,0,15" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid>
                     <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
                     <Label Content="Tous" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="10,0,10,0"/>
                     <Button x:Name="butTous" Content="_Tous" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
@@ -68,33 +68,51 @@
                     <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
-            <WrapPanel Margin="20">
-                <Grid Width="160" Height="250" Margin="10">
-                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
-                    <Image Margin="10,10,10,140"/>
-                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,100" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="4,50€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,115" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
-                    <TextBox Text="Un pain rustique à la croûte généreuse et au ..." Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <Rectangle Fill="#321716" Height="30" Margin="10,155,10,10"/>
-                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                </Grid>
-                <Grid Width="160" Height="250" Margin="10">
-                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
-                    <Image Margin="10,10,10,140"/>
-                    <TextBox Text="Croissant pur beurre" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="1,40€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,86" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
-                    <TextBox Text="Un feuilletage d'exception réalisé avec du beurre AOP" Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                </Grid>
-                <Grid Width="160" Height="250" Margin="10">
-                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
-                    <Image Margin="10,10,10,140"/>
-                    <TextBox Text="Éclair au chocolat" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="3,80€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,86" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
-                    <TextBox Text="Pâte à chou légère fourrée d'une crème pâtissière…" Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                </Grid>
-            </WrapPanel>
-        </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="15,165,15,15">
+                <ItemsControl ItemsSource="{Binding LesProduits}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Rectangle Width="180" RadiusX="8" Margin="10" RadiusY="8" Stroke="#D4C3C1"/>
+                                <Grid Width="180" Margin="10" HorizontalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Margin="10" Height="100"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="tbNomRecette" Text="{Binding UneRecette.NomRecette, Mode=OneWay}" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="12,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+                                        <TextBlock Grid.Column="1" x:Name="tbPrix" Text="{Binding Prix, StringFormat={}{0:F2} €, Mode=OneWay}" Foreground="#7F5608" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,2,12,0" VerticalAlignment="Center" HorizontalAlignment="Right" IsHitTestVisible="False" Height="18"/>
+                                    </Grid>
+                                    <TextBox Grid.Row="2" x:Name="tbNbParts" Text="{Binding NbParts, StringFormat='Nombre de parts : {0}', Mode=OneWay}" BorderBrush="Transparent" FontFamily="Miriam Libre" FontSize="12" Margin="9,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False" Loaded="tbNbParts_Loaded"/>
+                                    <TextBlock Grid.Row="3" x:Name="tbDescriptionRecette" Text="{Binding UneRecette.DescriptionRecette, Mode=OneWay}" Opacity="0.8" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,8,10,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+                                    <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
+                                        <Rectangle Fill="#321716" Height="30" RadiusX="4" RadiusY="4"/>
+                                        <Image Source="/Images/Icone_ajouter_commande.png" VerticalAlignment="Center" HorizontalAlignment="Left" Height="8" Margin="15,0,0,0" Width="8"/>
+                                        <TextBox x:Name="tbEstIndisponible" Text="{Binding EstIndisponible, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="9" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="5,0,0,0" Loaded="tbEstIndisponible_Loaded"/>
+                                        <Button x:Name="butAjouterALaCommande" Height="30" Opacity="0"/>
+                                    </Grid>
+                                    <TextBlock Grid.Row="5" Text="Céréales contenant du gluten, Soja" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

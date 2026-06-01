@@ -1,22 +1,20 @@
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 using Npgsql;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
 
-    public  class DataAccess
+    public class DataAccess
     {
         
         private static readonly string connectionString;
         private static NpgsqlConnection connection;
 
-       
-
-        
         static DataAccess()
         {
-            connectionString = "Host=srv-peda-new;Port=5433;Username=ostiera;Password=lionelos74;Database=ostiera_sae201;Options='-c search_path=sae201'";
+            connectionString = "Host=localhost;Port=5432;Username=ostiera;Password=lionelos74;Database=ostiera_sae201;Options='-c search_path=sae201'";
             try
             {
                 connection = new NpgsqlConnection(connectionString);
@@ -27,7 +25,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 throw;
             }
         }
-
 
         // pour récupérer la connexion (et l'ouvrir si nécessaire)
         public static NpgsqlConnection GetConnection()

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Icone_ajouter_commande.png" />
     <None Remove="Images\Icone_cadenas.png" />
     <None Remove="Images\Icone_consulter_les_produits.png" />
     <None Remove="Images\Icone_creer_commande.png" />
@@ -27,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Icone_ajouter_commande.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_cadenas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
