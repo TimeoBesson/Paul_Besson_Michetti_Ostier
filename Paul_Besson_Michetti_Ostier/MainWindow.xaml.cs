@@ -56,10 +56,12 @@ namespace Paul_Besson_Michetti_Ostier
             string role = Employe.RoleEmploye(connexion.tbIdentifiant.Text);
             if (role == "patissier")
             {
+                WindowState = WindowState.Maximized;
                 AfficherGererCommandes(sender, e);
             }
             else if (role == "vendeur")
             {
+                WindowState = WindowState.Maximized;
                 AfficherCommandesDuJour(sender, e);
             }
         }

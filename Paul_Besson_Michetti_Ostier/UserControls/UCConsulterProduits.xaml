@@ -43,9 +43,39 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Column="1" Background="White">
+        <StackPanel Grid.Column="1" Background="White">
             <Label Content="Consulter les produits" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </Grid>
+            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Grid Margin="25,0,0,0">
+                    <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
+                    <Label Content="Tous" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="10,0,10,0"/>
+                    <Button x:Name="butTous" Content="_Tous" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid Margin="10,0,0,0">
+                    <Rectangle Fill="#EAE8E3" Height="25" RadiusX="8" RadiusY="8"/>
+                    <Label Content="Pains" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="#1B1C19" Margin="10,0,10,0"/>
+                    <Button x:Name="butPains" Content="_Pains" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid Margin="10,0,0,0">
+                    <Rectangle Fill="#EAE8E3" Height="25" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
+                    <Label Content="Viennoiseries" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="#1B1C19" Margin="10,0,10,0"/>
+                    <Button x:Name="butViennoiseries" Content="_Viennoiseries" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid Margin="10,0,0,0">
+                    <Rectangle Fill="#EAE8E3" Height="25" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
+                    <Label Content="Gâteaux" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="#1B1C19" Margin="10,0,10,0"/>
+                    <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+            </StackPanel>
+            <WrapPanel Margin="30,30,30,30">
+                <Grid Width="150" Height="200">
+                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
+                    <Image Margin="10,10,10,90"/>
+                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,53" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,53" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                </Grid>
+            </WrapPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
