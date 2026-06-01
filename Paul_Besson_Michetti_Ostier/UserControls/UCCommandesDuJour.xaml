@@ -50,10 +50,9 @@
                 <Rectangle Fill="#FBF9F4" RadiusX="10" RadiusY="10" Stroke="#FFEFEEEA" Height="83"/>
                 <StackPanel Orientation="Horizontal" Height="83" Margin="0,-83,0,0">
                     <Image Source="/Images/Image_fraisier.png" Height="50" Width="50" Margin="15,15,15,15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <StackPanel Margin="-10,12,0,15">
-                        <Label Content="Client N°1" FontSize="9" FontFamily="Miriam Libre" Foreground="#504443"/>
-                        <Label Content="Paul Dupont" FontSize="14" FontWeight="Bold" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#1B1C19"/>
-                        <Label Content="#000001" FontSize="9" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#504443" Opacity="0.7"/>
+                    <StackPanel Height="49">
+                        <Label Content="Paul Dupont" FontSize="14" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#1B1C19" Height="32"/>
+                        <Label Content="06 45 85 96 54" FontSize="9" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#504443" Opacity="0.7"/>
                     </StackPanel>
                     <Grid VerticalAlignment="Center">
                         <Label Content="Voir les informations" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial"/>
