@@ -68,12 +68,31 @@
                     <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
-            <WrapPanel Margin="30,30,30,30">
-                <Grid Width="150" Height="200">
+            <WrapPanel Margin="20">
+                <Grid Width="160" Height="250" Margin="10">
                     <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
-                    <Image Margin="10,10,10,90"/>
-                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,53" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
-                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,53" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <Image Margin="10,10,10,140"/>
+                    <TextBox Text="Pain de campagne" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,100" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="4,50€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,115" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
+                    <TextBox Text="Un pain rustique à la croûte généreuse et au ..." Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <Rectangle Fill="#321716" Height="30" Margin="10,155,10,10"/>
+                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                </Grid>
+                <Grid Width="160" Height="250" Margin="10">
+                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
+                    <Image Margin="10,10,10,140"/>
+                    <TextBox Text="Croissant pur beurre" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="1,40€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,86" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
+                    <TextBox Text="Un feuilletage d'exception réalisé avec du beurre AOP" Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                </Grid>
+                <Grid Width="160" Height="250" Margin="10">
+                    <Rectangle RadiusX="8" RadiusY="8" Stroke="#D4C3C1"/>
+                    <Image Margin="10,10,10,140"/>
+                    <TextBox Text="Éclair au chocolat" BorderBrush="Transparent" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="6,0,60,70" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="3,80€" BorderBrush="Transparent" Foreground="#7F5608" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="12" FontWeight="Bold" Margin="0,0,10,86" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Right"/>
+                    <TextBox Text="Pâte à chou légère fourrée d'une crème pâtissière…" Opacity="0.8" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
+                    <TextBox Text="Céréales contenant du gluten, soja" Background="Transparent" BorderBrush="Transparent" Foreground="#504443" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="6,0,8,7" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" HorizontalAlignment="Left"/>
                 </Grid>
             </WrapPanel>
         </StackPanel>
