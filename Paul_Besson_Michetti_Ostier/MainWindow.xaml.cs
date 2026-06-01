@@ -107,7 +107,6 @@ namespace Paul_Besson_Michetti_Ostier
             UCCommandesDuJour commandesDuJour = new UCCommandesDuJour();
             Window.Content = commandesDuJour;
             commandesDuJour.butConsulterProduits.Click += AfficherConsulterProduits;
-            commandesDuJour.butCreerCommande.Click += AfficherCreerCommande;
             commandesDuJour.butRechercherClient.Click += AfficherRechercherClient;
             commandesDuJour.butDeconnecter.Click += RetourConnexion;
         }
@@ -117,19 +116,8 @@ namespace Paul_Besson_Michetti_Ostier
             UCConsulterProduits consulterProduits = new UCConsulterProduits();
             Window.Content = consulterProduits;
             consulterProduits.butCommandesDuJour.Click += AfficherCommandesDuJour;
-            consulterProduits.butCreerCommande.Click += AfficherCreerCommande;
             consulterProduits.butRechercherClient.Click += AfficherRechercherClient;
             consulterProduits.butDeconnecter.Click += RetourConnexion;
-        }
-
-        public void AfficherCreerCommande(object sender, RoutedEventArgs e)
-        {
-            UCCreerCommande creerCommande = new UCCreerCommande();
-            Window.Content = creerCommande;
-            creerCommande.butCommandesDuJour.Click += AfficherCommandesDuJour;
-            creerCommande.butConsulterProduits.Click += AfficherConsulterProduits;
-            creerCommande.butRechercherClient.Click += AfficherRechercherClient;
-            creerCommande.butDeconnecter.Click += RetourConnexion;
         }
 
         public void AfficherRechercherClient(object sender, RoutedEventArgs e)
@@ -138,7 +126,6 @@ namespace Paul_Besson_Michetti_Ostier
             Window.Content = rechercherClient;
             rechercherClient.butCommandesDuJour.Click += AfficherCommandesDuJour;
             rechercherClient.butConsulterProduits.Click += AfficherConsulterProduits;
-            rechercherClient.butCreerCommande.Click += AfficherCreerCommande;
             rechercherClient.butDeconnecter.Click += RetourConnexion;
         }
     }

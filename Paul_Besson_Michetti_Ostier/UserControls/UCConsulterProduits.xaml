@@ -25,12 +25,6 @@
                     <Button x:Name="butCommandesDuJour" Content="_Commandes du jour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid>
-                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_creer_commande.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="11" RenderTransformOrigin="0.5,0.5" Width="11"/>
-                    <Label Content="Créer une commande" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
-                    <Button x:Name="butCreerCommande" Content="_Créer une commande" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-                </Grid>
-                <Grid>
                     <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
                     <Image Source="/Images/Icone_consulter_les_produits_2.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
                     <Label Content="Consulter les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
