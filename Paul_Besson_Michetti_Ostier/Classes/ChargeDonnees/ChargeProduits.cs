@@ -17,20 +17,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesProduits = new ObservableCollection<Produit>(new Produit().FindAll());
-
-                // Lier chaque produit à sa recette pour permettre le binding UneRecette.NomRecette
-                var chargeRecettes = new ChargeRecettes();
-                foreach (var p in this.LesProduits)
-                {
-                    p.UneRecette = chargeRecettes.LesRecettes.FirstOrDefault(r => r.IdRecette == p.IdRecette);
-                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
             }
-
         }
+
         public ObservableCollection<Produit> LesProduits
         {
             get

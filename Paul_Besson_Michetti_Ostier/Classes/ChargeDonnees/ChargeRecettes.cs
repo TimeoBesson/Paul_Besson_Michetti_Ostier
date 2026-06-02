@@ -9,27 +9,21 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
     public class ChargeRecettes
     {
-            private ObservableCollection<Recette> lesRecettes;
+        private ObservableCollection<Recette> lesRecettes;
+        private ObservableCollection<RecetteAllergene> lesRecettesAllergenes;
 
         public ChargeRecettes()
         {
             try
             {
-                this.LesRecettes = new ObservableCollection<Recette>(new Recette().FindAll());
-                //foreach (Commande s in this.LesCommandes)
-                //{
-                //    s.UnClient = LesClients.FirstOrDefault(c => c.IdClient == s.IdClient);
-
-
-                //}
+                this.LesRecettesAllergenes = new ObservableCollection<RecetteAllergene>(new RecetteAllergene().FindAll());
             }
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
-                //    ErrorMessage = "Impossible de charger les données. Voir votre admin.";
             }
-
         }
+
         public ObservableCollection<Recette> LesRecettes
         {
             get
@@ -40,6 +34,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             set
             {
                 this.lesRecettes = value;
+            }
+        }
+
+        internal ObservableCollection<RecetteAllergene> LesRecettesAllergenes
+        {
+            get
+            {
+                return this.lesRecettesAllergenes;
+            }
+
+            set
+            {
+                this.lesRecettesAllergenes = value;
             }
         }
     }

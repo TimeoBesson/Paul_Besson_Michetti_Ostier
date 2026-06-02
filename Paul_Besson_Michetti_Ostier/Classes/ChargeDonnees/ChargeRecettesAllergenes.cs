@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
-    internal class ChargeAllergenes
+    internal class ChargeRecettesAllergenes
     {
-        private ObservableCollection<Allergene> lesAllergenes;
         private ObservableCollection<RecetteAllergene> lesRecettesAllergenes;
+        private ObservableCollection<Allergene> lesAllergenes;
 
-        public ChargeAllergenes()
+        public ChargeRecettesAllergenes()
         {
             try
             {
@@ -24,20 +24,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        public ObservableCollection<Allergene> LesAllergenes
-        {
-            get
-            {
-                return this.lesAllergenes;
-            }
-
-            set
-            {
-                this.lesAllergenes = value;
-            }
-        }
-
-        internal ObservableCollection<RecetteAllergene> LesRecettesAllergenes
+        public ObservableCollection<RecetteAllergene> LesRecettesAllergenes
         {
             get
             {
@@ -47,6 +34,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             set
             {
                 this.lesRecettesAllergenes = value;
+            }
+        }
+
+        internal ObservableCollection<Allergene> LesAllergenes
+        {
+            get
+            {
+                return this.lesAllergenes;
+            }
+
+            set
+            {
+                this.lesAllergenes = value;
             }
         }
     }

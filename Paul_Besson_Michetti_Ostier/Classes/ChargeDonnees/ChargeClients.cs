@@ -22,9 +22,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
-                //    ErrorMessage = "Impossible de charger les données. Voir votre admin.";
             }
         }
+
         public ObservableCollection<Client> Clients
         {
             get

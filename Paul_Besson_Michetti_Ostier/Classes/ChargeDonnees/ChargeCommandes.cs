@@ -16,15 +16,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesCommandes = new ObservableCollection<Commande>(new Commande().FindAll());
-                
             }
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
-                
             }
-
-
         }
 
         public ObservableCollection<Commande> LesCommandes

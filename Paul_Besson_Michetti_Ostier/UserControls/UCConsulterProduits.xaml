@@ -106,7 +106,7 @@
                                         <TextBox x:Name="tbEstIndisponible" Text="{Binding EstIndisponible, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="9" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="5,0,0,0" Loaded="tbEstIndisponible_Loaded"/>
                                         <Button x:Name="butAjouterALaCommande" Height="30" Opacity="0"/>
                                     </Grid>
-                                    <TextBlock Grid.Row="5" Text="Céréales contenant du gluten, Soja" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+                                    <TextBlock Grid.Row="5" Text="" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                                 </Grid>
                             </Grid>
                         </DataTemplate>
