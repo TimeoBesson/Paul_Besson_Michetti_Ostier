@@ -45,7 +45,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             }
         }
 
-        private void buAjout_Click(object sender, RoutedEventArgs e)
+        private void butAjout_Click(object sender, RoutedEventArgs e)
         {
 
         }
