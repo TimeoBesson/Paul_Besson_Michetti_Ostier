@@ -24,5 +24,10 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         {
             InitializeComponent();
         }
+
+        private void butAjoutProduit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

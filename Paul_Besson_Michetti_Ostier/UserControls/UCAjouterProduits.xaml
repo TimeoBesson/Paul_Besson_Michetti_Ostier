@@ -7,6 +7,63 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Background="#FFF0EEE9">
+            <Image Source="/Images/Logo_Paul.png"/>
+            <Label Content="Chef boulanger/pâtissier" FontSize="12" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
+            <StackPanel Margin="4,60,4,0">
+                <Grid>
+                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_gerer_commandes.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
+                    <Label Content="Gérer les commandes" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
+                    <Button x:Name="butGererCommandes" Content="_Gérer les commandes" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+                <Grid Margin="0,1,0,0">
+                    <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
+                    <Image Height="10" Width="9" Source="/Images/Icone_gerer_produits_2.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label Content="Gérer les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
+                    <Button x:Name="butGererProduits" Content="_Gérer les produits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="4,120,4,0">
+                <Image Height="10" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="10" Margin="12,0,0,0"/>
+                <Label Content="Se déconnecter" FontSize="10" Foreground="#504443" Margin="4,-1,0,1"/>
+                <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Background="White" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="450" Margin="135,10,10,0" RenderTransformOrigin="0.435,0.491">
+            <Label Content="Ajouter un produit" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <StackPanel Orientation="Horizontal" Margin="25,125,0,15" HorizontalAlignment="Left" VerticalAlignment="Top">
+            </StackPanel>
+            <Grid>
+                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,26,74,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>
+                <Label Content="Annuler" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,29,85,0" HorizontalAlignment="Right"/>
+                <Button x:Name="butannuler" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,29,85,0" Width="57" RenderTransformOrigin="0.5,0.5" Click="butAjoutProduit_Click">
+                </Button>
+                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,407,359,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>
+                <Label Content="Enregistrer" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,409,364,0" HorizontalAlignment="Right"/>
+                <Button x:Name="butenregistrer" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,410,359,0" Width="64" RenderTransformOrigin="0.5,0.5" Click="butAjoutProduit_Click">
+                </Button>
+            </Grid>
+            <TextBox HorizontalAlignment="Left" Margin="37,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="190" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2"/>
+            <TextBox HorizontalAlignment="Left" Margin="273,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="170" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" TextChanged="TextBox_TextChanged" Height="40" RenderTransformOrigin="0.489,0.461"/>
+            <Label Content="Recette" HorizontalAlignment="Left" Margin="262,207,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
+            <TextBox HorizontalAlignment="Left" Margin="267,238,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="176" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" TextChanged="TextBox_TextChanged" Height="148"/>
+            <Label Content="Alergènes" HorizontalAlignment="Left" Margin="37,199,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
+            <Grid HorizontalAlignment="Left" Height="140" Margin="40,229,0,0" VerticalAlignment="Top" Width="167">
+                <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            </Grid>
+            <Label Content="Nombre de Part" HorizontalAlignment="Left" Margin="466,124,0,0" VerticalAlignment="Top" Width="96" Background="{x:Null}" Height="28"/>
+            <Label Content="Prix" HorizontalAlignment="Left" Margin="579,125,0,0" VerticalAlignment="Top" Width="66" Background="{x:Null}"/>
+        </Grid>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="23,136,0,0" VerticalAlignment="Top" Grid.Column="1" Width="47" Background="{x:Null}"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="256,136,0,0" VerticalAlignment="Top" Grid.Column="1" Width="72" Background="{x:Null}"/>
     </Grid>
-</UserControl>
+</UserControl> 

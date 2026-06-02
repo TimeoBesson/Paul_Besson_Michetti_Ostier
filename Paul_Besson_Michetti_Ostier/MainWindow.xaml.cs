@@ -136,6 +136,8 @@ namespace Paul_Besson_Michetti_Ostier
         {
             UCAjouterProduits ajouterProduit = new UCAjouterProduits();
             Window.Content = ajouterProduit;
+            ajouterProduit.butDeconnecter.Click += RetourConnexion;
+            ajouterProduit.butannuler.Click += AfficherGererProduits;
         }
     }
 }
