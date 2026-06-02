@@ -2,12 +2,14 @@
 using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using Paul_Besson_Michetti_Ostier.UserControls;
 using System;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -29,6 +31,9 @@ namespace Paul_Besson_Michetti_Ostier
         public MainWindow()
         {
             InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+            CultureInfo Culture = Thread.CurrentThread.CurrentUICulture;
+            this.Language = XmlLanguage.GetLanguage(Culture.Name);
             AfficherConnexion();
         }
 

@@ -38,11 +38,15 @@
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Gérer les commandes" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Commandes actuelles" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Cliquer sur une commande pour la modifier" Foreground="Black" Opacity="0.5" FontFamily="Miriam Libre" FontSize="8" Margin="200,98,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Gérer les commandes" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Commandes en cours" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="26" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <DataGrid x:Name="dgCommandes" ItemsSource="{Binding LesCommandes}" AutoGenerateColumns="False" Margin="20,137,20,10" BorderBrush="White">
+            <Button x:Name="butInfoCommande" FontFamily="Miriam Libre" Content="Voir les informations de la commande" Width="Auto" Height="20" Background="White" Foreground="Black" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="347,104,0,0"/>
+            
+
+
+
+            <DataGrid x:Name="dgCommandes" ItemsSource="{Binding LesCommandes}" AutoGenerateColumns="False" Margin="50,137,50,20" BorderBrush="White" >
                 <DataGrid.Columns>
                 <DataGridTemplateColumn Width="*">
                 <DataGridTemplateColumn.CellTemplate >
@@ -57,18 +61,42 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            
+                                        </Grid.ColumnDefinitions>
 
 
 
                                     <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding UnClient.Nom}" FontSize="14" FontWeight="Bold" Foreground="Black"/>
-                                        <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray"/>
-                                    </StackPanel>
-
-                                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="20,0">
+                                            <TextBlock Foreground="Black" FontSize="20" >
+                                            
+                                                    <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
+                                                    <Run Text=" " />
+                                                    <Run Text="{Binding UnClient.Prenom}"  />
+                                                
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="   15"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
+                                            <TextBlock  FontSize="11" Foreground="Gray">
+                                                <Run Text="Date de retrait : "  FontSize="   15"/>
+                                                <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column=" 4" VerticalAlignment="Center" >
+                                            <TextBlock  FontSize="11" Foreground="Gray">
+                                                <Run Text="Nombre de personnes : "  FontSize="   15"/>
+                                                <Run Text="{Binding NbPersonne}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                            </TextBlock>
+                                        </StackPanel>
+                                    
+                                       
+                                    <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
                                         <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
                                         <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
                                             <TextBlock Text="Test" Foreground="#FF8800" FontWeight="SemiBold"/>

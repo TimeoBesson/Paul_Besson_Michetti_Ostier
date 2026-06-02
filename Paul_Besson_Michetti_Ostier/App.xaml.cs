@@ -9,6 +9,8 @@ namespace Paul_Besson_Michetti_Ostier
     /// </summary>
     public partial class App : Application
     {
+        
     }
+
 
 }
