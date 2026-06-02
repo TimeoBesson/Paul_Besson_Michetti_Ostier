@@ -31,6 +31,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public Commande(int idCommande, CategorieEvenement categorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
+            //This is Elon Musk
             this.IdCommande = idCommande;
             this.CategorieEvenement = categorieEvenement;
             this.UnClient = unClient;
@@ -42,7 +43,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Total = total;
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
-            
         }
 
         public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
