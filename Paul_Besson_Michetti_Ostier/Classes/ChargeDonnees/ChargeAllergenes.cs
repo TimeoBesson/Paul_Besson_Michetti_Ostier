@@ -16,7 +16,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
         {
             try
             {
-                this.LesRecettesAllergenes = new ObservableCollection<RecetteAllergene>(new RecetteAllergene().FindAll());
+                this.LesAllergenes = new ObservableCollection<Allergene>(new Allergene().FindAll());
+
+                //ChargeRecettesAllergenes chargeRecettesAllergenes = new ChargeRecettesAllergenes();
+                //foreach (Allergene p in this.LesAllergenes)
+                //{
+                //    p.IdAllergene = chargeRecettesAllergenes..FirstOrDefault(r => r.IdAllergene == p.IdAllergene);
+                //}
             }
             catch (Exception ex)
             {

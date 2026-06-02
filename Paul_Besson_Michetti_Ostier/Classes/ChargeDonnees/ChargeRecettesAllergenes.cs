@@ -10,6 +10,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
     internal class ChargeRecettesAllergenes
     {
         private ObservableCollection<RecetteAllergene> lesRecettesAllergenes;
+        private ObservableCollection<Recette> lesRecettes;
         private ObservableCollection<Allergene> lesAllergenes;
 
         public ChargeRecettesAllergenes()
@@ -17,6 +18,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesRecettesAllergenes = new ObservableCollection<RecetteAllergene>(new RecetteAllergene().FindAll());
+
+                //ChargeRecettes chargeRecettes = new ChargeRecettes();
+                //foreach (Allergene p in this.LesAllergenes)
+                //{
+                //    p. = chargeRecettes.Les.FirstOrDefault(r => r.IdRecette == p.IdRecette);
+                //}
             }
             catch (Exception ex)
             {
