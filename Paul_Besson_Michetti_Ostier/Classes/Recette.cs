@@ -8,10 +8,6 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public enum Allergene
-    {
-        
-    }
     public enum CategorieRecette
     {
 
@@ -25,12 +21,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int idCategorieRecette;
         private CategorieRecette categorieRecette;
 
-        public Recette(int idRecette, string nomRecette, string descriptionRecette,  CategorieRecette categorieRecette)
+        public Recette(int idRecette, string nomRecette, string descriptionRecette, CategorieRecette categorieRecette)
         {
             this.IdRecette = idRecette;
             this.NomRecette = nomRecette;
             this.DescriptionRecette = descriptionRecette;
-            
             this.CategorieRecette = categorieRecette;
         }
 
@@ -44,9 +39,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public Recette()
         {
-            this.nomRecette = "";
-            this.descriptionRecette = "";
         }
+
         public int IdRecette
         {
             get
