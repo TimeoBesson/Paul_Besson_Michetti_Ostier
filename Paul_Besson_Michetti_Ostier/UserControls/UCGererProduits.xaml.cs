@@ -23,6 +23,31 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCGererProduits()
         {
             InitializeComponent();
+            this.DataContext = new Classes.ChargeDonnees.ChargeProduits();
+        }
+
+        private void tbNbParts_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBox nbParts = (TextBox)sender;
+            string text = "Nombre de parts : ";
+
+            if (nbParts.Text == text + "10")
+            {
+                nbParts.Text = "Lots de 10 unités";
+            }
+            else if (nbParts.Text == text + "50")
+            {
+                nbParts.Text = "Lots de 50 unités";
+            }
+            else if (nbParts.Text == text + "1")
+            {
+                nbParts.Text = "L'unité";
+            }
+        }
+
+        private void buAjout_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
