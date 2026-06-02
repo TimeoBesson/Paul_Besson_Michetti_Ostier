@@ -53,5 +53,11 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 gridAjouterALaCommande.IsEnabled = false;
             }
         }
+
+        public event EventHandler ButAjouterALaCommande;
+        private void butAjouterALaCommande_Click(object sender, RoutedEventArgs e)
+        {
+            ButAjouterALaCommande?.Invoke(this,EventArgs.Empty);
+        }
     }
 }
