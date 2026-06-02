@@ -16,9 +16,11 @@
     <None Remove="Images\Icone_croissant.png" />
     <None Remove="Images\Icone_face.png" />
     <None Remove="Images\Icone_nouveau_client.png" />
+    <None Remove="Images\Icone_panier.png" />
     <None Remove="Images\Icone_rechercher.png" />
     <None Remove="Images\Icone_remettre_commande.png" />
     <None Remove="Images\Icone_sortie.png" />
+    <None Remove="Images\Icone_supprimer_panier.png" />
     <None Remove="Images\Image_fraisier.png" />
     <None Remove="Images\Logo_Paul.png" />
   </ItemGroup>
@@ -61,6 +63,9 @@
     <Resource Include="Images\Icone_consulter_les_produits_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icone_panier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icone_rechercher_client.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -83,6 +88,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_sortie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_supprimer_panier.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Image_fraisier.png">
