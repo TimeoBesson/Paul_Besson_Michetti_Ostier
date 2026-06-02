@@ -1,4 +1,5 @@
-﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+﻿using Paul_Besson_Michetti_Ostier.Classes;
+using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCGererCommandes()
         {
             InitializeComponent();
+            ChargeClients client = new ChargeClients();
             this.DataContext = new ChargeCommandes();
         }
     }

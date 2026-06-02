@@ -42,6 +42,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Total = total;
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
+            
         }
 
         public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
@@ -57,6 +58,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Total = total;
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
+            this.UnClient = new Client();
+            this.UnClient.IdClient = idClient;
+            this.UnClient.Read();
         }
 
         public Commande()
