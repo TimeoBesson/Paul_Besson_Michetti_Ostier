@@ -46,37 +46,72 @@
         <Grid Grid.Column="1" Background="White">
             <Label Content="Commandes du jour" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Commandes à donner aujourd'hui" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel Margin="20,130,20,0">
-                <Rectangle Fill="#FBF9F4" RadiusX="10" RadiusY="10" Stroke="#FFEFEEEA" Height="83"/>
-                <StackPanel Orientation="Horizontal" Height="83" Margin="0,-83,0,0">
-                    <Image Source="/Images/Image_fraisier.png" Height="50" Width="50" Margin="15,15,15,15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <StackPanel Height="49">
-                        <Label Content="Paul Dupont" FontSize="14" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#1B1C19" Height="32"/>
-                        <Label Content="06 45 85 96 54" FontSize="9" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#504443" Opacity="0.7"/>
-                    </StackPanel>
-                    <Grid VerticalAlignment="Center">
-                        <Label Content="Voir les informations" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial"/>
-                        <Rectangle Width="107" Height="0.4" Fill="Black" Margin="0,11,0,0"/>
-                        <Button x:Name="butVoirInfos" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="3,0,3,0" Height="20"/>
-                    </Grid>
-                    <Grid Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Label Content="Statut" Margin="-15,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <Rectangle Fill="#FFDDB0" RadiusX="10" RadiusY="10" Width="60" Height="20" />
-                        <Rectangle Fill="#785000" RadiusX="10" RadiusY="10" Width="5" Height="5" Margin="-40,0,0,0"/>
-                        <Label Content="Prête" FontFamily="Miriam Libre" Foreground="#785000" Margin="12,0,0,0"/>
-                    </Grid>
-                    <Grid Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Label Content="Reste à régler" Margin="0,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <Label Content="149,25 €" FontFamily="Miriam Libre" Foreground="Black" Margin="0,0,0,0" FontSize="15"/>
-                    </Grid>
-                    <Grid Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Rectangle Fill="#4A2C2A" Stroke="#FF382120"  Width="130" Height="30" RadiusX="3" RadiusY="3"/>
-                        <Label Content="REMETTRE LA COMMANDE" HorizontalContentAlignment="Right" Height="30" Width="150" VerticalContentAlignment="Center" Foreground="#BD928F" FontWeight="SemiBold" FontSize="8" Margin="-25,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Image Source="/Images/Icone_remettre_commande.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="10" Margin="9,1,0,0" />
-                        <Button x:Name="butRemettreCommande" Opacity="0" Background="Transparent" BorderBrush="Transparent" Height="30" Width="130"/>
-                    </Grid>
-                </StackPanel>
-            </StackPanel>
+            
+            <DataGrid x:Name="dgCommandes" ItemsSource="{Binding LesCommandesDuJour}" AutoGenerateColumns="False" Margin="50,137,50,20" BorderBrush="White" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate >
+
+                            <DataTemplate>
+                                <Border Background="White" CornerRadius="8" Margin="0,5,0,5" Padding="15">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="10" Color="#FF040000" Opacity="0.1" ShadowDepth="1"/>
+                                    </Border.Effect>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto"/>
+
+                                        </Grid.ColumnDefinitions>
+
+
+
+                                        <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
+                                            <TextBlock Foreground="Black" FontSize="20" >
+                                
+                                        <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
+                                        <Run Text=" " />
+                                        <Run Text="{Binding UnClient.Prenom}"  />
+
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="   15"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
+                                            <TextBlock  FontSize="11" Foreground="Gray">
+                                    <Run Text="Date de retrait : "  FontSize="   15"/>
+                                    <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column=" 4" VerticalAlignment="Center" >
+                                            <TextBlock  FontSize="11" Foreground="Gray">
+                                    <Run Text="Nombre de personnes : "  FontSize="   15"/>
+                                    <Run Text="{Binding NbPersonne}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                            </TextBlock>
+                                        </StackPanel>
+
+
+                                        <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
+                                            <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
+                                            <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
+                                                <TextBlock Text="Test" Foreground="#FF8800" FontWeight="SemiBold"/>
+                                            </Border>
+                                        </StackPanel>
+
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

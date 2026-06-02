@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -236,7 +237,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.idCategorieEvenement = value;
             }
         }
-
         
 
         public void ValiderCommande()
@@ -309,8 +309,33 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
+        public List<Commande> FindAll(bool jour)
+        {
+            string ajoutPourJour = jour ? "where date_retrait = current_date" : "";
+            
+            List<Commande> lesCommandes = new List<Commande>();
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande "+ ajoutPourJour + ";"))
+            {
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+                foreach (DataRow dr in dt.Rows)
+                    lesCommandes.Add(new Commande((int)dr["commande_id"],
+                                                  (int)dr["categorie_evenement_id"],
+                                                  (int)dr["client_id"],
+                                                  (DateOnly)dr["date_creation"],
+                                                  (DateOnly)dr["date_retrait"],
+                                                  (decimal)dr["acompte"],
+                                                  (bool)dr["est_prete"],
+                                                  (bool)dr["est_recuperee"],
+                                                  (decimal)dr["total"],
+                                                  (DateOnly)dr["date_evenement"],
+                                                  (int)dr["nb_personne"]));
+            }
+            return lesCommandes;
+        }
         public List<Commande> FindAll()
         {
+            
+
             List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande ;"))
             {
