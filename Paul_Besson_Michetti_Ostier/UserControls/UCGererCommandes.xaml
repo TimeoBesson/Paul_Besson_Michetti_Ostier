@@ -41,33 +41,16 @@
             <Label Content="Gérer les commandes" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Commandes actuelles" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Cliquer sur une commande pour la modifier" Foreground="Black" Opacity="0.5" FontFamily="Miriam Libre" FontSize="8" Margin="200,98,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel Margin="20,130,20,0">
-                <Rectangle Fill="#FBF9F4" RadiusX="10" RadiusY="10" Stroke="#FFEFEEEA" Height="83"/>
-                <StackPanel Orientation="Horizontal" Height="83" Margin="0,-83,0,0">
-                    <Image Source="/Images/Image_fraisier.png" Height="50" Width="50" Margin="15,15,15,15" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <StackPanel Margin="-10,12,0,15">
-                        <Label Content="{Binding ToutesLesCommandes.IdClient, StringFormat={}N°{0:N0}}" FontSize="9" FontFamily="Miriam Libre" Foreground="#504443"/>
-                        <Label Content="Paul Dupont" FontSize="14" FontWeight="Bold" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#1B1C19"/>
-                        <Label Content="#000001" FontSize="9" FontFamily="Miriam Libre" Margin="0,-8,0,0" Foreground="#504443" Opacity="0.7"/>
-                    </StackPanel>
-                    <Grid Margin="20,0,0,0" VerticalAlignment="Center">
-                        <Label Content="Voir les informations" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial"/>
-                        <Rectangle Width="107" Height="0.4" Fill="Black" Margin="0,11,0,0"/>
-                        <Button x:Name="butVoirInfos" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="3,0,3,0" Height="20"/>
-                    </Grid>
-                    <Grid Margin="25,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Label Content="Statut" Margin="-15,-17,0,0" FontFamily="Miriam Libre" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <Rectangle Fill="#FFDDB0" RadiusX="10" RadiusY="10" Width="60" Height="20" />
-                        <Rectangle Fill="#785000" RadiusX="10" RadiusY="10" Width="5" Height="5" Margin="-40,0,0,0"/>
-                        <Label Content="Prête" FontFamily="Miriam Libre" Foreground="#785000" Margin="12,0,0,0"/>
-                    </Grid>
-                    <Grid Margin="50,0,0,0" VerticalAlignment="Center">
-                        <Rectangle Fill="White" Stroke="Black" Width="150" Height="30" RadiusX="3" RadiusY="3"/>
-                        <Label Content="À VALIDER" Height="30" Width="150" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#36B015" FontWeight="SemiBold"/>
-                        <Button x:Name="butAValider" Opacity="0" Background="Transparent" BorderBrush="Transparent" Height="30" Width="150"/>
-                    </Grid>
-                </StackPanel>
-            </StackPanel>
+
+            <DataGrid x:Name="dgCommandes" ItemsSource="{Binding LesCommandes}" AutoGenerateColumns="False" HorizontalAlignment="Right" Margin="100,0,0,0" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Accompte, Mode=OneWay}" Width="*" />
+                    <DataGridTextColumn Header="Maitre" Binding="{Binding NbPersonne,  Mode=OneWay}" Width="*"/>
+                    <DataGridTextColumn Header="Poids (kg)" Binding="{Binding total, ValidatesOnExceptions=true}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
         </Grid>
     </Grid>
 </UserControl>
