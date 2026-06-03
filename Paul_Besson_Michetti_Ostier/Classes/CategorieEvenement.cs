@@ -64,7 +64,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             using (var cmdSelect = new NpgsqlCommand("select * from categorie_evenement where categorie_evenement_id = @idcategorie;"))
             {
-                cmdSelect.Parameters.AddWithValue("categorie_evenement_id", this.IdCategorie);
+                cmdSelect.Parameters.AddWithValue("idCategorie", this.IdCategorie);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 this.IdCategorie = (int)dt.Rows[0]["categorie_evenement_id"];
