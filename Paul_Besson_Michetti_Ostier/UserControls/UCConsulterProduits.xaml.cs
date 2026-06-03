@@ -13,10 +13,16 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
     /// </summary>
     public partial class UCConsulterProduits : UserControl
     {
+        public static readonly List<Grid> lePanier = new List<Grid>();
+
         public UCConsulterProduits()
         {
             InitializeComponent();
             this.DataContext = new ChargeProduits();
+            unProduit.Visibility = Visibility.Collapsed;
+            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
+            fondEnregistrerCommande.Opacity = 0.3;
+            butEnregistrerCommande.IsEnabled = false;
         }
 
         private void tbNbParts_Loaded(object sender, RoutedEventArgs e)
@@ -58,36 +64,126 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         private void butAjouterALaCommande_Click(object sender, RoutedEventArgs e)
         {
             Button boutonClique = (Button)sender;
-
             if (boutonClique.DataContext is Produit produitSelectionne)
             {
                 string nom = produitSelectionne.UneRecette.NomRecette;
                 decimal prix = produitSelectionne.Prix;
                 int nbParts = produitSelectionne.NbParts;
-                AjouterAuPanier(nom, prix, nbParts);
+                string categorie = produitSelectionne.UneRecette.UneCategorieRecette?.NomCategorie;
+                fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+                fondEnregistrerCommande.Opacity = 1;
+                butEnregistrerCommande.IsEnabled = true;
+                AjouterAuPanier(nom, prix, nbParts, categorie);
             }
         }
 
-        private void AjouterAuPanier(string nom, decimal prix, int nbParts)
+        private void AjouterAuPanier(string nom, decimal prix, int nbParts, string categorie)
         {
-            List<Grid> lePanier = new List<Grid> {};
-            string nomProduitPanier = nom + nbParts;
-            Grid truc = unProduit;
-            
-            foreach (Grid unProduit in lePanier)
+            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondEnregistrerCommande.Opacity = 1;
+            butEnregistrerCommande.IsEnabled = true;
+            string nomProduitPanier = nom.Replace(" ", "_").Replace("-", "_") + nbParts;
+
+            Grid produitExistant = lePanier.FirstOrDefault(g => g.Name == nomProduitPanier);
+
+            if (produitExistant != null)
             {
-                if (unProduit.Name == nomProduitPanier)
+                TextBox tbQte = produitExistant.FindName("tbQuantite") as TextBox;
+                TextBlock tbPrix = produitExistant.FindName("tbPrixTotalProduit") as TextBlock;
+
+                if (tbQte != null && int.TryParse(tbQte.Text, out int qteActuelle))
                 {
-                    tbQuantite.Text += 1;
-                }
-                else
-                {
-                    truc.Name = nomProduitPanier;
+                    int nouvelleQte = qteActuelle + 1;
+                    tbQte.Text = nouvelleQte.ToString();
+                    if (tbPrix != null)
+                        tbPrix.Text = (prix * nouvelleQte).ToString("0.00") + " €";
                 }
             }
-            tbNomRecettePanier.Text = nom;
-            tbQuantite.Text = nbParts.ToString();
-            tbPrixTotalProduit.Text = (prix*decimal.Parse(tbQuantite.Text)).ToString("0.00") + " €";
+            else
+            {
+                Grid nouveauProduit = NouveauProduit();
+                nouveauProduit.Name = nomProduitPanier;
+                nouveauProduit.Visibility = Visibility.Visible;
+
+                (nouveauProduit.FindName("tbNomRecettePanier") as TextBlock).Text = nom;
+                (nouveauProduit.FindName("tbCategorieProduit") as TextBlock).Text = categorie;
+                (nouveauProduit.FindName("tbPrixTotalProduit") as TextBlock).Text = prix.ToString("0.00") + " €";
+                (nouveauProduit.FindName("tbQuantite") as TextBox).Text = "1";
+
+                Button butMoins = nouveauProduit.FindName("butMoins") as Button;
+                Button butPlus = nouveauProduit.FindName("butPlus") as Button;
+                Button butSupprimer = nouveauProduit.FindName("butSupprimerProduit") as Button;
+
+                butMoins.Click += (s, e) => ChangerQuantite(nouveauProduit, prix, -1);
+                butPlus.Click += (s, e) => ChangerQuantite(nouveauProduit, prix, +1);
+                butSupprimer.Click += (s, e) =>
+                {
+                    lePanier.Remove(nouveauProduit);
+                    stackPanier.Children.Remove(nouveauProduit);
+                };
+
+                lePanier.Add(nouveauProduit);
+                stackPanier.Children.Add(nouveauProduit);
+                MettreAJourPrixTotal();
+            }
+        }
+
+        private Grid NouveauProduit()
+        {
+            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondEnregistrerCommande.Opacity = 1;
+            butEnregistrerCommande.IsEnabled = true;
+            string xaml = System.Windows.Markup.XamlWriter.Save(unProduit);
+            System.IO.StringReader stringReader = new System.IO.StringReader(xaml);
+            System.Xml.XmlReader xmlReader = System.Xml.XmlReader.Create(stringReader);
+            return (Grid)System.Windows.Markup.XamlReader.Load(xmlReader);
+        }
+
+        private void ChangerQuantite(Grid produit, decimal prixUnitaire, int delta)
+        {
+            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondEnregistrerCommande.Opacity = 1;
+            butEnregistrerCommande.IsEnabled = true;
+            TextBox tbQte = produit.FindName("tbQuantite") as TextBox;
+            TextBlock tbPrix = produit.FindName("tbPrixTotalProduit") as TextBlock;
+
+            if (tbQte != null && int.TryParse(tbQte.Text, out int qte))
+            {
+                int nouvelleQte = qte + delta;
+                if (nouvelleQte < 1)
+                    return;
+
+                tbQte.Text = nouvelleQte.ToString();
+                if (tbPrix != null)
+                    tbPrix.Text = (prixUnitaire * nouvelleQte).ToString("0.00") + " €";
+                MettreAJourPrixTotal();
+            }
+        }
+
+        private void MettreAJourPrixTotal()
+        {
+            decimal total = 0;
+
+            foreach (Grid produit in lePanier)
+            {
+                TextBlock tbPrix = produit.FindName("tbPrixTotalProduit") as TextBlock;
+                if (tbPrix != null)
+                {
+                    string prixTexte = tbPrix.Text.Replace(" €", "");
+                    if (decimal.TryParse(prixTexte, out decimal prixProduit))
+                    {
+                        total += prixProduit;
+                    }
+                }
+            }
+            tbPrixTotal.Text = total.ToString("0.00") + " €";
+        }
+
+        private void butAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            lePanier.Clear();
+            stackPanier.Children.Clear();
+            MettreAJourPrixTotal();
         }
     }
 }

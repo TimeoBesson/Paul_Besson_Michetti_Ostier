@@ -348,10 +348,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
             return lesCommandes;
         }
+
         public List<Commande> FindAll()
         {
-            
-
             List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande ;"))
             {

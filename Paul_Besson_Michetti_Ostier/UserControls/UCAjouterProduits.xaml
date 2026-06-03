@@ -38,8 +38,8 @@
             </StackPanel>
         </StackPanel>
         <Grid Background="White" Grid.Column="1" Margin="0,10,10,0">
-            <Label Content="Ajouter un produit" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Ajouter un produit" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="25" Margin="20,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <Grid>
                 <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,26,74,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>

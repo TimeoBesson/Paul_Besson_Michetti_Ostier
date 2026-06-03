@@ -14,6 +14,7 @@
     <None Remove="Images\Icone_consulter_les_produits.png" />
     <None Remove="Images\Icone_creer_commande.png" />
     <None Remove="Images\Icone_croissant.png" />
+    <None Remove="Images\Icone_enregistrer_commande.png" />
     <None Remove="Images\Icone_face.png" />
     <None Remove="Images\Icone_nouveau_client.png" />
     <None Remove="Images\Icone_panier.png" />
@@ -41,6 +42,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_commande_du_jour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icone_enregistrer_commande.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icone_gerer_commandes.png">

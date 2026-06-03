@@ -17,7 +17,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesCategoriesEvenements = new ObservableCollection<CategorieEvenement>(new CategorieEvenement().FindAll());
-
             }
             catch (Exception ex)
             {

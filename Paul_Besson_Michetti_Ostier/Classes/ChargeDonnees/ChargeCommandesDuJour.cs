@@ -28,7 +28,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
             catch (Exception ex)
             {
-                throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
+                        throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
             }
         }
         public ObservableCollection<Commande> LesCommandesDuJour
