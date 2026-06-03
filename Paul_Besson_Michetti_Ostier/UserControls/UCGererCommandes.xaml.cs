@@ -26,6 +26,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         {
             InitializeComponent();
             ChargeClients client = new ChargeClients();
+
             this.DataContext = new ChargeCommandes();
         }
 

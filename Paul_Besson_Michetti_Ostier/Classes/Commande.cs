@@ -9,10 +9,7 @@ using Npgsql;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public enum CategorieEvenement
-    {
-        
-    }
+    
     public class Commande : ICrud<Commande>
     {
         
@@ -27,14 +24,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int nbPersonne;
         private Client unClient;
         private int idClient;
-        private CategorieEvenement categorieEvenement;
+        private CategorieEvenement uneCategorieEvenement;
+        
         private int idCategorieEvenement;
 
-        public Commande(int idCommande, CategorieEvenement categorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             //This is Elon Musk
             this.IdCommande = idCommande;
-            this.CategorieEvenement = categorieEvenement;
+            this.UneCategorieEvenement = uneCategorieEvenement;
             this.UnClient = unClient;
             this.DateCreation = dateCreation;
             this.DateRetrait = dateRetrait;
@@ -50,6 +48,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             this.IdCommande = idCommande;
             this.IdCategorieEvenement = idCategorieEvenement;
+            this.UneCategorieEvenement = new CategorieEvenement();
+            this.UneCategorieEvenement.IdCategorie = idCategorieEvenement;
+            this.UneCategorieEvenement.Read();
             this.IdClient = idClient;
             this.DateCreation = dateCreation;
             this.DateRetrait = dateRetrait;
@@ -186,16 +187,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         
 
-        public CategorieEvenement CategorieEvenement
+        public CategorieEvenement UneCategorieEvenement
         {
             get
             {
-                return this.categorieEvenement;
+                return this.uneCategorieEvenement;
             }
 
             set
             {
-                this.categorieEvenement = value;
+                this.uneCategorieEvenement = value;
             }
         }
 
@@ -277,7 +278,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 cmdSelect.Parameters.AddWithValue("idcommande", this.IdCommande);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
-                this.CategorieEvenement = (CategorieEvenement)dt.Rows[0]["categorie_evenement_id"];
+                this.IdCategorieEvenement = (int)dt.Rows[0]["categorie_evenement_id"];
                 this.UnClient.IdClient = (int)dt.Rows[0]["client_id"];
                 this.DateCreation = (DateOnly)dt.Rows[0]["date_creation"];
                 this.DateRetrait = (DateOnly)dt.Rows[0]["date_retrait"];
@@ -312,6 +313,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public List<Commande> FindAll(bool jour)
         {
             string ajoutPourJour = jour ? "where date_retrait = current_date" : "";
+            
             
             List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande "+ ajoutPourJour + ";"))

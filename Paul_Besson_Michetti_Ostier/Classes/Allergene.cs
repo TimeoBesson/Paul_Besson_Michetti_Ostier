@@ -76,7 +76,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update allergene set allergene_nom = @nom_allergene where allergene_id = @idallergene;"))
+            using (var cmdUpdate = new NpgsqlCommand("update allergene set allergene_nom = @nomallergene where allergene_id = @idallergene;"))
             {
                 cmdUpdate.Parameters.AddWithValue("idallergene", this.IdAllergene);
                 cmdUpdate.Parameters.AddWithValue("nomallergene", this.NomAllergene);
@@ -92,7 +92,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
                     lesAllergenes.Add(new Allergene((int)dr["allergene_id"],
-                                                (string)dr["nom_allergene"]));
+                                                (string)dr["allergene_nom"]));
             }
             return lesAllergenes;
         }

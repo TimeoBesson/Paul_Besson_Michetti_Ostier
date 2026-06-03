@@ -44,6 +44,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
+        public ObservableCollection<Recette> LesRecettes
+        {
+            get
+            {
+                return this.lesRecettes;
+            }
+
+            set
+            {
+                this.lesRecettes = value;
+            }
+        }
+
         internal ObservableCollection<Allergene> LesAllergenes
         {
             get
