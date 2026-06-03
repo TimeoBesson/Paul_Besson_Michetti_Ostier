@@ -18,14 +18,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int nbParts;
         private decimal prix;
         private Recette uneRecette;
+        private string nomProduit;
 
         public Produit(int idProduit, int idRecette, bool estIndisponible, int nbParts, decimal prix)
         {
             this.IdProduit = idProduit;
             this.IdRecette = idRecette;
-            this.UneRecette = new Recette();
-            this.UneRecette.IdRecette = idRecette;
-            this.UneRecette.Read();
+            
             this.EstIndisponible = estIndisponible;
             this.NbParts = nbParts;
             this.Prix = prix;
@@ -121,6 +120,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
+        public string NomProduit
+        {
+            get
+            {
+
+                return this.UneRecette.NomRecette;
+            }
+        }
+
         public void AjouterProduit()
         {
             
@@ -152,6 +160,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.EstIndisponible = (bool)dt.Rows[0]["est_indisponible"];
                 this.NbParts = (int)dt.Rows[0]["nb_parts"];
                 this.Prix = (decimal)dt.Rows[0]["prix"];
+                this.UneRecette = new Recette();
+                this.UneRecette.IdRecette = this.IdRecette;
+                this.UneRecette.Read();
             }
         }
 

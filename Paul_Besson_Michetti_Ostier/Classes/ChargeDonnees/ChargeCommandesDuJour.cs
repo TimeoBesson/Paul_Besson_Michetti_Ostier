@@ -19,6 +19,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesCommandesDuJour = new ObservableCollection<Commande>(new Commande().FindAll(true));
+
+                foreach (Commande cmd in this.LesCommandesDuJour)
+                {
+                    // On appelle la méthode SQL créée à l'étape 1
+                    cmd.LesLignes = new LigneCommande().TrouverParCommande(cmd.IdCommande);
+                }
             }
             catch (Exception ex)
             {

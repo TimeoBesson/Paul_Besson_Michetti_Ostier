@@ -24,8 +24,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private Client unClient;
         private int idClient;
         private CategorieEvenement uneCategorieEvenement;
-        
         private int idCategorieEvenement;
+        private List<LigneCommande> lesLignes;
 
         public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
@@ -41,6 +41,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.Total = total;
             this.DateEvenement = dateEvenement;
             this.NbPersonne = nbPersonne;
+            this.LesLignes = new List<LigneCommande>();
         }
 
         public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
@@ -62,6 +63,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.UnClient = new Client();
             this.UnClient.IdClient = idClient;
             this.UnClient.Read();
+            this.LesLignes = new List<LigneCommande>();
         }
 
         public Commande()
@@ -238,7 +240,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.idCategorieEvenement = value;
             }
         }
-        
+
+        public List<LigneCommande> LesLignes
+        {
+            get
+            {
+                return this.lesLignes;
+            }
+
+            set
+            {
+                this.lesLignes = value;
+            }
+        }
 
         public void ValiderCommande()
         {

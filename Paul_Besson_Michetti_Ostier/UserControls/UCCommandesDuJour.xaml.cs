@@ -25,14 +25,15 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         {
             InitializeComponent();
             ChargeClients client = new ChargeClients();
-            ChargeLignesCommandes lignesCommandes = new ChargeLignesCommandes();
-            ChargeProduits produits = new ChargeProduits();
             ChargeCategorieEvenement categorieEvenement = new ChargeCategorieEvenement();
             ChargeCategoriesRecettes categoriesRecettes = new ChargeCategoriesRecettes();
             ChargeAllergenes allergenes = new ChargeAllergenes();
             ChargeRecettes recettes = new ChargeRecettes();
             ChargeRecettesAllergenes recettesAllergenes = new ChargeRecettesAllergenes();
-            this.DataContext = new ChargeCommandesDuJour();
+            ChargeProduits produits = new ChargeProduits();
+            ChargeLignesCommandes lignesCommandes = new ChargeLignesCommandes();
+ 
+            this.DataContext = new ChargeCommandesDuJour(); 
         }
     }
 }

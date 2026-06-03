@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.IdProduit = idProduit;
             this.Quantite = quantite;
             this.EstDecoupe = estDecoupe;
+
+            this.UnProduit = new Produit();
+            this.UnProduit.IdProduit = idProduit;
+            this.UnProduit.Read();
+
+            //Ne SURTOUT PAS FAIRE PAREIL AVEC LA COMMANDE, sinon on se retrouve avec une boucle infinie
+           
         }
 
         public LigneCommande()
@@ -193,6 +201,30 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return obj is LigneCommande LigneCommande &&
                    this.IdCommande == LigneCommande.IdCommande &&
                    this.IdProduit == LigneCommande.IdProduit;
+        }
+        public List<LigneCommande> TrouverParCommande(int idCommande)
+        {
+            List<LigneCommande> lesLignes = new List<LigneCommande>();
+
+            
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("SELECT * FROM ligne_commande WHERE commande_id = @idCommande;"))
+            {
+                cmdSelect.Parameters.AddWithValue("idCommande", idCommande);
+
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+
+                foreach (System.Data.DataRow dr in dt.Rows)
+                {
+                    
+                    lesLignes.Add(new LigneCommande(
+                        (int)dr["commande_id"],
+                        (int)dr["produit_id"],
+                        (int)dr["quantite"],
+                        (bool)dr["est_decoupe"]
+                    ));
+                }
+            }
+            return lesLignes;
         }
     }
 }
