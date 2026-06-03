@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public enum CategorieRecette
-    {
-
-    }
+    
 
     public class Recette : ICrud<Recette>
     { 
@@ -19,14 +16,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private string nomRecette;
         private string descriptionRecette;
         private int idCategorieRecette;
-        private CategorieRecette categorieRecette;
+        private CategorieRecette uneCategorieRecette;
 
-        public Recette(int idRecette, string nomRecette, string descriptionRecette, CategorieRecette categorieRecette)
+        public Recette(int idRecette, string nomRecette, string descriptionRecette, CategorieRecette uneCategorieRecette)
         {
             this.IdRecette = idRecette;
             this.NomRecette = nomRecette;
             this.DescriptionRecette = descriptionRecette;
-            this.CategorieRecette = categorieRecette;
+            this.UneCategorieRecette = uneCategorieRecette;
         }
 
         public Recette(int idRecette, string nomRecette, string descriptionRecette, int idCategorieRecette)
@@ -82,16 +79,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         
 
-        public CategorieRecette CategorieRecette
+        public CategorieRecette UneCategorieRecette
         {
             get
             {
-                return this.categorieRecette;
+                return this.uneCategorieRecette;
             }
 
             set
             {
-                this.categorieRecette = value;
+                this.uneCategorieRecette = value;
             }
         }
 

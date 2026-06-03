@@ -7,31 +7,32 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
-    public class ChargeCommandesDuJour
+    public class ChargeCategoriesRecettes
     {
-        private ObservableCollection<Commande> lesCommandesDuJour;
-
-        public ChargeCommandesDuJour()
+        private ObservableCollection<CategorieRecette> categorieRecettes;
+        public ChargeCategoriesRecettes()
         {
             try
             {
-                this.LesCommandesDuJour = new ObservableCollection<Commande>(new Commande().FindAll(true));
+                this.CategorieRecettes = new ObservableCollection<CategorieRecette>(new CategorieRecette().FindAll());
+
+                
             }
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
             }
         }
-        public ObservableCollection<Commande> LesCommandesDuJour
+        public ObservableCollection<CategorieRecette> CategorieRecettes
         {
             get
             {
-                return this.lesCommandesDuJour;
+                return this.categorieRecettes;
             }
 
             set
             {
-                this.lesCommandesDuJour = value;
+                this.categorieRecettes = value;
             }
         }
     }

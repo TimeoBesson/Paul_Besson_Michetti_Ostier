@@ -27,6 +27,11 @@ namespace Paul_Besson_Michetti_Ostier
         public ChargeProduits TousLesProduits { get; set; }
         public ChargeLignesCommandes ToutesLesLignesCommandes { get; set; }
         public ChargeRecettes ToutesLesRecettes { get; set; }
+        public ChargeCategoriesRecettes ToutesLesCategoriesRecettes { get; set; }
+        public ChargeCategorieEvenement ToutesLesCategoriesEvenement { get; set; }
+        public ChargeRecettesAllergenes ToutesLesRecettesAllergenes { get; set; }
+        public ChargeAllergenes TousLesAllergenes { get; set; }
+
 
         public MainWindow()
         {

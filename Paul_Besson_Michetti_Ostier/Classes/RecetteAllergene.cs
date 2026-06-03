@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    internal class RecetteAllergene
+    public class RecetteAllergene
     {
         private Recette uneRecette;
         private int idRecette;

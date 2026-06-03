@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
-    internal class ChargeAllergenes
+    public class ChargeAllergenes
     {
         private ObservableCollection<Allergene> lesAllergenes;
         private ObservableCollection<RecetteAllergene> lesRecettesAllergenes;
@@ -43,7 +43,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        internal ObservableCollection<RecetteAllergene> LesRecettesAllergenes
+        public ObservableCollection<RecetteAllergene> LesRecettesAllergenes
         {
             get
             {

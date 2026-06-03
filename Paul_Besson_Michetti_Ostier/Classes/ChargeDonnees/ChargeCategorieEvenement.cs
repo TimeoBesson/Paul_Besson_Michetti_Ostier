@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,31 +8,33 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
-    public class ChargeCommandesDuJour
+    public class ChargeCategorieEvenement
     {
-        private ObservableCollection<Commande> lesCommandesDuJour;
+        private ObservableCollection<CategorieEvenement> lesCategoriesEvenements;
 
-        public ChargeCommandesDuJour()
+        public ChargeCategorieEvenement()
         {
             try
             {
-                this.LesCommandesDuJour = new ObservableCollection<Commande>(new Commande().FindAll(true));
+                this.LesCategoriesEvenements = new ObservableCollection<CategorieEvenement>(new CategorieEvenement().FindAll());
+
             }
             catch (Exception ex)
             {
                 throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
             }
         }
-        public ObservableCollection<Commande> LesCommandesDuJour
+
+        public ObservableCollection<CategorieEvenement> LesCategoriesEvenements
         {
             get
             {
-                return this.lesCommandesDuJour;
+                return this.lesCategoriesEvenements;
             }
 
             set
             {
-                this.lesCommandesDuJour = value;
+                this.lesCategoriesEvenements = value;
             }
         }
     }

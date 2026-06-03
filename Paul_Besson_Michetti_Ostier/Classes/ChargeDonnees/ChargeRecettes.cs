@@ -43,7 +43,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        internal ObservableCollection<RecetteAllergene> LesRecettesAllergenes
+        public ObservableCollection<RecetteAllergene> LesRecettesAllergenes
         {
             get
             {
