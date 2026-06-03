@@ -23,36 +23,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        
-
-        //public ObservableCollection<Recette> LesRecettes
-        //{
-        //    get
-        //    {
-        //        return this.LesRecettes;
-        //    }
-
-        //    set
-        //    {
-        //        this.LesRecettes = value;
-        //    }
-        //}
-
-        
-
-        //public ObservableCollection<Allergene> LesAllergenes
-        //{
-        //    get
-        //    {
-        //        return this.lesAllergenes;
-        //    }
-
-        //    set
-        //    {
-        //        this.lesAllergenes = value;
-        //    }
-        //}
-
         public ObservableCollection<RecetteAllergene> LesRecettesAllergenes
         {
             get

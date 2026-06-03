@@ -11,37 +11,40 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Background="#FFF0EEE9">
             <Image Source="/Images/Logo_Paul.png"/>
-            <Label Content="Vendeur" FontSize="12" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
+            <Label Content="Vendeur" FontSize="18" FontWeight="SemiBold" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
             <StackPanel Orientation="Vertical" Margin="4,60,4,0" VerticalAlignment="Center">
                 <Grid>
-                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_commande_du_jour.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Height="10" Width="10"/>
-                    <Label Content="Commandes du jour" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#504443" Margin="25,0,0,0"/>
+                    <Rectangle Height="40" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_commande_du_jour.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" Height="16" Width="15"/>
+                    <Label Content="Commandes du jour" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Foreground="#504443" Margin="35,0,0,2"/>
                     <Button x:Name="butCommandesDuJour" Content="_Commandes du jour" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid>
-                    <Rectangle Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_consulter_les_produits.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="10" Width="14" Margin="9,2,0,0"/>
-                    <Label Content="Consulter les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#FF504443" Margin="25,0,0,0"/>
+                    <Rectangle Height="40" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_consulter_les_produits.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Center" Height="12" Width="16" Margin="15,0,0,0"/>
+                    <Label Content="Consulter les produits" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Foreground="#FF504443" Margin="35,0,0,2"/>
                     <Button x:Name="butConsulterProduits" Content="_Consulter les produits" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
                 <Grid Margin="0,1,0,0">
-                    <Rectangle Fill="#321716" Height="25" RadiusX="4" RadiusY="4"/>
-                    <Image Height="10" Width="9" Source="/Images/Icone_rechercher_client_2.png" Stretch="Fill" Margin="12,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <Label Content="Rechercher un client" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Foreground="#BD928F" Margin="25,0,0,0"/>
+                    <Rectangle Fill="#321716" Height="40" RadiusX="4" RadiusY="4"/>
+                    <Image Height="16" Width="14" Source="/Images/Icone_rechercher_client_2.png" Stretch="Fill" Margin="16,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label Content="Rechercher un client" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Foreground="#BD928F" Margin="35,0,0,2"/>
                     <Button x:Name="butRechercherClient" Content="_Rechercher un client" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="4,70,4,0">
-                <Image Height="10" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="10" Margin="12,0,0,0"/>
-                <Label Content="Se déconnecter" FontSize="10" Foreground="#504443" Margin="4,-1,0,1"/>
-                <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
+            <StackPanel Orientation="Horizontal" Margin="4,310,4,0" Height="40">
+                <Image Height="14" Source="/Images/Icone_sortie.png" Stretch="Fill" Width="14" Margin="16,0,0,0" VerticalAlignment="Center"/>
+                <Label Content="Se déconnecter" FontSize="13" FontWeight="SemiBold" Foreground="#504443" Margin="3,0,0,1" VerticalAlignment="Center"/>
+                <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-134,0,-149,0"/>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Rechercher client" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Rechercher client" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid VerticalAlignment="Top" Margin="15,82,15,0">
                     <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>

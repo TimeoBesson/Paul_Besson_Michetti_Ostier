@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Paul_Besson_Michetti_Ostier.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="800" Height="450">
-    <Grid Background="#FFF0EEE9" >
+    <Grid Background="#FFF0EEE9">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1*"/>
@@ -37,13 +37,13 @@
             </Grid>
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,90,64,0">
                 <Label Content="Mot de passe" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Global User Interface" FontSize="10" FontWeight="Bold"/>
-                <Rectangle x:Name="fondMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" Stroke="Black" RadiusX="3" RadiusY="3" Opacity="0.1"/>
+                <Rectangle x:Name="fondMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" Stroke="Black" RadiusX="3" RadiusY="3" Opacity="0.1" Focusable="False"/>
                 <Image x:Name="imgMdp" Source="/Images/Icone_cadenas.png" Margin="10,28,0,0" Opacity="0.5" Height="11" Width="9" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Label x:Name="labelMdp" Content="••••••••" FontFamily="72"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,18,0,0" Opacity="0.3" Height="30" VerticalContentAlignment="Center"/>
                 <PasswordBox x:Name="pbMdp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="30" Margin="0,18,0,0" Padding="29,0,0,0" VerticalContentAlignment="Center" FontSize="12" MaxLength="20" BorderBrush="Transparent" Background="Transparent" GotFocus="pbMdp_GotFocus" LostFocus="pbMdp_LostFocus"/>
             </Grid>
             <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="64,20,64,0">
-                <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,200,0,0"/>
+                <Rectangle HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="180" RadiusX="5" RadiusY="5" Fill="#FF321716" Margin="0,200,0,0" Focusable="False"/>
                 <Label x:Name="labelConnexion" Content="SE CONNECTER" Foreground="White" FontWeight="SemiBold" FontFamily="72 Black" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" Margin="0,205,0,0"/>
                 <Button x:Name="butConnexion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="35" Margin="0,200,0,0" Opacity="0" BorderBrush="Transparent" Background="Transparent" IsDefault="True"/>
             </Grid>

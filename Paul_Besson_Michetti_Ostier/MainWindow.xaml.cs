@@ -131,6 +131,33 @@ namespace Paul_Besson_Michetti_Ostier
             consulterProduits.butCommandesDuJour.Click += AfficherCommandesDuJour;
             consulterProduits.butRechercherClient.Click += AfficherRechercherClient;
             consulterProduits.butDeconnecter.Click += RetourConnexion;
+            consulterProduits.butEnregistrerCommande.Click += AfficherCreerCommande;
+        }
+
+        public void AfficherCreerCommande(object sender, RoutedEventArgs e)
+        {
+            UCCreerCommande creerCommande = new UCCreerCommande();
+            Window.Content = creerCommande;
+
+            decimal total = 0;
+            foreach (Grid produit in UCConsulterProduits.lePanier)
+            {
+                TextBlock tbPrix = produit.FindName("tbPrixTotalProduit") as TextBlock;
+                if (tbPrix != null)
+                {
+                    string prixTexte = tbPrix.Text.Replace(" €", "");
+                    if (decimal.TryParse(prixTexte, out decimal prixProduit))
+                        total += prixProduit;
+                }
+            }
+
+            if (UCConsulterProduits.lePanier.Count == 0)
+            {
+                MessageBox.Show("Le panier est vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            creerCommande.butDeconnecter.Click += RetourConnexion;
         }
 
         public void AfficherRechercherClient(object sender, RoutedEventArgs e)

@@ -19,7 +19,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.NomCategorie = nomCategorie;
         }
         public CategorieEvenement()
-            { }
+        {
+        }
 
         public int IdCategorie
         {
@@ -95,7 +96,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return lesCategories;
         }
 
-        
+
 
         public int Delete()
         {
