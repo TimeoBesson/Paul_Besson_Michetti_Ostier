@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Classes\CategorieEvenement.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Images\Icone_ajouter_commande.png" />
     <None Remove="Images\Icone_cadenas.png" />
     <None Remove="Images\Icone_consulter_les_produits.png" />
