@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+
         <StackPanel Grid.Column="0" Background="#FFF0EEE9">
             <Image Source="/Images/Logo_Paul.png"/>
             <Label Content="Vendeur" FontSize="12" FontFamily="Work Sans" HorizontalAlignment="Center" Margin="0,8,0,0" Foreground="#504443"/>
@@ -43,75 +44,143 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
+
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Commandes du jour" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Content="Commandes à donner aujourd'hui" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            
-            <DataGrid x:Name="dgCommandes" ItemsSource="{Binding LesCommandesDuJour}" AutoGenerateColumns="False" Margin="50,137,50,20" BorderBrush="White" >
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.CellTemplate >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6.5*"/>
+                <ColumnDefinition Width="3.5*"/>
+            </Grid.ColumnDefinitions>
 
-                            <DataTemplate>
-                                <Border Background="White" CornerRadius="8" Margin="0,5,0,5" Padding="15">
-                                    <Border.Effect>
-                                        <DropShadowEffect BlurRadius="10" Color="#FF040000" Opacity="0.1" ShadowDepth="1"/>
-                                    </Border.Effect>
+            <Grid Grid.Column="0">
+                <Label Content="Commandes du jour" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Commandes à donner aujourd'hui" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto"/>
+                <DataGrid x:Name="dgCommandes" 
+                          ItemsSource="{Binding LesCommandesDuJour}" 
+                          SelectedItem="{Binding CommandeSelectionnee, Mode=TwoWay}"
+                          AutoGenerateColumns="False" 
+                          Margin="20,137,20,20" 
+                          BorderBrush="White"
+                          HeadersVisibility="None"
+                          GridLinesVisibility="None"
+                          Background="Transparent"
+                          RowBackground="Transparent">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Border Background="White" CornerRadius="8" Margin="0,5,0,5" Padding="15">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="10" Color="#FF040000" Opacity="0.1" ShadowDepth="1"/>
+                                        </Border.Effect>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
 
-                                        </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
+                                                <TextBlock Foreground="Black" FontSize="20" >
+                                                    <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
+                                                    <Run Text=" " />
+                                                    <Run Text="{Binding UnClient.Prenom}"  />
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="15"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
+                                                <TextBlock  FontSize="11" Foreground="Gray">
+                                                    <Run Text="Date de retrait : "  FontSize="15"/>
+                                                    <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="4" VerticalAlignment="Center" >
+                                                <TextBlock  FontSize="11" Foreground="Gray">
+                                                    <Run Text="Nombre de personnes : "  FontSize="15"/>
+                                                    <Run Text="{Binding NbPersonne}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
+                                                <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
+                                                <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
+                                                    <TextBlock Text="À donner" Foreground="#FF8800" FontWeight="SemiBold"/>
+                                                </Border>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
 
+            <Border Grid.Column="1" Background="#FFF9F8F6" BorderBrush="#EAE6DF" BorderThickness="1,0,0,0" Padding="20,30">
+                <Grid DataContext="{Binding CommandeSelectionnee}">
+                    <StackPanel>
+                        <TextBlock Text="DÉTAILS DE LA COMMANDE" Foreground="#321716" FontSize="16" FontWeight="Bold" Margin="0,0,0,20"/>
 
+                        <Border BorderBrush="#EAE6DF" BorderThickness="0,0,0,1" Padding="0,0,0,15" Margin="0,0,0,15">
+                            <StackPanel>
+                                <TextBlock Text="CLIENT" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,0,0,5"/>
+                                <TextBlock FontSize="16">
+                                    <Run Text="{Binding UnClient.Prenom}"/> 
+                                    <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
+                                </TextBlock>
+                                <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="#FF8800" Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Border>
 
-                                        <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                            <TextBlock Foreground="Black" FontSize="20" >
-                                
-                                        <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
-                                        <Run Text=" " />
-                                        <Run Text="{Binding UnClient.Prenom}"  />
+                        <StackPanel Margin="0,0,0,15">
+                            <TextBlock Text="INFORMATIONS" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,0,0,5"/>
+                            <Grid Margin="0,3">
+                                <TextBlock Text="Créée le :" Foreground="Gray"/>
+                                <TextBlock Text="{Binding DateCreation, StringFormat=dd/MM/yyyy}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                            <Grid Margin="0,3">
+                                <TextBlock Text="Événement :" Foreground="Gray"/>
+                                <TextBlock Text="{Binding UneCategorieEvenement.NomCategorie}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                            <Grid Margin="0,3">
+                                <TextBlock Text="Nb Personnes :" Foreground="Gray"/>
+                                <TextBlock Text="{Binding NbPersonne}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                        </StackPanel>
 
-                                            </TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center">
-                                            <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="   15"/>
-                                        </StackPanel>
-                                        <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
-                                            <TextBlock  FontSize="11" Foreground="Gray">
-                                    <Run Text="Date de retrait : "  FontSize="   15"/>
-                                    <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
-                                            </TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Grid.Column=" 4" VerticalAlignment="Center" >
-                                            <TextBlock  FontSize="11" Foreground="Gray">
-                                    <Run Text="Nombre de personnes : "  FontSize="   15"/>
-                                    <Run Text="{Binding NbPersonne}"  FontSize="   15" FontWeight="SemiBold" Foreground="#FF8800"  />
-                                            </TextBlock>
-                                        </StackPanel>
+                        <TextBlock Text="PRODUITS COMMANDÉS" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <Border Background="White" BorderBrush="#EAE6DF" BorderThickness="1" CornerRadius="6" Margin="0,0,0,15">
+                            <ListBox ItemsSource="{Binding LesLignesCommandes}" MaxHeight="250" BorderThickness="0" Background="Transparent" Padding="5">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,4" Width="280">
+                                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                                <TextBlock Text="{Binding UnProduit.NomProduit}" FontWeight="SemiBold" FontSize="13" Foreground="#321716"/>
+                                                <TextBlock Text="{Binding UnProduit.UneRecette.NomRecette}" FontSize="11" Foreground="Gray"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                <TextBlock Text="x" FontSize="12" Foreground="Gray" Margin="0,0,2,0"/>
+                                                <TextBlock Text="{Binding Quantite}" FontWeight="Bold" FontSize="14" Foreground="#FF8800"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Border>
 
-
-                                        <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
-                                            <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
-                                            <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
-                                                <TextBlock Text="Test" Foreground="#FF8800" FontWeight="SemiBold"/>
-                                            </Border>
-                                        </StackPanel>
-
-
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                        <Border Background="#FFEEDD" CornerRadius="6" Padding="15,10" Margin="0,10,0,0">
+                            <Grid>
+                                <TextBlock Text="TOTAL" VerticalAlignment="Center" FontWeight="Bold" Foreground="#321716"/>
+                                <TextBlock Text="{Binding Total, StringFormat='{}{0:N2} €'}" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold" Foreground="#FF8800"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>
