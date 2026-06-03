@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCAjouterProduits()
         {
             InitializeComponent();
+            this.DataContext = new ChargeAllergenes();
         }
     }
 }
