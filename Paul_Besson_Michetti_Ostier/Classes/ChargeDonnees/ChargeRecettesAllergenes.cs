@@ -10,20 +10,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
     public class ChargeRecettesAllergenes
     {
         private ObservableCollection<RecetteAllergene> lesRecettesAllergenes;
-        private ObservableCollection<Recette> lesRecettes;
-        private ObservableCollection<Allergene> lesAllergenes;
 
         public ChargeRecettesAllergenes()
         {
             try
             {
                 this.LesRecettesAllergenes = new ObservableCollection<RecetteAllergene>(new RecetteAllergene().FindAll());
-
-                //ChargeRecettes chargeRecettes = new ChargeRecettes();
-                //foreach (Allergene p in this.LesAllergenes)
-                //{
-                //    p. = chargeRecettes.Les.FirstOrDefault(r => r.IdRecette == p.IdRecette);
-                //}
             }
             catch (Exception ex)
             {

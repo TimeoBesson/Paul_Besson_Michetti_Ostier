@@ -12,7 +12,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     
     public class Commande : ICrud<Commande>
     {
-        
         private int idCommande;
         private DateOnly dateCreation;
         private DateOnly dateRetrait;
@@ -68,6 +67,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public Commande()
         {         
         }
+
         public int IdCommande
         {
             get

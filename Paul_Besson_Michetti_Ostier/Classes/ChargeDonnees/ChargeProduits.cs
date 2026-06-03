@@ -17,12 +17,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.LesProduits = new ObservableCollection<Produit>(new Produit().FindAll());
-
-                //ChargeRecettes chargeRecettes = new ChargeRecettes();
-                //foreach (Produit p in this.LesProduits)
-                //{
-                //    p.UneRecette = chargeRecettes.LesRecettes.FirstOrDefault(r => r.IdRecette == p.IdRecette);
-                //}
             }
             catch (Exception ex)
             {

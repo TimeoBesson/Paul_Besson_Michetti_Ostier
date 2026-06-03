@@ -36,6 +36,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public LigneCommande()
         {
         }
+
         public int Quantite
         {
             get
@@ -147,7 +148,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update ligne_commande set commande_id = @commande_id, produit_id = @produit_id, quantite = @quantite, est_decoupe = @est_decoupe;"))
+            using (var cmdUpdate = new NpgsqlCommand("update ligne_commande set quantite = @quantite, est_decoupe = @est_decoupe where commande_id = @commande_id and produit_id = @produit_id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("commande_id", this.IdCommande);
                 cmdUpdate.Parameters.AddWithValue("produit_id", this.IdProduit);
@@ -182,7 +183,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             using (var cmdUpdate = new NpgsqlCommand("delete from ligne_commande where commande_id = @commande_id and produit_id = @produit_id;"))
             {
                 cmdUpdate.Parameters.AddWithValue("commande_id", this.IdCommande);
-                cmdUpdate.Parameters.AddWithValue("produit_id", this.IdCommande);
+                cmdUpdate.Parameters.AddWithValue("produit_id", this.IdProduit);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }

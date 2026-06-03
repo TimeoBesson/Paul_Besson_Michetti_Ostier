@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Classes\CategorieEvenement.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\Icone_ajouter_commande.png" />
     <None Remove="Images\Icone_cadenas.png" />
     <None Remove="Images\Icone_consulter_les_produits.png" />
@@ -23,6 +27,7 @@
     <None Remove="Images\Icone_supprimer_panier.png" />
     <None Remove="Images\Image_fraisier.png" />
     <None Remove="Images\Logo_Paul.png" />
+    <None Remove="UserControls\UCConsulterProduits.xaml~RF9d80ad.TMP" />
   </ItemGroup>
 
   <ItemGroup>

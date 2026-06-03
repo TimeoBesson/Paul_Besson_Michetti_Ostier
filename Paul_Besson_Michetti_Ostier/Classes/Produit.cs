@@ -22,6 +22,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public Produit(int idProduit, int idRecette, bool estIndisponible, int nbParts, decimal prix)
         {
             this.IdProduit = idProduit;
+            this.IdRecette = idRecette;
             this.UneRecette = new Recette();
             this.UneRecette.IdRecette = idRecette;
             this.UneRecette.Read();
