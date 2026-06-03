@@ -1,104 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Paul_Besson_Michetti_Ostier.Classes.Client">
-    <Position X="6.5" Y="1.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Class Name="Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees.ChargeAllergenes">
+    <Position X="6.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAACAAIAAAACAAIAAEACAgBQAAIAE=</HashCode>
-      <FileName>Classes\Client.cs</FileName>
+      <HashCode>AAAAAgAAAACAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Classes\ChargeDonnees\ChargeAllergenes.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="commandes" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Paul_Besson_Michetti_Ostier.Classes.Commande">
-    <Position X="10.25" Y="2.75" Width="2" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Class Name="Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees.ChargeCategorieEvenement">
+    <Position X="4.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAgAAGiAAACYoAgAAiAAAEIRAABQEAIAEAADAAAIAA=</HashCode>
-      <FileName>Classes\Commande.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Classes\ChargeDonnees\ChargeCategorieEvenement.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="categorieEvenement" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="produits" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Paul_Besson_Michetti_Ostier.Classes.Contient">
-    <Position X="0.5" Y="1" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <AssociationLine Name="uneCommande" Type="Paul_Besson_Michetti_Ostier.Classes.Commande" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="1.39" Y="3.391" />
-        <Point X="1.39" Y="4.912" />
-        <Point X="10.25" Y="4.912" />
-      </Path>
-    </AssociationLine>
+  <Class Name="Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees.ChargeCategoriesRecettes">
+    <Position X="3" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAABAAAAAAAAAAAAAAAAgAAAAIBQAAAAU=</HashCode>
-      <FileName>Classes\Contient.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\ChargeDonnees\ChargeCategoriesRecettes.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="unProduit" />
-      <Field Name="uneCommande" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="Paul_Besson_Michetti_Ostier.Classes.Produit">
-    <Position X="3.5" Y="0.5" Width="2.25" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>BAAEAAQQAAAAAAAAKAAAACAAAAQAAAAEAQAAAAEABAA=</HashCode>
-      <FileName>Classes\Produit.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="recette" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Paul_Besson_Michetti_Ostier.Classes.Recette">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AQgAAIAIAAAAAEAAAQBAAAEAAAABAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>Classes\Recette.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="categorieRecette" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="allergenes" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Enum Name="Paul_Besson_Michetti_Ostier.Classes.CategorieEvenement">
-    <Position X="14" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Commande.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Paul_Besson_Michetti_Ostier.Classes.Allergene">
-    <Position X="14" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Recette.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Paul_Besson_Michetti_Ostier.Classes.CategorieRecette">
-    <Position X="14" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Recette.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

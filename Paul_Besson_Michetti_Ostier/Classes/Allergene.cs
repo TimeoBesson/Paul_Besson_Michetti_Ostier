@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    internal class Allergene : ICrud<Allergene>
+    public class Allergene : ICrud<Allergene>
     {
         private int idAllergene;
         private string nomAllergene;

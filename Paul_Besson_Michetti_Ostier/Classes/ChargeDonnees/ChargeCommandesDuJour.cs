@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
-    internal class ChargeCommandesDuJour
+    public class ChargeCommandesDuJour
     {
         private ObservableCollection<Commande> lesCommandesDuJour;
 
