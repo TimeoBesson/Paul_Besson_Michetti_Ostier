@@ -1,15 +1,17 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
-    public class LigneCommande : ICrud<LigneCommande>
+    public class LigneCommande : ICrud<LigneCommande>, INotifyPropertyChanged
     {
         private int quantite;
         private bool estDecoupe;
@@ -55,6 +57,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             set
             {
                 this.quantite = value;
+                OnPropertyChanged();
             }
         }
 
@@ -225,6 +228,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 }
             }
             return lesLignes;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

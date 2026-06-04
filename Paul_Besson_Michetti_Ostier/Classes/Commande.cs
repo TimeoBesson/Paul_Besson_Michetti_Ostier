@@ -27,6 +27,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int idCategorieEvenement;
         private List<LigneCommande> lesLignes;
 
+
         public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             //This is Elon Musk

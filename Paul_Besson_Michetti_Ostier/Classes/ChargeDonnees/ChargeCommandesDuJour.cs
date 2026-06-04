@@ -22,7 +22,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 
                 foreach (Commande cmd in this.LesCommandesDuJour)
                 {
-                    // On appelle la méthode SQL créée à l'étape 1
+                   
                     cmd.LesLignes = new LigneCommande().TrouverParCommande(cmd.IdCommande);
                 }
             }
