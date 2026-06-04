@@ -16,6 +16,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
         {
             try
             {
+              
+                this.LesRecettes = new ObservableCollection<Recette>(new Recette().FindAll());
+
+                foreach (Recette rec in this.LesRecettes)
+                {
+                    rec.Read();
+                }
+
                 this.LesRecettesAllergenes = new ObservableCollection<RecetteAllergene>(new RecetteAllergene().FindAll());
             }
             catch (Exception ex)

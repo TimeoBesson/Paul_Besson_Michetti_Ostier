@@ -18,7 +18,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int nbParts;
         private decimal prix;
         private Recette uneRecette;
-        private string nomProduit;
+     
 
         public Produit(int idProduit, int idRecette, bool estIndisponible, int nbParts, decimal prix)
         {

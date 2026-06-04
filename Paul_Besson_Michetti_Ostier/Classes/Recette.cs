@@ -17,6 +17,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private string descriptionRecette;
         private int idCategorieRecette;
         private CategorieRecette uneCategorieRecette;
+        private List<Allergene> lesAllergenes = new List<Allergene>();
 
         public Recette(int idRecette, string nomRecette, string descriptionRecette, CategorieRecette uneCategorieRecette)
         {
@@ -24,6 +25,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.NomRecette = nomRecette;
             this.DescriptionRecette = descriptionRecette;
             this.UneCategorieRecette = uneCategorieRecette;
+            
         }
 
         public Recette(int idRecette, string nomRecette, string descriptionRecette, int idCategorieRecette)
@@ -31,7 +33,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.IdRecette = idRecette;
             this.NomRecette = nomRecette;
             this.DescriptionRecette = descriptionRecette;
-            this.idCategorieRecette = idCategorieRecette;
+            this.IdCategorieRecette = idCategorieRecette;
+           
         }
 
         public Recette()
@@ -105,14 +108,28 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
+        public List<Allergene> LesAllergenes
+        {
+            get
+            {
+                return this.lesAllergenes;
+            }
+
+            set
+            {
+                this.lesAllergenes = value;
+            }
+        }
+
         public int Create()
         {
             int nb = 0;
-            using (var cmdInsert = new NpgsqlCommand("insert into recette (categorie_id, recette_nom,recette_description) values (@idcategorierecette,@nomrecette,@descriptionrecette)"))
+            using (var cmdInsert = new NpgsqlCommand("insert into recette (recette_id,categorie_id, recette_nom,recette_description) values (@idrecette,@idcategorierecette,@nomrecette,@descriptionrecette)"))
             {
-                cmdInsert.Parameters.AddWithValue("categorie_id", this.IdCategorieRecette);
-                cmdInsert.Parameters.AddWithValue("recette_nom", this.NomRecette);
-                cmdInsert.Parameters.AddWithValue("recette_description", this.DescriptionRecette);
+                cmdInsert.Parameters.AddWithValue("idrecette", this.IdRecette);
+                cmdInsert.Parameters.AddWithValue("idcategorierecette", this.IdCategorieRecette);
+                cmdInsert.Parameters.AddWithValue("nomrecette", this.NomRecette);
+                cmdInsert.Parameters.AddWithValue("descriptionrecette", this.DescriptionRecette);
                 nb = DataAccess.ExecuteInsert(cmdInsert);
             }
             this.IdRecette = nb;
@@ -121,21 +138,31 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from recette where recette_id =@idrecette;"))
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("SELECT * FROM recette WHERE recette_id = @idrecette;"))
             {
                 cmdSelect.Parameters.AddWithValue("idrecette", this.IdRecette);
-
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
-                this.IdRecette = (int)dt.Rows[0]["recette_id"];
-                this.IdCategorieRecette = (int)dt.Rows[0]["categorie_id"];
-                this.NomRecette = (string)dt.Rows[0]["recette_nom"];
-                this.DescriptionRecette = (string)dt.Rows[0]["recette_description"];                
+
+                if (dt.Rows.Count > 0)
+                {
+                    this.NomRecette = (string)dt.Rows[0]["recette_nom"];
+                    this.DescriptionRecette = (string)dt.Rows[0]["recette_description"];
+                    this.IdCategorieRecette = (int)dt.Rows[0]["categorie_id"];
+
+                    
+                    this.UneCategorieRecette = new CategorieRecette();
+                    this.UneCategorieRecette.IdCategorie = this.IdCategorieRecette;
+                    this.UneCategorieRecette.Read(); 
+
+                    
+                    this.LesAllergenes = this.TrouverAllergenesParRecette(this.IdRecette);
+                }
             }
         }
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update recette set categorie_id = @idcategorierecette, recette_nom = @nomrecette,recette_description = @desciptionrecette where recette_id = @idrecette;"))
+            using (var cmdUpdate = new NpgsqlCommand("update recette set categorie_id = @idcategorierecette, recette_nom = @nomrecette,recette_description = @descriptionrecette where recette_id = @idrecette;"))
             {
                 cmdUpdate.Parameters.AddWithValue("idrecette", this.IdRecette);
                 cmdUpdate.Parameters.AddWithValue("nomrecette", this.NomRecette);
@@ -180,5 +207,30 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return obj is Recette Recette &&
                    this.IdRecette == Recette.IdRecette;
         }
+
+        public List<Allergene> TrouverAllergenesParRecette(int idRecette)
+        {
+            List<Allergene> liste = new List<Allergene>();
+
+
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("SELECT a.* FROM allergene a JOIN recette_allergene ra ON a.allergene_id = ra.allergene_id WHERE ra.recette_id = @idRecette;"))
+            {
+                cmdSelect.Parameters.AddWithValue("idRecette", idRecette);
+
+                DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                    Allergene all = new Allergene();
+                    all.IdAllergene = (int)dr["allergene_id"];
+                    all.NomAllergene = (string)dr["allergene_nom"];
+
+                    liste.Add(all);
+                }
+            }
+            return liste;
+        }
+
     }
 }

@@ -234,5 +234,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        
     }
 }

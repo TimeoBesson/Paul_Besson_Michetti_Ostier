@@ -116,5 +116,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return obj is Allergene Allergene &&
                    this.IdAllergene == Allergene.IdAllergene;
         }
+       
     }
 }
