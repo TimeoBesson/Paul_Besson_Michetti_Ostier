@@ -32,6 +32,8 @@ namespace Paul_Besson_Michetti_Ostier
         public ChargeRecettesAllergenes ToutesLesRecettesAllergenes { get; set; }
         public ChargeAllergenes TousLesAllergenes { get; set; }
 
+        public Produit ProduitenAjout = new Produit();
+
 
         public MainWindow()
         {

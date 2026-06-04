@@ -26,10 +26,54 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         {
             InitializeComponent();
             ChargeClients client = new ChargeClients();
+            ChargeCategorieEvenement categorieEvenement = new ChargeCategorieEvenement();
+            ChargeCategoriesRecettes categoriesRecettes = new ChargeCategoriesRecettes();
+            ChargeAllergenes allergenes = new ChargeAllergenes();
+            ChargeRecettes recettes = new ChargeRecettes();
+            ChargeRecettesAllergenes recettesAllergenes = new ChargeRecettesAllergenes();
+            ChargeProduits produits = new ChargeProduits();
+            ChargeLignesCommandes lignesCommandes = new ChargeLignesCommandes();
 
             this.DataContext = new ChargeCommandes();
         }
+        private void butPlus_Click(object sender, RoutedEventArgs e)
+        {
+            Button bouton = sender as Button;
+            LigneCommande ligne = (LigneCommande)bouton?.DataContext ;
 
-       
+            if (ligne != null)
+            {
+                ligne.Quantite++;
+                ligne.Update();
+
+                ChargeCommandes chargeur = (ChargeCommandes)this.DataContext ;
+                if (chargeur != null)
+                {
+                    chargeur.CommandeSelectionnee = chargeur.CommandeSelectionnee;
+                }
+            }
+        }
+
+        private void butMoins_Click(object sender, RoutedEventArgs e)
+        {
+            Button bouton = sender as Button;
+            LigneCommande ligne = (LigneCommande)bouton?.DataContext ;
+
+            if (ligne != null)
+            {              
+                if (ligne.Quantite > 1)
+                {
+                    ligne.Quantite--;
+                    ligne.Update();
+                   
+                    ChargeCommandes chargeur = (ChargeCommandes)this.DataContext ;
+                    if (chargeur != null)
+                    {
+                        chargeur.CommandeSelectionnee = chargeur.CommandeSelectionnee;
+                    }
+                }
+            }
+        }
+
     }
 }
