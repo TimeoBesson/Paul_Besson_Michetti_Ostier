@@ -20,6 +20,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCConsulterProduits()
         {
             InitializeComponent();
+            lePanier.Clear();
             this.DataContext = new ChargeProduits();
             unProduit.Visibility = Visibility.Collapsed;
             fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
@@ -99,6 +100,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                     tbQte.Text = nouvelleQte.ToString();
                     if (tbPrix != null)
                         tbPrix.Text = (prix * nouvelleQte).ToString("0.00") + " €";
+                    MettreAJourPrixTotal();
                 }
             }
             else
