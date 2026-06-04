@@ -43,7 +43,7 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-134,0,-149,0"/>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Column="1" Background="White" VerticalAlignment="Top">
+        <Grid Grid.Column="1" Background="White">
             <Label Content="Consulter les produits" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="25" Margin="20,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal" Margin="25,155,0,15" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -121,8 +121,8 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
-                <Grid x:Name="gridPanier" HorizontalAlignment="Right" Width="400" Grid.Column="1" Margin="0,165,0,15" Height="700">
-                    <Rectangle RadiusX="12" RadiusY="12" Margin="0,0,-12,0" Fill="#F5F3EE" Height="735"/>
+                <Grid x:Name="gridPanier" HorizontalAlignment="Right" Width="400" Grid.Column="1" Margin="0,165,0,15">
+                    <Rectangle RadiusX="12" RadiusY="12" Margin="0,0,-12,0" Fill="#F5F3EE"/>
                     <Image Source="/Images/Icone_panier.png" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="21" Margin="25,25,0,0"/>
                     <TextBlock Text="Panier en cours" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Miriam Libre" FontSize="20" FontWeight="Bold" Margin="55,23,0,0"/>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,250">
