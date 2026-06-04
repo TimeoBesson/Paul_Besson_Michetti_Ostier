@@ -19,12 +19,28 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
     /// <summary>
     /// Logique d'interaction pour UCAjouterProduits.xaml
     /// </summary>
+    /// 
+
+ 
     public partial class UCAjouterProduits : UserControl
-    {
+    {   
+        
+        public MainWindow main;
         public UCAjouterProduits()
         {
             InitializeComponent();
             this.DataContext = new ChargeAllergenes();
         }
+
+        private void butenregistrer_Click(object sender, RoutedEventArgs e)
+        {
+            // On récupère les valeurs des TextBox
+            main.ProduitenAjout.UneRecette.NomRecette = ProduitNomText.Text ;
+            main.ProduitenAjout.UneRecette.DescriptionRecette = recetteText.Text ;
+        }
+
+
     }
+
+
 }
