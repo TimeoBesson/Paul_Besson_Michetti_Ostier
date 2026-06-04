@@ -24,7 +24,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             this.IdProduit = idProduit;
             this.IdRecette = idRecette;
-            
+            this.UneRecette = new Recette();
+            this.UneRecette.IdRecette = idRecette;
+            this.UneRecette.Read();
             this.EstIndisponible = estIndisponible;
             this.NbParts = nbParts;
             this.Prix = prix;
@@ -182,15 +184,28 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public List<Produit> FindAll()
         {
             List<Produit> lesProduits = new List<Produit>();
-            using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from produit;"))
+            using (NpgsqlCommand cmdSelect = new NpgsqlCommand(@"select P.produit_id, P.est_indisponible, P.nb_parts, P.prix, R.recette_id, R.recette_nom, R.recette_description, C.categorie_id, C.categorie_nom from produit P join recette R on P.recette_id = R.recette_id join categorie C on R.categorie_id = C.categorie_id;"))
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
+                {
+                    CategorieRecette categorie = new CategorieRecette((int)dr["categorie_id"],
+                                                                      (string)dr["categorie_nom"]
+                    );
+
+                    Recette recette = new Recette((int)dr["recette_id"],
+                                                  (string)dr["recette_nom"],
+                                                  (string)dr["recette_description"],
+                                                  categorie
+                    );
+
                     lesProduits.Add(new Produit((int)dr["produit_id"],
-                                                (int)dr["recette_id"],
+                                                recette,
                                                 (bool)dr["est_indisponible"],
                                                 (int)dr["nb_parts"],
-                                                (decimal)dr["prix"]));
+                                                (decimal)dr["prix"]
+                    ));
+                }
             }
             return lesProduits;
         }

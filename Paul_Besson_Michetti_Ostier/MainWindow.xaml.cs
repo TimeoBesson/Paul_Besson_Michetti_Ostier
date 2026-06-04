@@ -112,7 +112,7 @@ namespace Paul_Besson_Michetti_Ostier
             Window.Content = gererProduits;
             gererProduits.butGererCommandes.Click += AfficherGererCommandes;
             gererProduits.butDeconnecter.Click += RetourConnexion;
-            gererProduits.butAjoutProduit.Click += AfficherAjouterProduit;
+            gererProduits.butAjouterProduit.Click += AfficherAjouterProduit;
         }
 
         public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
@@ -157,6 +157,9 @@ namespace Paul_Besson_Michetti_Ostier
                 return;
             }
 
+            creerCommande.butCommandesDuJour.Click += AfficherCommandesDuJour;
+            creerCommande.butConsulterProduits.Click += AfficherConsulterProduits;
+            creerCommande.butRechercherClient.Click += AfficherRechercherClient;
             creerCommande.butDeconnecter.Click += RetourConnexion;
         }
 

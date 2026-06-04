@@ -48,24 +48,24 @@
             <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="25" Margin="20,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal" Margin="25,155,0,15" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid>
-                    <Rectangle Fill="#321716" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Tous" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="10,0,10,0"/>
-                    <Button x:Name="butTous" Content="_Tous" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Rectangle x:Name="fondTous" Fill="#321716" RadiusX="8" RadiusY="8"/>
+                    <Label x:Name="labelTous" Content="Tous" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="15,2,15,2"/>
+                    <Button x:Name="butTous" Content="_Tous" Opacity="0" Background="Transparent" BorderBrush="Transparent" Click="butTous_Click"/>
                 </Grid>
                 <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Pains" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="10,0,10,0"/>
-                    <Button x:Name="butPains" Content="_Pains" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Rectangle x:Name="fondPains" Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
+                    <Label x:Name="labelPains" Content="Pains" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="Black" Margin="15,2,15,2"/>
+                    <Button x:Name="butPains" Content="_Pains" Opacity="0" Background="Transparent" BorderBrush="Transparent" Click="butPains_Click"/>
                 </Grid>
                 <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
-                    <Label Content="Viennoiseries" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="10,0,10,0"/>
-                    <Button x:Name="butViennoiseries" Content="_Viennoiseries" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Rectangle x:Name="fondViennoiseries" Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
+                    <Label x:Name="labelViennoiseries" Content="Viennoiseries" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="Black" Margin="15,2,15,2"/>
+                    <Button x:Name="butViennoiseries" Content="_Viennoiseries" Opacity="0" Background="Transparent" BorderBrush="Transparent" Click="butViennoiseries_Click"/>
                 </Grid>
                 <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8" Margin="0,0,0,0"/>
-                    <Label Content="Gâteaux" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="10,0,10,0"/>
-                    <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
+                    <Rectangle x:Name="fondGateaux" Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
+                    <Label x:Name="labelGateaux" Content="Gâteaux" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="Black" Margin="15,2,15,2"/>
+                    <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent" Click="butGateaux_Click"/>
                 </Grid>
             </StackPanel>
             <Grid>
@@ -73,8 +73,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="400"/>
                 </Grid.ColumnDefinitions>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="15,215,0,15">
-                    <ItemsControl ItemsSource="{Binding LesProduits}" Grid.Column="0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="15,225,0,15">
+                    <ItemsControl x:Name="icLesProduits" ItemsSource="{Binding LesProduits}" Grid.Column="0">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -121,8 +121,8 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
-                <Grid x:Name="gridPanier" HorizontalAlignment="Right" Width="400" Grid.Column="1" Margin="0,165,0,15">
-                    <Rectangle RadiusX="12" RadiusY="12" Margin="0,0,-12,0" Fill="#F5F3EE"/>
+                <Grid x:Name="gridPanier" HorizontalAlignment="Right" Width="400" Grid.Column="1" Margin="0,165,0,15" Height="700">
+                    <Rectangle RadiusX="12" RadiusY="12" Margin="0,0,-12,0" Fill="#F5F3EE" Height="735"/>
                     <Image Source="/Images/Icone_panier.png" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="21" Margin="25,25,0,0"/>
                     <TextBlock Text="Panier en cours" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Miriam Libre" FontSize="20" FontWeight="Bold" Margin="55,23,0,0"/>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,250">
@@ -151,10 +151,9 @@
                         <Rectangle Fill="#E8E0DC" VerticalAlignment="Top" Height="2" RadiusX="8" RadiusY="8"/>
                         <TextBlock Text="Total" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="20" Foreground="#321716" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,30,0,0"/>
                         <TextBlock x:Name="tbPrixTotal" Text="" FontSize="20" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,5,0"/>
-                        <Grid VerticalAlignment="Bottom" Margin="0,90,0,80">
+                        <Grid VerticalAlignment="Bottom" Margin="0,90,0,80" Width="160" HorizontalAlignment="Left">
                             <Rectangle x:Name="fondEnregistrerCommande" Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
-                            <TextBlock Text="Enregistrer la commande" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,20,19.4"/>
-                            <Image Source="/Images/Icone_enregistrer_commande.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,45,20" Height="21" Width="21"/>
+                            <TextBlock Text="Suivant" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>
                             <Button x:Name="butEnregistrerCommande" Opacity="0"/>
                         </Grid>
                         <Grid VerticalAlignment="Bottom" Width="160" HorizontalAlignment="Left">

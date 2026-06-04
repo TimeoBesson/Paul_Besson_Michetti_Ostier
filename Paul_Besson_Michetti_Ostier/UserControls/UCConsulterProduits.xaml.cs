@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Paul_Besson_Michetti_Ostier.Classes;
+using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
-using Paul_Besson_Michetti_Ostier.Classes;
-using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 
 namespace Paul_Besson_Michetti_Ostier.UserControls
 {
@@ -120,6 +122,14 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 {
                     lePanier.Remove(nouveauProduit);
                     stackPanier.Children.Remove(nouveauProduit);
+                    MettreAJourPrixTotal();
+                    if (lePanier.Count == 0)
+                    {
+                        fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
+                        fondEnregistrerCommande.Opacity = 0.3;
+                        butEnregistrerCommande.IsEnabled = false;
+                    }
+
                 };
 
                 lePanier.Add(nouveauProduit);
@@ -177,6 +187,70 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 }
             }
             tbPrixTotal.Text = total.ToString("0.00") + " €";
+        }
+
+        private void FiltrerProduits(string? categorie)
+        {
+            ChargeProduits data = (ChargeProduits)this.DataContext;
+
+            if (categorie == null)
+                data.LesProduits = new ObservableCollection<Produit>(data.TousLesProduits);
+            else
+                data.LesProduits = new ObservableCollection<Produit>(
+                    data.TousLesProduits.Where(p =>
+                        p.UneRecette.UneCategorieRecette?.NomCategorie == categorie));
+        }
+
+        private void butTous_Click(object sender, RoutedEventArgs e)
+        {
+            fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondPains.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondViennoiseries.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondGateaux.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            labelTous.Foreground = Brushes.White;
+            labelPains.Foreground = Brushes.Black;
+            labelViennoiseries.Foreground = Brushes.Black;
+            labelGateaux.Foreground = Brushes.Black;
+            FiltrerProduits(null);
+        }
+            
+        private void butPains_Click(object sender, RoutedEventArgs e)
+        {
+            fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondPains.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondViennoiseries.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondGateaux.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            labelTous.Foreground = Brushes.Black;
+            labelPains.Foreground = Brushes.White;
+            labelViennoiseries.Foreground = Brushes.Black;
+            labelGateaux.Foreground = Brushes.Black;
+            FiltrerProduits("Pains");
+        }
+            
+        private void butViennoiseries_Click(object sender, RoutedEventArgs e)
+        {
+            fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondPains.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondViennoiseries.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondGateaux.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            labelTous.Foreground = Brushes.Black;
+            labelPains.Foreground = Brushes.Black;
+            labelViennoiseries.Foreground = Brushes.White;
+            labelGateaux.Foreground = Brushes.Black;
+            FiltrerProduits("Viennoiseries");
+        }
+
+        private void butGateaux_Click(object sender, RoutedEventArgs e)
+        {
+            fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondPains.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondViennoiseries.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
+            fondGateaux.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            labelTous.Foreground = Brushes.Black;
+            labelPains.Foreground = Brushes.Black;
+            labelViennoiseries.Foreground = Brushes.Black;
+            labelGateaux.Foreground = Brushes.White;
+            FiltrerProduits("Gâteaux");
         }
 
         private void butAnnuler_Click(object sender, RoutedEventArgs e)

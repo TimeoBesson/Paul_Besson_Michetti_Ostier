@@ -15,8 +15,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             try
             {
                 this.CategorieRecettes = new ObservableCollection<CategorieRecette>(new CategorieRecette().FindAll());
-
-                
             }
             catch (Exception ex)
             {
