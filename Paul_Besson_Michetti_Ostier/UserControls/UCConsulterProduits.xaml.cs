@@ -23,9 +23,36 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             lePanier.Clear();
             this.DataContext = new ChargeProduits();
             unProduit.Visibility = Visibility.Collapsed;
-            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
-            fondEnregistrerCommande.Opacity = 0.3;
-            butEnregistrerCommande.IsEnabled = false;
+            ButSuivantIndisponible();
+            ButAnnulerIndisponible();
+        }
+
+        private void ButSuivantDisponible()
+        {
+            fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
+            fondSuivant.Opacity = 1;
+            butSuivant.IsEnabled = true;
+        }
+
+        private void ButSuivantIndisponible()
+        {
+            fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
+            fondSuivant.Opacity = 0.3;
+            butSuivant.IsEnabled = false;
+        }
+
+        private void ButAnnulerDisponible()
+        {
+            tbAnnuler.Opacity = 1;
+            fondAnnuler.Opacity = 1;
+            butAnnuler.IsEnabled = true;
+        }
+
+        private void ButAnnulerIndisponible()
+        {
+            tbAnnuler.Opacity = 0.3;
+            fondAnnuler.Opacity = 0.3;
+            butAnnuler.IsEnabled = false;
         }
 
         private void tbNbParts_Loaded(object sender, RoutedEventArgs e)
@@ -73,18 +100,16 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 decimal prix = produitSelectionne.Prix;
                 int nbParts = produitSelectionne.NbParts;
                 string categorie = produitSelectionne.UneRecette.UneCategorieRecette?.NomCategorie;
-                fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
-                fondEnregistrerCommande.Opacity = 1;
-                butEnregistrerCommande.IsEnabled = true;
+                ButSuivantDisponible();
+                ButAnnulerDisponible();
                 AjouterAuPanier(nom, prix, nbParts, categorie);
             }
         }
 
         private void AjouterAuPanier(string nom, decimal prix, int nbParts, string categorie)
         {
-            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
-            fondEnregistrerCommande.Opacity = 1;
-            butEnregistrerCommande.IsEnabled = true;
+            ButSuivantDisponible();
+            ButAnnulerDisponible();
             string nomProduitPanier = nom.Replace(" ", "_").Replace("-", "_") + nbParts;
 
             Grid produitExistant = lePanier.FirstOrDefault(g => g.Name == nomProduitPanier);
@@ -127,11 +152,17 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                     MettreAJourPrixTotal();
                     if (lePanier.Count == 0)
                     {
-                        fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
-                        fondEnregistrerCommande.Opacity = 0.3;
-                        butEnregistrerCommande.IsEnabled = false;
+                        ButSuivantIndisponible();
+                        ButAnnulerIndisponible();
                     }
-
+                };
+                butAnnuler.Click += (s, e) =>
+                {
+                    lePanier.Clear();
+                    stackPanier.Children.Clear();
+                    MettreAJourPrixTotal();
+                    ButSuivantIndisponible();
+                    ButAnnulerIndisponible();
                 };
 
                 lePanier.Add(nouveauProduit);
@@ -142,9 +173,8 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private Grid NouveauProduit()
         {
-            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
-            fondEnregistrerCommande.Opacity = 1;
-            butEnregistrerCommande.IsEnabled = true;
+            ButSuivantDisponible();
+            ButAnnulerDisponible();
             string xaml = System.Windows.Markup.XamlWriter.Save(unProduit);
             System.IO.StringReader stringReader = new System.IO.StringReader(xaml);
             System.Xml.XmlReader xmlReader = System.Xml.XmlReader.Create(stringReader);
@@ -153,9 +183,8 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void ChangerQuantite(Grid produit, decimal prixUnitaire, int delta)
         {
-            fondEnregistrerCommande.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
-            fondEnregistrerCommande.Opacity = 1;
-            butEnregistrerCommande.IsEnabled = true;
+            ButSuivantDisponible();
+            ButAnnulerDisponible(); ;
             TextBox tbQte = produit.FindName("tbQuantite") as TextBox;
             TextBlock tbPrix = produit.FindName("tbPrixTotalProduit") as TextBlock;
 

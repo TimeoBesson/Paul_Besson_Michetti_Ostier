@@ -152,14 +152,14 @@
                         <TextBlock Text="Total" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="20" Foreground="#321716" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,30,0,0"/>
                         <TextBlock x:Name="tbPrixTotal" Text="" FontSize="20" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,5,0"/>
                         <Grid VerticalAlignment="Bottom" Margin="0,90,0,80" Width="160" HorizontalAlignment="Left">
-                            <Rectangle x:Name="fondEnregistrerCommande" Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
+                            <Rectangle x:Name="fondSuivant" Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
                             <TextBlock Text="Suivant" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>
-                            <Button x:Name="butEnregistrerCommande" Opacity="0"/>
+                            <Button x:Name="butSuivant" Opacity="0"/>
                         </Grid>
                         <Grid VerticalAlignment="Bottom" Width="160" HorizontalAlignment="Left">
-                            <Rectangle Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
-                            <TextBlock Text="Annuler" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>
-                            <Button x:Name="butAnnulerCommande" Opacity="0"/>
+                            <Rectangle x:Name="fondAnnuler" Stroke="#D4C3C1" Fill="White" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
+                            <TextBlock x:Name="tbAnnuler" Text="Annuler" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>
+                            <Button x:Name="butAnnuler" Opacity="0"/>
                         </Grid>
                     </Grid>
                 </Grid>

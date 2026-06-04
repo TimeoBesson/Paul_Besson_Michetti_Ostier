@@ -44,69 +44,85 @@
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Rechercher client" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <Grid VerticalAlignment="Top" Margin="15,82,15,0">
-                    <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
-                    <Grid VerticalAlignment="Top">
-                        <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top" Margin="0,69,0,0"/>
-                        <Label Content="Liste des clients" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <Grid Margin="0,20,20,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="110" Height="30">
-                            <Rectangle Stroke="#7F5608" StrokeThickness="1.3" Height="30" RadiusX="4" RadiusY="4"/>
-                            <Image Source="/Images/Icone_nouveau_client.png" HorizontalAlignment="Left" Height="9" Width="12" VerticalAlignment="Center" Margin="15,0,0,0" />
-                            <Label Content="Nouveau client" Foreground="#321716" FontWeight="Bold" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                            <Button x:Name="butNouveauClient" Opacity="0"/>
-                        </Grid>
-                    </Grid>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,70,0,0">
-                        <Grid Margin="1,0,1,22" VerticalAlignment="Top">
-                            <Rectangle Fill="#F5F3EE" Height="83"/>
-                            <Grid>
-                                <Rectangle Fill="White" Stroke="#D4C3C1" Margin="20" RadiusX="4" RadiusY="4"/>
-                                <Image Source="/Images/Icone_rechercher.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16" Margin="35,0,0,0" Width="21"/>
-                                <Label x:Name="labelRecherche" Foreground="#6B7280" Content="Rechercher par nom, téléphone ..." VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="55,0,0,1" HorizontalAlignment="Left"/>
-                                <TextBox x:Name="tbRecherche" Background="Transparent" BorderBrush="Transparent" Margin="20" Padding="39,0,0,0" VerticalContentAlignment="Center"/>
-                            </Grid>
-                        </Grid>
-                        <Grid Height="80" Margin="0,-22,0,0">
-                            <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top"/>
-                            <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Bottom"/>
-                            <Grid Margin="20" HorizontalAlignment="Left">
-                                <Rectangle HorizontalAlignment="Left" Width="40" RadiusX="10" RadiusY="10" Fill="#FFDDB0"/>
-                                <Label Content="PD" FontWeight="Bold" FontFamily="Work Sans" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#281800"/>
-                            </Grid>
-                            <StackPanel Orientation="Horizontal" Margin="65,15,0,0">
-                                <Label Content="{Binding Prenom, Mode=OneWay}" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                <Label Content="{Binding Nom, Mode=OneWay}" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="65,35,0,0">
-                                <Label Content="{Binding Mail, Mode=OneWay}" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                <Label Content="•" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                <Label Content="{Binding Telephone, Mode=OneWay}" Foreground="#504443" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                        </Grid>
-                        <Grid Height="80" Margin="0,-1,0,0">
-                            <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top"/>
-                            <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Bottom"/>
-                            <Grid Margin="20" HorizontalAlignment="Left">
-                                <Rectangle HorizontalAlignment="Left" Width="40" RadiusX="10" RadiusY="10" Fill="#D4E4F6"/>
-                                <Label Content="NG" FontWeight="Bold" FontFamily="Work Sans" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#0D1D2A"/>
-                            </Grid>
-                            <Label Content="Nathalie Gruson" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" Margin="65,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <Label Content="nathalie.gruson@etu.univ-smb.fr • 06 87 09 21 00" Foreground="#504443" Margin="65,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                        </Grid>
-                        <Grid Height="80" Margin="0,-1,0,0">
-                            <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top"/>
-                            <Grid Margin="20" HorizontalAlignment="Left">
-                                <Rectangle HorizontalAlignment="Left" Width="40" RadiusX="10" RadiusY="10" Fill="#FFDAD7"/>
-                                <Label Content="BD" FontWeight="Bold" FontFamily="Work Sans" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#2E1413"/>
-                            </Grid>
-                            <Label Content="Benoit Diard" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" Margin="65,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <Label Content="benoit.diard@etu.univ-smb.fr • 06 76 34 97 12" Foreground="#504443" Margin="65,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </StackPanel>
+            <Label Content="Sélectionner un client" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Grid VerticalAlignment="Top" Margin="15,81,15,0">
+                <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top" Margin="0,69,0,0"/>
+                <Label Content="Liste des clients" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Grid VerticalAlignment="Center" Width="130" HorizontalAlignment="Right" Margin="0,0,320,0" Height="40">
+                    <Rectangle x:Name="fondSuivant" Fill="#321716" RadiusX="4" RadiusY="4"/>
+                    <TextBlock Text="Suivant" FontSize="15" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Button x:Name="butSuivant" Opacity="0"/>
                 </Grid>
-            </ScrollViewer>
+                <Grid VerticalAlignment="Center" Width="130" HorizontalAlignment="Right" Height="40" Margin="0,0,170,0">
+                    <Rectangle x:Name="fondAnnuler" Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
+                    <TextBlock x:Name="tbAnnuler" Text="Annuler" FontSize="15" FontWeight="Bold" FontFamily="Work Sans" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Button x:Name="butAnnuler" Opacity="0"/>
+                </Grid>
+                <Grid Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="40">
+                    <Rectangle Stroke="#7F5608" StrokeThickness="1.3" Height="40" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_nouveau_client.png" HorizontalAlignment="Left" Height="12" Width="17" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <Label Content="Nouveau client" Foreground="#321716" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="21,0,0,0"/>
+                    <Button x:Name="butNouveauClient" Opacity="0"/>
+                </Grid>
+            </Grid>
+            <Grid Margin="15,151,15,0" VerticalAlignment="Top">
+                <Rectangle Fill="#F5F3EE" Height="83"/>
+                <Grid>
+                    <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Bottom" Margin="0,69,0,0"/>
+                    <Rectangle Fill="White" Stroke="#D4C3C1" Margin="20" RadiusX="4" RadiusY="4"/>
+                    <Image Source="/Images/Icone_rechercher.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16" Margin="35,0,0,0" Width="21"/>
+                    <Label x:Name="labelRecherche" Foreground="#6B7280" Content="Rechercher par nom, téléphone ..." VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="55,0,0,1" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="tbRecherche" Background="Transparent" BorderBrush="Transparent" Margin="20" Padding="38,0,0,0" VerticalContentAlignment="Center" TextChanged="tbRecherche_TextChanged" LostFocus="tbRecherche_LostFocus" GotFocus="tbRecherche_GotFocus"/>
+                </Grid>
+            </Grid>
+            <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4" Margin="15,81,15,15"/>
+            <DataGrid x:Name="dgClients" Margin="16,234,16,16" AutoGenerateColumns="False" HeadersVisibility="None" BorderThickness="0" GridLinesVisibility="None" AlternatingRowBackground="White" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" IsReadOnly="True" SelectionMode="Single" RowHeight="80" SelectionChanged="dgClients_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Grid Width="80" Height="80">
+                                        <Rectangle HorizontalAlignment="Center" Width="40" Fill="{Binding Fond, Mode=OneWay}" RadiusX="10" RadiusY="10" Height="40" VerticalAlignment="Center"/>
+                                        <Label FontWeight="Bold" Content="{Binding InitialesClient, Mode=OneWay}" Foreground="{Binding CouleurInitiales, Mode=OneWay}" FontFamily="Work Sans" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <StackPanel VerticalAlignment="Center" Height="80" Margin="0,0,0,-40">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="{Binding Prenom, Mode=OneWay}" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" Padding="0"/>
+                                            <Label Content="{Binding Nom, Mode=OneWay}" FontFamily="Miriam Libre" FontSize="18" FontWeight="Bold" Padding="4,0,0,0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="{Binding Mail, Mode=OneWay}" Foreground="#504443" Padding="0" FontSize="12"/>
+                                            <Label Content="•" Foreground="#504443" Padding="4,0,4,0" FontSize="12"/>
+                                            <Label Content="{Binding NumeroTelephone, Mode=OneWay}" Foreground="#504443" Padding="0" FontSize="12"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="BorderBrush" Value="#D4C3C1"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFF0EEE9"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

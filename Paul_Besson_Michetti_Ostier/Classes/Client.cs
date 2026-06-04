@@ -10,14 +10,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public class Client : ICrud<Client>
     {
-        
         private int idClient;
         private string nom;
         private string prenom;
         private string numeroTelephone;
         private string mail;
-
-       
 
         public Client(int idClient, string nom, string prenom, string numeroTelephone, string mail)
         {

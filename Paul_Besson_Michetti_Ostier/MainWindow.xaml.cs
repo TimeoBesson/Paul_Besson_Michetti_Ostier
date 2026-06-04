@@ -133,36 +133,31 @@ namespace Paul_Besson_Michetti_Ostier
             consulterProduits.butCommandesDuJour.Click += AfficherCommandesDuJour;
             consulterProduits.butRechercherClient.Click += AfficherRechercherClient;
             consulterProduits.butDeconnecter.Click += RetourConnexion;
-            consulterProduits.butEnregistrerCommande.Click += AfficherCreerCommande;
+            consulterProduits.butSuivant.Click += AfficherCreerCommande;
         }
 
         public void AfficherCreerCommande(object sender, RoutedEventArgs e)
         {
             UCCreerCommande creerCommande = new UCCreerCommande();
             Window.Content = creerCommande;
-
-            decimal total = 0;
-            foreach (Grid produit in UCConsulterProduits.lePanier)
-            {
-                TextBlock tbPrix = produit.FindName("tbPrixTotalProduit") as TextBlock;
-                if (tbPrix != null)
-                {
-                    string prixTexte = tbPrix.Text.Replace(" €", "");
-                    if (decimal.TryParse(prixTexte, out decimal prixProduit))
-                        total += prixProduit;
-                }
-            }
-
-            if (UCConsulterProduits.lePanier.Count == 0)
-            {
-                MessageBox.Show("Le panier est vide.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             creerCommande.butCommandesDuJour.Click += AfficherCommandesDuJour;
             creerCommande.butConsulterProduits.Click += AfficherConsulterProduits;
             creerCommande.butRechercherClient.Click += AfficherRechercherClient;
+            creerCommande.butSuivant.Click += AfficherChoixEvenement;
+            creerCommande.butAnnuler.Click += AfficherConsulterProduits;
             creerCommande.butDeconnecter.Click += RetourConnexion;
+        }
+
+        public void AfficherChoixEvenement(object sender, RoutedEventArgs e)
+        {
+            UCChoixEvenement choixEvenement = new UCChoixEvenement();
+            Window.Content = choixEvenement;
+            choixEvenement.butCommandesDuJour.Click += AfficherCommandesDuJour;
+            choixEvenement.butConsulterProduits.Click += AfficherConsulterProduits;
+            choixEvenement.butRechercherClient.Click += AfficherRechercherClient;
+            choixEvenement.butSuivant.Click += AfficherConsulterProduits;
+            choixEvenement.butAnnuler.Click += AfficherConsulterProduits;
+            choixEvenement.butDeconnecter.Click += RetourConnexion;
         }
 
         public void AfficherRechercherClient(object sender, RoutedEventArgs e)
