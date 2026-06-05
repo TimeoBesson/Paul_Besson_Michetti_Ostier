@@ -29,6 +29,9 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void ButSuivantDisponible()
         {
+            if (fondSuivant == null || butSuivant == null)
+                return;
+
             fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
             fondSuivant.Opacity = 1;
             butSuivant.IsEnabled = true;
@@ -36,6 +39,9 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void ButSuivantIndisponible()
         {
+            if (fondSuivant == null || butSuivant == null)
+                return;
+
             fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
             fondSuivant.Opacity = 0.3;
             butSuivant.IsEnabled = false;
@@ -96,22 +102,36 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             Button boutonClique = (Button)sender;
             if (boutonClique.DataContext is Produit produitSelectionne)
             {
-                string nom = produitSelectionne.UneRecette.NomRecette;
-                decimal prix = produitSelectionne.Prix;
-                int nbParts = produitSelectionne.NbParts;
-                string categorie = produitSelectionne.UneRecette.UneCategorieRecette?.NomCategorie;
                 ButSuivantDisponible();
                 ButAnnulerDisponible();
-                AjouterAuPanier(nom, prix, nbParts, categorie);
+
+                LigneCommande ligneExistante = MainWindow.CommandeEnCours.LesLignes.FirstOrDefault(l => l.IdProduit == produitSelectionne.IdProduit);
+
+                if (ligneExistante != null)
+                {
+                    ligneExistante.Quantite++;
+                }
+                else
+                {
+                    MainWindow.CommandeEnCours.LesLignes.Add(new LigneCommande(uneCommande: MainWindow.CommandeEnCours, unProduit: produitSelectionne, quantite: 1, estDecoupe: false));
+                }
+
+                // CORRECTION : On passe l'objet produit complet
+                AjouterAuPanier(produitSelectionne);
             }
         }
 
-        private void AjouterAuPanier(string nom, decimal prix, int nbParts, string categorie)
+        private void AjouterAuPanier(Produit produit)
         {
             ButSuivantDisponible();
             ButAnnulerDisponible();
-            string nomProduitPanier = nom.Replace(" ", "_").Replace("-", "_") + nbParts;
 
+            string nom = produit.UneRecette.NomRecette;
+            decimal prix = produit.Prix;
+            int nbParts = produit.NbParts;
+            string categorie = produit.UneRecette.UneCategorieRecette?.NomCategorie;
+
+            string nomProduitPanier = nom.Replace(" ", "_").Replace("-", "_") + nbParts;
             Grid produitExistant = lePanier.FirstOrDefault(g => g.Name == nomProduitPanier);
 
             if (produitExistant != null)
@@ -143,12 +163,17 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 Button butPlus = nouveauProduit.FindName("butPlus") as Button;
                 Button butSupprimer = nouveauProduit.FindName("butSupprimerProduit") as Button;
 
-                butMoins.Click += (s, e) => ChangerQuantite(nouveauProduit, prix, -1);
-                butPlus.Click += (s, e) => ChangerQuantite(nouveauProduit, prix, +1);
+                butMoins.Click += (s, e) => ChangerQuantite(nouveauProduit, produit, -1);
+                butPlus.Click += (s, e) => ChangerQuantite(nouveauProduit, produit, +1);
                 butSupprimer.Click += (s, e) =>
                 {
                     lePanier.Remove(nouveauProduit);
                     stackPanier.Children.Remove(nouveauProduit);
+
+                    LigneCommande ligne = MainWindow.CommandeEnCours.LesLignes.FirstOrDefault(l => l.IdProduit == produit.IdProduit);
+                    if (ligne != null)
+                        MainWindow.CommandeEnCours.LesLignes.Remove(ligne);
+
                     MettreAJourPrixTotal();
                     if (lePanier.Count == 0)
                     {
@@ -156,19 +181,47 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                         ButAnnulerIndisponible();
                     }
                 };
-                butAnnuler.Click += (s, e) =>
-                {
-                    lePanier.Clear();
-                    stackPanier.Children.Clear();
-                    MettreAJourPrixTotal();
-                    ButSuivantIndisponible();
-                    ButAnnulerIndisponible();
-                };
-
                 lePanier.Add(nouveauProduit);
                 stackPanier.Children.Add(nouveauProduit);
                 MettreAJourPrixTotal();
             }
+        }
+
+        private void ChangerQuantite(Grid produitGrid, Produit produit, int delta)
+        {
+            ButSuivantDisponible();
+            ButAnnulerDisponible();
+            TextBox tbQte = produitGrid.FindName("tbQuantite") as TextBox;
+            TextBlock tbPrix = produitGrid.FindName("tbPrixTotalProduit") as TextBlock;
+
+            if (tbQte != null && int.TryParse(tbQte.Text, out int qte))
+            {
+                int nouvelleQte = qte + delta;
+                if (nouvelleQte < 1)
+                    return;
+
+                tbQte.Text = nouvelleQte.ToString();
+                if (tbPrix != null)
+                    tbPrix.Text = (produit.Prix * nouvelleQte).ToString("0.00") + " €";
+
+                LigneCommande ligne = MainWindow.CommandeEnCours.LesLignes.FirstOrDefault(l => l.IdProduit == produit.IdProduit);
+                if (ligne != null)
+                {
+                    ligne.Quantite = nouvelleQte;
+                }
+
+                MettreAJourPrixTotal();
+            }
+        }
+
+        private void butAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            lePanier.Clear();
+            stackPanier.Children.Clear();
+            MainWindow.CommandeEnCours.LesLignes.Clear();
+            MettreAJourPrixTotal();
+            ButSuivantIndisponible();
+            ButAnnulerIndisponible();
         }
 
         private Grid NouveauProduit()
@@ -245,7 +298,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             labelGateaux.Foreground = Brushes.Black;
             FiltrerProduits(null);
         }
-            
+
         private void butPains_Click(object sender, RoutedEventArgs e)
         {
             fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
@@ -258,7 +311,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             labelGateaux.Foreground = Brushes.Black;
             FiltrerProduits("Pains");
         }
-            
+
         private void butViennoiseries_Click(object sender, RoutedEventArgs e)
         {
             fondTous.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EAE8E3"));
@@ -285,11 +338,12 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             FiltrerProduits("Gâteaux");
         }
 
-        private void butAnnuler_Click(object sender, RoutedEventArgs e)
+
+        private void butSuivant_Click(object sender, RoutedEventArgs e)
         {
-            lePanier.Clear();
-            stackPanier.Children.Clear();
-            MettreAJourPrixTotal();
+            Commande laCommande = MainWindow.CommandeEnCours;
+            laCommande.Total = decimal.Parse(tbPrixTotal.Text.Replace(" €",""));
+            laCommande.Acompte = decimal.Parse(tbAcompte.Text.Replace(" €",""));
         }
     }
 }

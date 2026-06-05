@@ -45,8 +45,8 @@
         </StackPanel>
         <Grid Grid.Column="1" Background="White">
             <Label Content="Sélectionner un évènement" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Grid VerticalAlignment="Top">
-                <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4" Margin="15,81,15,15"/>
+            <Grid Margin="0,0,0,280">
+                <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4" Margin="15,81,15,14"/>
                 <Grid VerticalAlignment="Top" Margin="15,81,15,0">
                     <Rectangle Height="1" Fill="#D4C3C1" VerticalAlignment="Top" Margin="0,69,0,0"/>
                     <Label Content="Détails de la commande" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -55,34 +55,28 @@
                     <Label Content="Évènement" Foreground="#504443" FontFamily="Work Sans" FontSize="13" FontWeight="SemiBold" Margin="0,0,0,4"/>
                     <Grid Height="45" Margin="0,0,0,20" HorizontalAlignment="Left">
                         <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
-                        <ComboBox x:Name="cbCategorie" BorderBrush="Transparent" Background="Transparent" DisplayMemberPath="NomCategorie" Padding="12,0,0,0" VerticalContentAlignment="Center" FontFamily="Miriam Libre" FontSize="14" HorizontalAlignment="Left" Width="300"/>
+                        <ComboBox x:Name="cbCategorie" BorderBrush="Transparent" Background="Transparent" DisplayMemberPath="NomCategorie" Padding="12,0,0,0" VerticalContentAlignment="Center" FontFamily="Miriam Libre" FontSize="14" HorizontalAlignment="Left" Width="300" SelectionChanged="cbCategorie_SelectionChanged"/>
                     </Grid>
                     <Label Content="Nombre de personnes" Foreground="#504443" FontFamily="Work Sans" FontSize="13" FontWeight="SemiBold" Margin="0,0,0,4"/>
                     <Grid Height="45" Margin="0,0,0,20" HorizontalAlignment="Left">
                         <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
-                        <Grid>
+                        <StackPanel Orientation="Horizontal">
                             <TextBlock Text="−" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Width="45" Height="24" Foreground="#321716" TextAlignment="Center"/>
-                            <Button x:Name="butMoins" Opacity="0" HorizontalAlignment="Left" Width="45" Height="45" Background="Transparent" BorderBrush="Transparent" Click="butMoins_Click"/>
-                            <Label x:Name="labelNbPersonnes" Content="1" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,4,0,0"/>
-                            <TextBlock Text="+" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Width="45" Height="24" Foreground="#321716" Margin="52,0,0,0" TextAlignment="Center"/>
-                            <Button x:Name="butPlus" Opacity="0" HorizontalAlignment="Right" Width="45" Height="45" Background="Transparent" BorderBrush="Transparent" Click="butPlus_Click" Margin="52,0,0,0"/>
-                        </Grid>
+                            <Button x:Name="butMoins" Opacity="0" HorizontalAlignment="Left" Width="45" Height="45" Background="Transparent" BorderBrush="Transparent" Click="butMoins_Click" Margin="-45,0,0,0"/>
+                            <TextBox x:Name="labelNbPersonnes" MinLines="1" MaxLength="2" Text="1" Background="Transparent" BorderBrush="Transparent" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-3,4,-3,0" TextChanged="labelNbPersonnes_TextChanged"/>
+                            <TextBlock Text="+" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Width="45" Height="24" Foreground="#321716" TextAlignment="Center"/>
+                            <Button x:Name="butPlus" Opacity="0" HorizontalAlignment="Right" Width="45" Height="45" Background="Transparent" BorderBrush="Transparent" Click="butPlus_Click" Margin="-45,0,0,0"/>
+                        </StackPanel>
                     </Grid>
                     <Label Content="Date de retrait" Foreground="#504443" FontFamily="Work Sans" FontSize="13" FontWeight="SemiBold" Margin="0,0,0,4"/>
                     <Grid Height="45" Margin="0,0,0,20" HorizontalAlignment="Left" Width="200">
                         <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
-                        <DatePicker x:Name="dpDateRetrait" BorderBrush="Transparent" Background="Transparent" FontFamily="Miriam Libre" FontSize="14" Padding="8,0,0,0" VerticalContentAlignment="Center"/>
+                        <DatePicker x:Name="dpDateRetrait" BorderBrush="Transparent" Background="Transparent" FontFamily="Miriam Libre" FontSize="14" Padding="8,0,0,0" VerticalContentAlignment="Center" SelectedDateChanged="dpDateRetrait_SelectedDateChanged"/>
                     </Grid>
-                    <Label Content="Acompte (facultatif)" Foreground="#504443" FontFamily="Work Sans" FontSize="13" FontWeight="SemiBold" Margin="0,0,0,4"/>
-                    <Grid Height="45" Margin="0,0,0,30" HorizontalAlignment="Left" Width="150">
-                        <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>
-                        <Label Content="€" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#7F5608" FontSize="14" FontWeight="Bold" Margin="0,0,15,0"/>
-                        <TextBox x:Name="tbAcompte" BorderBrush="Transparent" Background="Transparent" Padding="12,0,30,0" VerticalContentAlignment="Center" FontFamily="Miriam Libre" FontSize="14"/>
-                    </Grid>
-                    <Grid Width="130" Height="40" HorizontalAlignment="Left" Margin="0,30,0,0">
+                    <Grid Height="40" HorizontalAlignment="Left" Margin="0,30,0,0">
                         <Rectangle x:Name="fondSuivant" Fill="#321716" RadiusX="4" RadiusY="4"/>
-                        <TextBlock Text="Suivant" FontSize="15" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button x:Name="butSuivant" Opacity="0"/>
+                        <TextBlock Text="Enregistrer la commande" FontSize="15" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,15,0"/>
+                        <Button x:Name="butEnregistrerCommande" Opacity="0" Click="butEnregistrerCommande_Click"/>
                     </Grid>
                     <Grid Width="130" Height="40" Margin="0,20,0,0" HorizontalAlignment="Left">
                         <Rectangle x:Name="fondAnnuler" Stroke="#D4C3C1" RadiusX="4" RadiusY="4"/>

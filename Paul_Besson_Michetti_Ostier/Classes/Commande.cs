@@ -17,7 +17,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int idCommande;
         private DateOnly dateCreation;
         private DateOnly dateRetrait;
-        private decimal accompte;
+        private decimal acompte;
         private bool estPrete;
         private bool estRecuperee;
         private decimal total;
@@ -31,7 +31,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
        
 
 
-        public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             //This is Elon Musk
             this.IdCommande = idCommande;
@@ -39,7 +39,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.UnClient = unClient;
             this.DateCreation = dateCreation;
             this.DateRetrait = dateRetrait;
-            this.Accompte = accompte;
+            this.Acompte = acompte;
             this.EstPrete = estPrete;
             this.EstRecuperee = estRecuperee;
             this.Total = total;
@@ -48,7 +48,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.LesLignes = new List<LigneCommande>();
         }
 
-        public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             this.IdCommande = idCommande;
             this.IdCategorieEvenement = idCategorieEvenement;
@@ -58,7 +58,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.IdClient = idClient;
             this.DateCreation = dateCreation;
             this.DateRetrait = dateRetrait;
-            this.Accompte = accompte;
+            this.Acompte = acompte;
             this.EstPrete = estPrete;
             this.EstRecuperee = estRecuperee;
             this.Total = total;
@@ -71,7 +71,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         }
 
         public Commande()
-        {         
+        {
+            this.LesLignes = new List<LigneCommande>(); 
         }
 
         public int IdCommande
@@ -113,16 +114,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public decimal Accompte
+        public decimal Acompte
         {
             get
             {
-                return this.accompte;
+                return this.acompte;
             }
 
             set
             {
-                this.accompte = value;
+                this.acompte = value;
             }
         }
 
@@ -198,8 +199,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.nbPersonne = value;
             }
         }
-
-        
 
         public CategorieEvenement UneCategorieEvenement
         {
@@ -291,7 +290,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 cmdInsert.Parameters.AddWithValue("client_id", this.IdClient);
                 cmdInsert.Parameters.AddWithValue("date_creation", this.DateCreation);
                 cmdInsert.Parameters.AddWithValue("date_retrait", this.DateRetrait);
-                cmdInsert.Parameters.AddWithValue("acompte", this.Accompte);
+                cmdInsert.Parameters.AddWithValue("acompte", this.Acompte);
                 cmdInsert.Parameters.AddWithValue("est_prete", this.EstPrete);
                 cmdInsert.Parameters.AddWithValue("est_recuperee", this.EstRecuperee);
                 cmdInsert.Parameters.AddWithValue("total", this.Total);
@@ -314,7 +313,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 this.UnClient.IdClient = (int)dt.Rows[0]["client_id"];
                 this.DateCreation = (DateOnly)dt.Rows[0]["date_creation"];
                 this.DateRetrait = (DateOnly)dt.Rows[0]["date_retrait"];
-                this.Accompte = (decimal)dt.Rows[0]["acompte"];
+                this.Acompte = (decimal)dt.Rows[0]["acompte"];
                 this.EstPrete = (bool)dt.Rows[0]["est_prete"];
                 this.EstRecuperee = (bool)dt.Rows[0]["est_recuperee"];
                 this.Total = (decimal)dt.Rows[0]["total"];
@@ -331,7 +330,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 cmdUpdate.Parameters.AddWithValue("client_id", this.IdClient);
                 cmdUpdate.Parameters.AddWithValue("date_creation", this.DateCreation);
                 cmdUpdate.Parameters.AddWithValue("date_retrait", this.DateRetrait);
-                cmdUpdate.Parameters.AddWithValue("acompte", this.Accompte);
+                cmdUpdate.Parameters.AddWithValue("acompte", this.Acompte);
                 cmdUpdate.Parameters.AddWithValue("est_prete", this.EstPrete);
                 cmdUpdate.Parameters.AddWithValue("est_recuperee", this.EstRecuperee);
                 cmdUpdate.Parameters.AddWithValue("total", this.Total);

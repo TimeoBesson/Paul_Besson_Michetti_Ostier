@@ -156,7 +156,7 @@
                         <Grid VerticalAlignment="Bottom" Margin="0,90,0,80" Width="160" HorizontalAlignment="Left">
                             <Rectangle x:Name="fondSuivant" Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
                             <TextBlock Text="Suivant" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>
-                            <Button x:Name="butSuivant" Opacity="0"/>
+                            <Button x:Name="butSuivant" Opacity="0" Click="butSuivant_Click"/>
                         </Grid>
                         <Grid VerticalAlignment="Bottom" Width="160" HorizontalAlignment="Left">
                             <Rectangle x:Name="fondAnnuler" Stroke="#D4C3C1" Fill="White" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>

@@ -32,6 +32,7 @@ namespace Paul_Besson_Michetti_Ostier
         public ChargeRecettesAllergenes ToutesLesRecettesAllergenes { get; set; }
         public ChargeAllergenes TousLesAllergenes { get; set; }
 
+        public static Commande CommandeEnCours { get; set; } = new Commande();
         public Produit ProduitenAjout = new Produit();
 
 
@@ -155,7 +156,7 @@ namespace Paul_Besson_Michetti_Ostier
             choixEvenement.butCommandesDuJour.Click += AfficherCommandesDuJour;
             choixEvenement.butConsulterProduits.Click += AfficherConsulterProduits;
             choixEvenement.butRechercherClient.Click += AfficherRechercherClient;
-            choixEvenement.butSuivant.Click += AfficherConsulterProduits;
+            choixEvenement.butEnregistrerCommande.Click += AfficherConsulterProduits;
             choixEvenement.butAnnuler.Click += AfficherConsulterProduits;
             choixEvenement.butDeconnecter.Click += RetourConnexion;
         }

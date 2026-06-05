@@ -74,7 +74,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("La connexion a échouée", "Connexion échouée", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
         }

@@ -69,8 +69,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return dataTable;
         }
 
-        //   pour requêtes INSERT et renvoie l'ID généré
-
         public static int ExecuteInsert(NpgsqlCommand cmd)
         {
             int nb = 0;

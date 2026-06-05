@@ -35,10 +35,15 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             tousLesClients = new Client().FindAll();
             AfficherClients(tousLesClients);
             ButSuivantIndisponible();
+            MainWindow.CommandeEnCours = new Commande();
+            MainWindow.CommandeEnCours.LesLignes = new List<LigneCommande>();
         }
 
         private void ButSuivantDisponible()
         {
+            if (fondSuivant == null || butSuivant == null)
+                return;
+
             fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#321716"));
             fondSuivant.Opacity = 1;
             butSuivant.IsEnabled = true;
@@ -46,6 +51,9 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void ButSuivantIndisponible()
         {
+            if (fondSuivant == null || butSuivant == null)
+                return;
+
             fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
             fondSuivant.Opacity = 0.3;
             butSuivant.IsEnabled = false;
@@ -117,6 +125,18 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             {
                 return;
             }
+        }
+
+        private void butSuivant_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgClients.SelectedIndex == -1 || clientSelectionne == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un client");
+                return;
+            }
+
+            MainWindow.CommandeEnCours.UnClient = clientSelectionne;
+            MainWindow.CommandeEnCours.IdClient = clientSelectionne.IdClient;
         }
     }
 }

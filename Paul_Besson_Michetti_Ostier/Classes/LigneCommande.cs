@@ -205,6 +205,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                    this.IdCommande == LigneCommande.IdCommande &&
                    this.IdProduit == LigneCommande.IdProduit;
         }
+
         public List<LigneCommande> TrouverParCommande(int idCommande)
         {
             List<LigneCommande> lesLignes = new List<LigneCommande>();
