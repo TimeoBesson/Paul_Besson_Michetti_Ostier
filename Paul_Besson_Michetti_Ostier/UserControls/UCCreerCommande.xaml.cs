@@ -35,7 +35,6 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             tousLesClients = new Client().FindAll();
             AfficherClients(tousLesClients);
             ButSuivantIndisponible();
-            ButAnnulerIndisponible();
         }
 
         private void ButSuivantDisponible()
@@ -52,23 +51,8 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             butSuivant.IsEnabled = false;
         }
 
-        private void ButAnnulerDisponible()
-        {
-            tbAnnuler.Opacity = 1;
-            fondAnnuler.Opacity = 1;
-            butAnnuler.IsEnabled = true;
-        }
-
-        private void ButAnnulerIndisponible()
-        {
-            tbAnnuler.Opacity = 0.3;
-            fondAnnuler.Opacity = 0.3;
-            butAnnuler.IsEnabled = false;
-        }
-
         private void AfficherClients(List<Client> clients)
         {
-            tousLesClients = clients;
             List<object> lignes = new List<object>();
 
             foreach (Client c in clients)
@@ -95,12 +79,17 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         {
             string recherche = tbRecherche.Text.ToLower();
 
-            if (string.IsNullOrEmpty(recherche))
+            if (string.IsNullOrWhiteSpace(recherche))
             {
+                ButSuivantDisponible();
+                labelRecherche.Visibility = Visibility.Visible;
                 AfficherClients(tousLesClients);
             }
             else
             {
+                labelRecherche.Visibility = Visibility.Hidden;
+                dgClients.SelectedItem = null;
+                ButSuivantIndisponible();
                 List<Client> rechercheClient = new List<Client>();
 
                 foreach (Client c in tousLesClients)
@@ -113,24 +102,8 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                     if (rechercheNom || recherchePrenom || rechercherTelephone || rechercheMail)
                         rechercheClient.Add(c);
                 }
-
                 AfficherClients(rechercheClient);
             }
-        }
-
-        private void tbRecherche_GotFocus(object sender, RoutedEventArgs e)
-        {
-            labelRecherche.Visibility = Visibility.Hidden;
-            dgClients.SelectedItem = null;
-            ButSuivantIndisponible();
-            ButAnnulerIndisponible();
-        }
-
-        private void tbRecherche_LostFocus(object sender, RoutedEventArgs e)
-        {
-            labelRecherche.Visibility = Visibility.Visible;
-            ButSuivantDisponible();
-            ButAnnulerDisponible();
         }
 
         private void dgClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -139,7 +112,6 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             {
                 clientSelectionne = tousLesClients[dgClients.SelectedIndex];
                 ButSuivantDisponible();
-                ButAnnulerDisponible();
             }
             catch
             {
