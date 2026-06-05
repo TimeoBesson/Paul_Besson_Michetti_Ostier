@@ -147,10 +147,12 @@
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>
-                    <Grid Margin="25,20,25,25" VerticalAlignment="Bottom">
-                        <Rectangle Fill="#E8E0DC" VerticalAlignment="Top" Height="2" RadiusX="8" RadiusY="8"/>
-                        <TextBlock Text="Total" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="20" Foreground="#321716" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,30,0,0"/>
-                        <TextBlock x:Name="tbPrixTotal" Text="" FontSize="20" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,5,0"/>
+                    <Grid Margin="25,0,25,25" VerticalAlignment="Bottom">
+                        <Rectangle Fill="#E8E0DC" VerticalAlignment="Top" Height="2" RadiusX="8" RadiusY="8" Margin="0,-40,0,0"/>
+                        <TextBlock Text="Total" FontFamily="Miriam Libre" FontWeight="Bold" FontSize="20" Foreground="#321716" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+                        <TextBlock x:Name="tbPrixTotal" Text="" FontSize="20" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,5,0"/>
+                        <TextBlock Text="Acompte (25%)" FontFamily="Miriam Libre" FontSize="20" Foreground="#321716" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,34,0,0"/>
+                        <TextBlock x:Name="tbAcompte" Text="" FontSize="20" FontWeight="Bold" FontFamily="Miriam Libre" Foreground="#321716" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,34,5,0"/>
                         <Grid VerticalAlignment="Bottom" Margin="0,90,0,80" Width="160" HorizontalAlignment="Left">
                             <Rectangle x:Name="fondSuivant" Fill="#321716" VerticalAlignment="Bottom" Height="60" RadiusX="8" RadiusY="8"/>
                             <TextBlock Text="Suivant" FontSize="18" FontWeight="Bold" FontFamily="Work Sans" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,19.4"/>

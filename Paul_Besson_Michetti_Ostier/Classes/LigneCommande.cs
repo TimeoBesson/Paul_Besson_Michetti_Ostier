@@ -229,6 +229,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
             return lesLignes;
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

@@ -1,4 +1,5 @@
-﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+﻿using Paul_Besson_Michetti_Ostier.Classes;
+using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,29 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             ChargeLignesCommandes lignesCommandes = new ChargeLignesCommandes();
  
             this.DataContext = new ChargeCommandesDuJour(); 
+        }
+
+        private void ckEstPrete_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+
+           
+            if (cb != null && cb.DataContext is Commande commandeModifiee)
+            {
+                try
+                {
+                    
+                    commandeModifiee.UpdateEstPrete();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la sauvegarde du statut : " + ex.Message,
+                                    "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    
+                    cb.IsChecked = !cb.IsChecked;
+                }
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private int nbParts;
         private decimal prix;
         private Recette uneRecette;
+       
      
 
         public Produit(int idProduit, int idRecette, bool estIndisponible, int nbParts, decimal prix)
@@ -130,6 +131,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 return this.UneRecette.NomRecette;
             }
         }
+
+        
 
         public void AjouterProduit()
         {

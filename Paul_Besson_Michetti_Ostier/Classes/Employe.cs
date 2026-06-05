@@ -8,7 +8,6 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 {
     public class Employe : ICrud<Employe>
     {
-        private int idEmploye;
         private string login;
         private string password;
         private string role;
@@ -17,24 +16,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         { 
         }
 
-        public Employe(int idEmploye, string login, string password, string role)
+        public Employe(string login, string password, string role)
         {
-            this.IdEmploye = idEmploye;
             this.Login = login;
             this.Password = password;
             this.Role = role;
-        }
-
-        public int IdEmploye
-        {
-            get
-            { 
-                return this.idEmploye; 
-            }
-            set
-            { 
-                this.idEmploye = value; 
-            }
         }
 
         public string Login
@@ -77,18 +63,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         /// <summary>
         /// Vérifie si le login et le mot de passe correspondent à un employe dans la base de données
         /// </summary>
-        public static bool Connexion(string login, string password)
+        public static bool VerificationConnexion(string login, string password)
         {
             try
             {
-                using (var cmd = new NpgsqlCommand("select count(*) from employe where login = @login and password = @password"))
-                {
-                    cmd.Parameters.AddWithValue("login", login);
-                    cmd.Parameters.AddWithValue("password", password);
-                    
-                    string result = DataAccess.ExecuteSelectOneValue(cmd);
-                    return int.Parse(result) > 0;
-                }
+                DataAccess.Connexion(login, password);
+                List<Employe> lesEmployes = new Employe().FindAll();
+                Employe employe = lesEmployes.FirstOrDefault(e => e.Login == login && e.Password == password);
+                return employe != null;
             }
             catch (Exception ex)
             {
@@ -125,18 +107,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes
                 cmdInsert.Parameters.AddWithValue("role", this.Role);
                 nb = DataAccess.ExecuteInsert(cmdInsert);
             }
-            this.IdEmploye = nb;
             return nb;
         }
 
         public void Read()
         {
-            using (var cmdSelect = new NpgsqlCommand("select * from employe where employe_id =@idemploye;"))
+            using (var cmdSelect = new NpgsqlCommand("select * from employe where login =@login;"))
             {
-                cmdSelect.Parameters.AddWithValue("idemploye", this.IdEmploye);
+                cmdSelect.Parameters.AddWithValue("login", this.Login);
 
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
-                this.IdEmploye = (int)dt.Rows[0]["employe_id"];
                 this.Login = (string)dt.Rows[0]["login"];
                 this.Password = (string)dt.Rows[0]["password"];
                 this.Role = (string)dt.Rows[0]["role"];
@@ -145,9 +125,8 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update employe set employe_id = @idemploye, login = @login, password = @password, role = @role where employe_id = @idemploye;"))
+            using (var cmdUpdate = new NpgsqlCommand("update employe set login = @login, password = @password, role = @role where login = @login;"))
             {
-                cmdUpdate.Parameters.AddWithValue("idemploye", this.IdEmploye);
                 cmdUpdate.Parameters.AddWithValue("login", this.Login);
                 cmdUpdate.Parameters.AddWithValue("password", this.Password);
                 cmdUpdate.Parameters.AddWithValue("role", this.Role);
@@ -162,8 +141,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesEmployes.Add(new Employe((int)dr["employe_id"],
-                                                (string)dr["login"],
+                    lesEmployes.Add(new Employe((string)dr["login"],
                                                 (string)dr["password"],
                                                 (string)dr["role"]));
             }
@@ -177,9 +155,9 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Delete()
         {
-            using (var cmdUpdate = new NpgsqlCommand("delete from employe where employe_id = @idemploye;"))
+            using (var cmdUpdate = new NpgsqlCommand("delete from employe where login = @login;"))
             {
-                cmdUpdate.Parameters.AddWithValue("idemploye", this.IdEmploye);
+                cmdUpdate.Parameters.AddWithValue("login", this.Login);
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }
@@ -187,7 +165,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         public override bool Equals(object? obj)
         {
             return obj is Employe Employe &&
-                   this.IdEmploye == Employe.IdEmploye;
+                   this.Login == Employe.Login;
         }
     }
 }
