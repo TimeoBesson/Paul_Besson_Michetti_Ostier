@@ -11,16 +11,16 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
     public class ChargeCommandesDuJour : INotifyPropertyChanged
     {
-        private ObservableCollection<Commandes> lesCommandesDuJour;
-        private Commandes commandeSelectionnee;
+        private ObservableCollection<Commande> lesCommandesDuJour;
+        private Commande commandeSelectionnee;
 
         public ChargeCommandesDuJour()
         {
             try
             {
-                this.LesCommandesDuJour = new ObservableCollection<Commandes>(new Commandes().FindAll(true));
+                this.LesCommandesDuJour = new ObservableCollection<Commande>(new Commande().FindAll(true));
 
-                foreach (Commandes cmd in this.LesCommandesDuJour)
+                foreach (Commande cmd in this.LesCommandesDuJour)
                 {
                    
                     cmd.LesLignes = new LigneCommande().TrouverParCommande(cmd.IdCommande);
@@ -31,7 +31,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
                         throw new Exception("Impossible de charger les données. Voir votre admin.", ex);
             }
         }
-        public ObservableCollection<Commandes> LesCommandesDuJour
+        public ObservableCollection<Commande> LesCommandesDuJour
         {
             get
             {
@@ -44,7 +44,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        public Commandes CommandeSelectionnee
+        public Commande CommandeSelectionnee
         {
             get
             {

@@ -11,15 +11,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
     public class ChargeCommandes : INotifyPropertyChanged
     {
-        private ObservableCollection<Commandes> lesCommandes;
-        private Commandes commandeSelectionnee;
+        private ObservableCollection<Commande> lesCommandes;
+        private Commande commandeSelectionnee;
 
         public ChargeCommandes()
         {
             try
             {
-                this.LesCommandes = new ObservableCollection<Commandes>(new Commandes().FindAll());
-                foreach (Commandes cmd in this.LesCommandes)
+                this.LesCommandes = new ObservableCollection<Commande>(new Commande().FindAll());
+                foreach (Commande cmd in this.LesCommandes)
                 {
 
                     cmd.LesLignes = new LigneCommande().TrouverParCommande(cmd.IdCommande);
@@ -31,7 +31,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        public ObservableCollection<Commandes> LesCommandes
+        public ObservableCollection<Commande> LesCommandes
         {
             get
             {
@@ -45,7 +45,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
             }
         }
 
-        public Commandes CommandeSelectionnee
+        public Commande CommandeSelectionnee
         {
             get
             {

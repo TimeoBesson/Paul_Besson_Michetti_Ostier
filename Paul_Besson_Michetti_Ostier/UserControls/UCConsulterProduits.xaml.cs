@@ -341,7 +341,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void butSuivant_Click(object sender, RoutedEventArgs e)
         {
-            Commandes laCommande = MainWindow.CommandeEnCours;
+            Commande laCommande = MainWindow.CommandeEnCours;
             laCommande.Total = decimal.Parse(tbPrixTotal.Text.Replace(" €",""));
             laCommande.Acompte = decimal.Parse(tbAcompte.Text.Replace(" €",""));
         }

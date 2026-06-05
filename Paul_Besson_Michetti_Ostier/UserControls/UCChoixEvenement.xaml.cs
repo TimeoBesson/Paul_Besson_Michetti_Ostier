@@ -116,7 +116,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             }
 
             CategorieEvenement categorie = (CategorieEvenement)cbCategorie.SelectedItem;
-            Commandes laCommande = MainWindow.CommandeEnCours;
+            Commande laCommande = MainWindow.CommandeEnCours;
 
             laCommande.IdCategorieEvenement = categorie.IdCategorie;
             laCommande.UneCategorieEvenement = categorie;
@@ -142,7 +142,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 ligne.Create();
             }
 
-            MainWindow.CommandeEnCours = new Commandes();
+            MainWindow.CommandeEnCours = new Commande();
             MainWindow.CommandeEnCours.LesLignes = new List<LigneCommande>();
 
             UCConsulterProduits.lePanier.Clear();

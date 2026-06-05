@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
 
-    public class Commandes : ICrud<Commandes>, INotifyPropertyChanged
+    public class Commande : ICrud<Commande>, INotifyPropertyChanged
     {
         private int idCommande;
         private DateOnly dateCreation;
@@ -32,7 +32,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
 
 
-        public Commandes(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             //This is Elon Musk
             this.IdCommande = idCommande;
@@ -49,7 +49,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.LesLignes = new List<LigneCommande>();
         }
 
-        public Commandes(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
+        public Commande(int idCommande, int idCategorieEvenement, int idClient, DateOnly dateCreation, DateOnly dateRetrait, decimal acompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
         {
             this.IdCommande = idCommande;
             this.IdCategorieEvenement = idCategorieEvenement;
@@ -71,7 +71,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             this.LesLignes = new List<LigneCommande>();
         }
 
-        public Commandes()
+        public Commande()
         {
             this.LesLignes = new List<LigneCommande>();
         }
@@ -360,17 +360,17 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public List<Commandes> FindAll(bool jour)
+        public List<Commande> FindAll(bool jour)
         {
             string ajoutPourJour = jour ? "where date_retrait = current_date" : "";
 
 
-            List<Commandes> lesCommandes = new List<Commandes>();
+            List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande " + ajoutPourJour + ";"))
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesCommandes.Add(new Commandes((int)dr["commande_id"],
+                    lesCommandes.Add(new Commande((int)dr["commande_id"],
                                                   (int)dr["categorie_evenement_id"],
                                                   (int)dr["client_id"],
                                                   (DateOnly)dr["date_creation"],
@@ -385,14 +385,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return lesCommandes;
         }
 
-        public List<Commandes> FindAll()
+        public List<Commande> FindAll()
         {
-            List<Commandes> lesCommandes = new List<Commandes>();
+            List<Commande> lesCommandes = new List<Commande>();
             using (NpgsqlCommand cmdSelect = new NpgsqlCommand("select * from commande ;"))
             {
                 DataTable dt = DataAccess.ExecuteSelect(cmdSelect);
                 foreach (DataRow dr in dt.Rows)
-                    lesCommandes.Add(new Commandes((int)dr["commande_id"],
+                    lesCommandes.Add(new Commande((int)dr["commande_id"],
                                                   (int)dr["categorie_evenement_id"],
                                                   (int)dr["client_id"],
                                                   (DateOnly)dr["date_creation"],
@@ -407,7 +407,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             return lesCommandes;
         }
 
-        public List<Commandes> FindBySelection(string criteres)
+        public List<Commande> FindBySelection(string criteres)
         {
             throw new NotImplementedException();
         }
@@ -423,7 +423,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public override bool Equals(object? obj)
         {
-            return obj is Commandes Commande &&
+            return obj is Commande Commande &&
                    this.IdCommande == Commande.IdCommande;
         }
         public event PropertyChangedEventHandler PropertyChanged;
