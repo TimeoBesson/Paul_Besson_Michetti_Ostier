@@ -50,15 +50,6 @@
                     <Button x:Name="butannuler" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="416,46,0,0" Width="56">
                     </Button>
                     <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,422,976,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="102"/>
-                    <ItemsControl ItemsSource="{Binding}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <RadioButton Content="{Binding NomCategorie}" GroupName="cat"
-                         Checked="RadioButton_Checked"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    <Button x:Name="butchoixprix" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="264,405,0,0" Width="56" Click="butchoixprix_Click"/>
                 </Grid>
             </Grid>
         </Grid>

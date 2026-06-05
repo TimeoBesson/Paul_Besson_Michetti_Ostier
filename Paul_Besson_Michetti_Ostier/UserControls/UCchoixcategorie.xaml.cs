@@ -26,14 +26,5 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             InitializeComponent();
             this.DataContext = new CategorieRecette().FindAll();
         }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            var radio = sender as RadioButton;
-            if (radio != null)
-            {
-                Selection = radio.DataContext as CategorieRecette;
-            }
-        }
     }
 }
