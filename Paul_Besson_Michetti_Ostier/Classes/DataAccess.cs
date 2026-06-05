@@ -30,7 +30,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        // pour récupérer la connexion (et l'ouvrir si nécessaire)
+    
         public static NpgsqlConnection GetConnection()
         {
 

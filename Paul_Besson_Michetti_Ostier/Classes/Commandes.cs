@@ -20,6 +20,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private decimal acompte;
         private bool estPrete;
         private bool estRecuperee;
+
         private decimal total;
         private DateOnly dateEvenement;
         private int nbPersonne;
@@ -158,9 +159,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             set
             {
                 this.estRecuperee = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(StatutRecuperation));
             }
         }
-
+        public string StatutRecuperation
+        {
+            get { return this.EstRecuperee ? "Récupérée" : "À Récupérer"; }
+        }
         public decimal Total
         {
             get
@@ -274,6 +280,19 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             using (var cmdUpdate = new NpgsqlCommand("update commande set est_prete = @estPrete where commande_id = @idCommande;"))
             {
                 cmdUpdate.Parameters.AddWithValue("estPrete", this.EstPrete);
+                cmdUpdate.Parameters.AddWithValue("idCommande", this.IdCommande);
+
+
+                return DataAccess.ExecuteSet(cmdUpdate);
+            }
+        }
+
+        public int UpdateEstRecupere()
+        {
+
+            using (var cmdUpdate = new NpgsqlCommand("update commande set est_recuperee = @estRecupere where commande_id = @idCommande;"))
+            {
+                cmdUpdate.Parameters.AddWithValue("estRecupere", this.EstRecuperee);
                 cmdUpdate.Parameters.AddWithValue("idCommande", this.IdCommande);
 
 

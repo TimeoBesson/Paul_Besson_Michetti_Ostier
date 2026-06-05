@@ -37,39 +37,12 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-134,0,-149,0"/>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Column="1" Background="White" VerticalAlignment="Top">
+        <Grid Grid.Column="1" Background="White">
             <Label Content="Gérer les produits" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="25" Margin="20,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel Orientation="Horizontal" Margin="25,155,0,15" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Grid>
-                    <Rectangle Fill="#321716" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Tous" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="15,2,15,2"/>
-                    <Button x:Name="butTous" Content="_Tous" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-                </Grid>
-                <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Pains" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="15,2,15,2"/>
-                    <Button x:Name="butPains" Content="_Pains" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-                </Grid>
-                <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Viennoiseries" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="15,2,15,2"/>
-                    <Button x:Name="butViennoiseries" Content="_Viennoiseries" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-                </Grid>
-                <Grid Margin="10,0,0,0">
-                    <Rectangle Fill="#EAE8E3" RadiusX="8" RadiusY="8"/>
-                    <Label Content="Gâteaux" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="#1B1C19" Margin="15,2,15,2"/>
-                    <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-                </Grid>
-            </StackPanel>
-            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,25,0">
-                <Rectangle Fill="#321716" RadiusX="8" RadiusY="8" Height="40"/>
-                <Label Content="Ajouter un produit" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="15,2,15,2" HorizontalAlignment="Center"/>
-                <Button x:Name="butAjouterProduit" Content="_Ajouter un produit" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
-            </Grid>
-            <Grid Background="Transparent" VerticalAlignment="Top"  Margin="25,225,25,15">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
-                    <ItemsControl ItemsSource="{Binding LesProduits}" Grid.Column="0">
+            <Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="15,180,0,15">
+                    <ItemsControl x:Name="icLesProduits" ItemsSource="{Binding LesProduits}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -103,6 +76,11 @@
                                         </Grid>
                                         <TextBox Grid.Row="2" x:Name="tbNbParts" Text="{Binding NbParts, StringFormat='Nombre de parts : {0}', Mode=OneWay}" BorderBrush="Transparent" FontFamily="Miriam Libre" FontSize="12" Margin="9,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False" Loaded="tbNbParts_Loaded"/>
                                         <TextBlock Grid.Row="3" x:Name="tbDescriptionRecette" Text="{Binding UneRecette.DescriptionRecette, Mode=OneWay}" Opacity="0.8" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,8,10,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+                                        <Grid Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10">
+                                            <Rectangle Fill="#321716" Height="30" RadiusX="4" RadiusY="4"/>
+                                            <Button x:Name="butChangerDisponibilite" Content="Rendre indisponible" Foreground="White" Background="Transparent" BorderBrush="Transparent" Height="30" Click="butChangerDisponibilite_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </Button>
+                                        </Grid>
                                         <TextBlock Grid.Row="5" Text="" Background="Transparent" Foreground="#504443" TextWrapping="Wrap" FontFamily="Miriam Libre" FontSize="9" Margin="12,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                                     </Grid>
                                 </Grid>

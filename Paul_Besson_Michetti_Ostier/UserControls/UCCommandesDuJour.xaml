@@ -88,6 +88,8 @@
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
                                             <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
@@ -97,10 +99,10 @@
                                                     <Run Text="{Binding UnClient.Prenom}"  />
                                                 </TextBlock>
                                             </StackPanel>
-                                            <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False">
+                                            <StackPanel Grid.Column="2" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False">
                                                 <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="15"/>
                                             </StackPanel>
-                                            <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
+                                            <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="10,0" >
                                                 <TextBlock  FontSize="11" Foreground="Gray" IsHitTestVisible="False">
                                                     <Run Text="Date de retrait : "  FontSize="15"/>
                                                     <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
@@ -112,10 +114,22 @@
                                                     <Run Text="{Binding NbPersonne}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
                                                 </TextBlock>
                                             </StackPanel>
-                                            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
+                                            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="10,0">
                                                 <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
                                                 <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
                                                     <TextBlock Text="{Binding Statut}" Foreground="#FF8800" FontWeight="SemiBold" IsHitTestVisible="False"/>
+                                                </Border>
+                                                
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="7" VerticalAlignment="Center" Margin="10,0,20,0">
+                                                <TextBlock Text="Récupération" FontSize="11" Foreground="Gray" Margin="0,0,0,2"/>
+                                                <Border Background="#E6F4EA" CornerRadius="10" Padding="8,4">
+                                                    <TextBlock Text="{Binding StatutRecuperation}" 
+                   Foreground="#137333" 
+                   FontWeight="SemiBold" 
+                   HorizontalAlignment="Center"
+                   IsHitTestVisible="False"/>
                                                 </Border>
                                             </StackPanel>
                                         </Grid>
@@ -158,10 +172,10 @@
                                 <TextBlock Text="{Binding NbPersonne}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                             </Grid>
                             <Grid Margin="0,6,0,3">
-                                <TextBlock Text="Commande prête :" Foreground="Gray" VerticalAlignment="Center"/>
-                                <CheckBox x:Name="ckEstPrete"  IsChecked="{Binding EstPrete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                  HorizontalAlignment="Right" 
-                  VerticalAlignment="Center" Checked="ckEstPrete_Checked"/>
+                                <TextBlock Text="Commande récupérée :" Foreground="Gray" VerticalAlignment="Center"/>
+                                <CheckBox x:Name="ckEstRecupere"  IsChecked="{Binding EstRecuperee, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+HorizontalAlignment="Right" 
+VerticalAlignment="Center" Checked="ckEstRecupere_Checked"/>
                             </Grid>
                         </StackPanel>
 

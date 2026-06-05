@@ -1,6 +1,7 @@
 ﻿using Paul_Besson_Michetti_Ostier.Classes;
 using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using Paul_Besson_Michetti_Ostier.UserControls;
+using Paul_Besson_Michetti_Ostier.Windows;
 using System;
 using System.Globalization;
 using System.Text;
@@ -115,7 +116,6 @@ namespace Paul_Besson_Michetti_Ostier
             Window.Content = gererProduits;
             gererProduits.butGererCommandes.Click += AfficherGererCommandes;
             gererProduits.butDeconnecter.Click += RetourConnexion;
-            gererProduits.butAjouterProduit.Click += AfficherAjouterProduit;
         }
 
         public void AfficherCommandesDuJour(object sender, RoutedEventArgs e)
@@ -176,6 +176,16 @@ namespace Paul_Besson_Michetti_Ostier
             Window.Content = ajouterProduit;
             ajouterProduit.butDeconnecter.Click += RetourConnexion;
             ajouterProduit.butannuler.Click += AfficherGererProduits;
+            ajouterProduit.butchoixtype.Click += Afficherchoixcategorie;
+        }
+
+        public void Afficherchoixcategorie(object sender, RoutedEventArgs e)
+        {
+            UCchoixcategorie choixtype = new UCchoixcategorie();
+            Window.Content = choixtype;
+            choixtype.butDeconnecter.Click += RetourConnexion;
+            choixtype.butannuler.Click += AfficherGererProduits;
+
         }
     }
 }
