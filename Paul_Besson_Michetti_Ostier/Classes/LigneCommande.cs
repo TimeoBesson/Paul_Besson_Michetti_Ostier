@@ -17,10 +17,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private bool estDecoupe;
         private Produit unProduit;
         private int idProduit; 
-        private Commande uneCommande;
+        private Commandes uneCommande;
         private int idCommande;
 
-        public LigneCommande(Commande uneCommande, Produit unProduit, int quantite, bool estDecoupe)
+        public LigneCommande(Commandes uneCommande, Produit unProduit, int quantite, bool estDecoupe)
         {
             this.UneCommande = uneCommande;
             this.UnProduit = unProduit;
@@ -89,7 +89,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public Commande UneCommande
+        public Commandes UneCommande
         {
             get
             {

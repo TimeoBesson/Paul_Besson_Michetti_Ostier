@@ -42,7 +42,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             CheckBox cb = sender as CheckBox;
 
 
-            if (cb != null && cb.DataContext is Commande commandeModifiee)
+            if (cb != null && cb.DataContext is Commandes commandeModifiee)
             {
                 try
                 {
