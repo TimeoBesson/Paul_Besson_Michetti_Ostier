@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Paul_Besson_Michetti_Ostier.Classes
 {
     
-    public class Commande : ICrud<Commande>
+    public class Commande : ICrud<Commande>, INotifyPropertyChanged
     {
         private int idCommande;
         private DateOnly dateCreation;
@@ -26,6 +28,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         private CategorieEvenement uneCategorieEvenement;
         private int idCategorieEvenement;
         private List<LigneCommande> lesLignes;
+       
 
 
         public Commande(int idCommande, CategorieEvenement uneCategorieEvenement, Client unClient, DateOnly dateCreation, DateOnly dateRetrait, decimal accompte, bool estPrete, bool estRecuperee, decimal total, DateOnly dateEvenement, int nbPersonne)
@@ -133,7 +136,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             set
             {
                 this.estPrete = value;
+
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Statut)); 
             }
+        }
+
+        public string Statut
+        {
+            get { return this.EstPrete ? "Finalisé" : "À Finaliser"; }
         }
 
         public bool EstRecuperee
@@ -255,14 +266,20 @@ namespace Paul_Besson_Michetti_Ostier.Classes
             }
         }
 
-        public void ValiderCommande()
+
+
+
+        public int UpdateEstPrete()
         {
-        }
-        public void ModifierCommande()
-        {
-        }
-        public void FinaliserCommande()
-        {
+            
+            using (var cmdUpdate = new NpgsqlCommand("update commande set est_prete = @estPrete where commande_id = @idCommande;"))
+            {
+                cmdUpdate.Parameters.AddWithValue("estPrete", this.EstPrete);
+                cmdUpdate.Parameters.AddWithValue("idCommande", this.IdCommande);
+
+                
+                return DataAccess.ExecuteSet(cmdUpdate);
+            }
         }
 
         public int Create()
@@ -390,6 +407,12 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         {
             return obj is Commande Commande &&
                    this.IdCommande == Commande.IdCommande;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

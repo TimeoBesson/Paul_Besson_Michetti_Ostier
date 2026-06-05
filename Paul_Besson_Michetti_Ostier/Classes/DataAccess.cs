@@ -14,7 +14,7 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         static DataAccess()
         {
-            connectionString = "Host=localhost;Port=5432;Username=ostiera;Password=lionelos74;Database=ostiera_sae201;Options='-c search_path=sae201'";
+            connectionString = "Host=srv-peda-new;Port=5433;Username=ostiera;Password=lionelos74;Database=ostiera_sae201;Options='-c search_path=sae201'";
             try
             {
                 connection = new NpgsqlConnection(connectionString);

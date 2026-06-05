@@ -56,7 +56,14 @@
                   HeadersVisibility="None"
                   GridLinesVisibility="None"
                   Background="Transparent"
-                  RowBackground="Transparent">
+                  RowBackground="Transparent"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="False"
+                    CanUserResizeRows="False"
+                    CanUserSortColumns="False">>
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate >
@@ -100,7 +107,7 @@
                                             <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
                                                 <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
                                                 <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
-                                                    <TextBlock Text="À donner" Foreground="#FF8800" FontWeight="SemiBold"/>
+                                                    <TextBlock Text="{Binding Statut}" Foreground="#FF8800" FontWeight="SemiBold"/>
                                                 </Border>
                                             </StackPanel>
                                         </Grid>
@@ -142,6 +149,7 @@
                                 <TextBlock Text="Nb Personnes :" Foreground="Gray"/>
                                 <TextBlock Text="{Binding NbPersonne}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                             </Grid>
+                            
                         </StackPanel>
 
                         <TextBlock Text="PRODUITS COMMANDÉS" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,10,0,5"/>

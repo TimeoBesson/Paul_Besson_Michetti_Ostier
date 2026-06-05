@@ -51,8 +51,8 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Label Content="Commandes du jour" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="Commandes à donner aujourd'hui" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Commandes des prochains jours" Foreground="#321716" FontFamily="Miriam Libre" FontSize="25" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Détails des commandes" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="16" Margin="20,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
                 <DataGrid x:Name="dgCommandes" 
                           ItemsSource="{Binding LesCommandesDuJour}" 
@@ -63,7 +63,15 @@
                           HeadersVisibility="None"
                           GridLinesVisibility="None"
                           Background="Transparent"
-                          RowBackground="Transparent">
+                          RowBackground="Transparent"
+                          
+                          SelectionMode="Single"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          CanUserReorderColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
+                          CanUserSortColumns="False">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate >
@@ -83,23 +91,23 @@
                                             </Grid.ColumnDefinitions>
 
                                             <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
-                                                <TextBlock Foreground="Black" FontSize="20" >
+                                                <TextBlock Foreground="Black" FontSize="20" IsHitTestVisible="False">
                                                     <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
                                                     <Run Text=" " />
                                                     <Run Text="{Binding UnClient.Prenom}"  />
                                                 </TextBlock>
                                             </StackPanel>
-                                            <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center">
+                                            <StackPanel Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False">
                                                 <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="Gray" FontSize="15"/>
                                             </StackPanel>
                                             <StackPanel Grid.Column = "3" VerticalAlignment="Center" Margin="20,0" >
-                                                <TextBlock  FontSize="11" Foreground="Gray">
+                                                <TextBlock  FontSize="11" Foreground="Gray" IsHitTestVisible="False">
                                                     <Run Text="Date de retrait : "  FontSize="15"/>
                                                     <Run Text="{Binding DateRetrait, StringFormat=d MMMM yyyy}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
                                                 </TextBlock>
                                             </StackPanel>
                                             <StackPanel Grid.Column="4" VerticalAlignment="Center" >
-                                                <TextBlock  FontSize="11" Foreground="Gray">
+                                                <TextBlock  FontSize="11" Foreground="Gray" IsHitTestVisible="False">
                                                     <Run Text="Nombre de personnes : "  FontSize="15"/>
                                                     <Run Text="{Binding NbPersonne}"  FontSize="15" FontWeight="SemiBold" Foreground="#FF8800"  />
                                                 </TextBlock>
@@ -107,7 +115,7 @@
                                             <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="20,0">
                                                 <TextBlock Text="Statut" FontSize="11" Foreground="Gray"/>
                                                 <Border Background="#FFEEDD" CornerRadius="10" Padding="8,4">
-                                                    <TextBlock Text="À donner" Foreground="#FF8800" FontWeight="SemiBold"/>
+                                                    <TextBlock Text="{Binding Statut}" Foreground="#FF8800" FontWeight="SemiBold" IsHitTestVisible="False"/>
                                                 </Border>
                                             </StackPanel>
                                         </Grid>
@@ -126,12 +134,12 @@
 
                         <Border BorderBrush="#EAE6DF" BorderThickness="0,0,0,1" Padding="0,0,0,15" Margin="0,0,0,15">
                             <StackPanel>
-                                <TextBlock Text="CLIENT" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,0,0,5"/>
-                                <TextBlock FontSize="16">
-                                    <Run Text="{Binding UnClient.Prenom}"/> 
+                                <TextBlock Text="CLIENT" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,0,0,5" IsHitTestVisible="False"/>
+                                <TextBlock FontSize="16" IsHitTestVisible="False">
+                                    <Run Text="{Binding UnClient.Prenom}" /> 
                                     <Run Text="{Binding UnClient.Nom}" FontWeight="Bold"/>
                                 </TextBlock>
-                                <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="#FF8800" Margin="0,3,0,0"/>
+                                <TextBlock Text="{Binding UnClient.NumeroTelephone}" Foreground="#FF8800" Margin="0,3,0,0" IsHitTestVisible="False"/>
                             </StackPanel>
                         </Border>
 
@@ -148,6 +156,12 @@
                             <Grid Margin="0,3">
                                 <TextBlock Text="Nb Personnes :" Foreground="Gray"/>
                                 <TextBlock Text="{Binding NbPersonne}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                            <Grid Margin="0,6,0,3">
+                                <TextBlock Text="Commande prête :" Foreground="Gray" VerticalAlignment="Center"/>
+                                <CheckBox x:Name="ckEstPrete"  IsChecked="{Binding EstPrete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  HorizontalAlignment="Right" 
+                  VerticalAlignment="Center" Checked="ckEstPrete_Checked"/>
                             </Grid>
                         </StackPanel>
 
