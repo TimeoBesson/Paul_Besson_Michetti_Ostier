@@ -121,19 +121,14 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             laCommande.IdCategorieEvenement = categorie.IdCategorie;
             laCommande.UneCategorieEvenement = categorie;
             laCommande.NbPersonne = int.Parse(labelNbPersonnes.Text);
+
             laCommande.DateRetrait = DateOnly.FromDateTime(dpDateRetrait.SelectedDate.Value);
+            laCommande.DateEvenement = DateOnly.FromDateTime(dpDateRetrait.SelectedDate.Value);
+
             laCommande.DateCreation = DateOnly.FromDateTime(DateTime.Today);
             laCommande.EstPrete = false;
             laCommande.EstRecuperee = false;
-
             int idCommande = laCommande.Create();
-
-            foreach (LigneCommande ligne in laCommande.LesLignes)
-            {
-                ligne.IdCommande = idCommande;
-                ligne.IdProduit = ligne.UnProduit.IdProduit;
-                ligne.Create();
-            }
 
             foreach (LigneCommande ligne in laCommande.LesLignes)
             {
@@ -144,9 +139,9 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
             MainWindow.CommandeEnCours = new Commande();
             MainWindow.CommandeEnCours.LesLignes = new List<LigneCommande>();
-
             UCConsulterProduits.lePanier.Clear();
-            MessageBox.Show("Commandes enregistrée avec succès !");
+
+            MessageBox.Show("Commande enregistrée avec succès !");
         }
     }
 }
