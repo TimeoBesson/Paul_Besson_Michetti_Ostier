@@ -37,24 +37,24 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             this.DataContext = new ChargeCommandesDuJour(); 
         }
 
-        private void ckEstPrete_Checked(object sender, RoutedEventArgs e)
+        private void ckEstRecupere_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox cb = sender as CheckBox;
 
-           
+
             if (cb != null && cb.DataContext is Commande commandeModifiee)
             {
                 try
                 {
-                    
-                    commandeModifiee.UpdateEstPrete();
+
+                    commandeModifiee.UpdateEstRecupere();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur lors de la sauvegarde du statut : " + ex.Message,
                                     "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    
+
                     cb.IsChecked = !cb.IsChecked;
                 }
             }

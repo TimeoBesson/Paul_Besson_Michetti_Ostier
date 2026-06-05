@@ -55,6 +55,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
             set
             {
+                if (value == "")
+                    throw new ArgumentException("Le nom ne peut pas être vide");
+                if (value.Length > 100)
+                    throw new ArgumentException("Le nom ne peut pas faire plus de 100 caractères");
                 this.nom = value;
             }
         }
@@ -68,6 +72,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
             set
             {
+                if (value == "")
+                    throw new ArgumentException("Le prénom ne peut pas être vide");
+                if (value.Length > 100)
+                    throw new ArgumentException("Le prénom ne peut pas faire plus de 100 caractères");
                 this.prenom = value;
             }
         }
@@ -81,6 +89,10 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
             set
             {
+                if (value == "")
+                    throw new ArgumentException("Le téléphone ne peut pas être vide");
+                if (value.Length > 15)
+                    throw new ArgumentException("Le téléphone ne peut pas faire plus de 15 caractères");
                 this.numeroTelephone = value;
             }
         }
@@ -94,6 +106,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
             set
             {
+                if (value == "")
+                    throw new Exception("Le mail ne peut pas être vide");
+                if (value.Length > 100)
+                    throw new Exception("Le mail ne peut pas faire plus de 100 caractères");
+             
                 this.mail = value;
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Paul_Besson_Michetti_Ostier.Classes;
 using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using Paul_Besson_Michetti_Ostier.UserControls;
+using Paul_Besson_Michetti_Ostier.Windows;
 using System;
 using System.Globalization;
 using System.Text;

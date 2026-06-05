@@ -149,7 +149,13 @@
                                 <TextBlock Text="Nb Personnes :" Foreground="Gray"/>
                                 <TextBlock Text="{Binding NbPersonne}" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                             </Grid>
-                            
+                            <Grid Margin="0,6,0,3">
+                                <TextBlock Text="Commande prête :" Foreground="Gray" VerticalAlignment="Center"/>
+                                <CheckBox x:Name="ckEstPrete"  IsChecked="{Binding EstPrete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+HorizontalAlignment="Right" 
+VerticalAlignment="Center" Checked="ckEstPrete_Checked"/>
+                            </Grid>
+
                         </StackPanel>
 
                         <TextBlock Text="PRODUITS COMMANDÉS" FontSize="11" Foreground="Gray" FontWeight="Bold" Margin="0,10,0,5"/>
