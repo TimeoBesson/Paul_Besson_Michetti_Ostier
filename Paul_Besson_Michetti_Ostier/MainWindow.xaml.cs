@@ -32,7 +32,7 @@ namespace Paul_Besson_Michetti_Ostier
         public ChargeRecettesAllergenes ToutesLesRecettesAllergenes { get; set; }
         public ChargeAllergenes TousLesAllergenes { get; set; }
 
-        public static Commande CommandeEnCours { get; set; } = new Commande();
+        public static Commandes CommandeEnCours { get; set; } = new Commandes();
         public Produit ProduitenAjout = new Produit();
 
 

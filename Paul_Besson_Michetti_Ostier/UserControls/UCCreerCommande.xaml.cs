@@ -35,7 +35,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             tousLesClients = new Client().FindAll();
             AfficherClients(tousLesClients);
             ButSuivantIndisponible();
-            MainWindow.CommandeEnCours = new Commande();
+            MainWindow.CommandeEnCours = new Commandes();
             MainWindow.CommandeEnCours.LesLignes = new List<LigneCommande>();
         }
 
