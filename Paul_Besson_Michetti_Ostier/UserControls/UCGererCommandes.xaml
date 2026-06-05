@@ -63,7 +63,7 @@
                     CanUserReorderColumns="False"
                     CanUserResizeColumns="False"
                     CanUserResizeRows="False"
-                    CanUserSortColumns="False">>
+                    CanUserSortColumns="False">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate >
