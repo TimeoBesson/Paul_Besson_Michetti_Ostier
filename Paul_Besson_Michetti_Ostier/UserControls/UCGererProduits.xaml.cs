@@ -1,5 +1,4 @@
-﻿using Paul_Besson_Michetti_Ostier.Classes;
-using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,17 +48,16 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void butChangerDisponibilite_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            Button estIndisponible = (Button)sender;
 
-            Produit p = (Produit)btn.DataContext;
-
-            p.EstIndisponible = !p.EstIndisponible;
-
-            p.Update();
-
-            btn.Content = p.EstIndisponible
-                ? "Rendre disponible"
-                : "Rendre indisponible";
+            if (estIndisponible.Content == "Rendre indisponible")
+            {
+                estIndisponible.Content = "Rendre disponible";
+            }
+            else
+            {
+                estIndisponible.Content = "Rendre indisponible";
+            }
         }
     }
 }
