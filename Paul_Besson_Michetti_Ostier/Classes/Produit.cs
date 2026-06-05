@@ -173,13 +173,15 @@ namespace Paul_Besson_Michetti_Ostier.Classes
 
         public int Update()
         {
-            using (var cmdUpdate = new NpgsqlCommand("update Produits set recette_id =@idrecette, est_indisponible = @estindisponible, nb_parts = @nbparts, prix= @prix where produit_id =@idproduit;"))
+            using (var cmdUpdate = new NpgsqlCommand(
+                "update produit set recette_id = @idrecette, est_indisponible = @estindisponible, nb_parts = @nbparts, prix = @prix where produit_id = @idproduit;"))
             {
-                cmdUpdate.Parameters.AddWithValue("idrecette", this.IdRecette);
-                cmdUpdate.Parameters.AddWithValue("idproduit", this.IdProduit);
-                cmdUpdate.Parameters.AddWithValue("estindisponible", this.EstIndisponible);
-                cmdUpdate.Parameters.AddWithValue("nb_parts", this.NbParts);
-                cmdUpdate.Parameters.AddWithValue("prix", this.Prix);
+                cmdUpdate.Parameters.AddWithValue("@idrecette", this.IdRecette);
+                cmdUpdate.Parameters.AddWithValue("@idproduit", this.IdProduit);
+                cmdUpdate.Parameters.AddWithValue("@estindisponible", this.EstIndisponible);
+                cmdUpdate.Parameters.AddWithValue("@nbparts", this.NbParts);
+                cmdUpdate.Parameters.AddWithValue("@prix", this.Prix);
+
                 return DataAccess.ExecuteSet(cmdUpdate);
             }
         }

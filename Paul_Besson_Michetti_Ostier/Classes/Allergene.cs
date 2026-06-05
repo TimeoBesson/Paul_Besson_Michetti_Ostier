@@ -12,6 +12,13 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     {
         private int idAllergene;
         private string nomAllergene;
+        private bool estSelectionne;
+
+        public bool EstSelectionne
+        {
+            get { return estSelectionne; }
+            set { estSelectionne = value; }
+        }
 
         public Allergene(int idAllergene, string nomAllergene)
         {

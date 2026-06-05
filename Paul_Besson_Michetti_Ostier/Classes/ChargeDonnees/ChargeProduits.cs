@@ -2,11 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
 {
@@ -17,16 +14,11 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
         private ObservableCollection<Produit> lesProduits;
         public ObservableCollection<Produit> LesProduits
         {
-            get
-            {
-                return lesProduits;
-            }
-            set
-            {
-                lesProduits = value;
-                OnPropertyChanged(nameof(LesProduits));
-            }
+            get { return lesProduits; }
+            set { lesProduits = value; OnPropertyChanged(nameof(LesProduits)); }
         }
+
+        private string _connectionString = "ta_chaine_de_connexion";
 
         public ChargeProduits()
         {
@@ -48,4 +40,3 @@ namespace Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees
         }
     }
 }
-

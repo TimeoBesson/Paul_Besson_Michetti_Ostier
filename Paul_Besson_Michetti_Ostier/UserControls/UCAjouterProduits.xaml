@@ -37,32 +37,39 @@
                 <Button x:Name="butDeconnecter" Content="_Se déconnecter" Opacity="0" Background="Transparent" BorderBrush="Transparent" Margin="-104,0,-33,0"/>
             </StackPanel>
         </StackPanel>
-        <Grid Background="White" Grid.Column="1" Margin="0,10,10,0">
+        <Grid Background="White" Grid.Column="1">
             <Label Content="Ajouter un produit" Foreground="#321716" FontFamily="Miriam Libre" FontSize="35" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Content="Sélectionner des produits" Foreground="#1B1C19" FontFamily="Miriam Libre" FontSize="25" Margin="20,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <Grid>
-                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,26,74,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>
-                <Label Content="Annuler" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,29,85,0" HorizontalAlignment="Right"/>
-                <Button x:Name="butannuler" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,29,85,0" Width="57">
+                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,38,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="72"/>
+                <Label Content="Annuler" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,38,0,0" HorizontalAlignment="Center"/>
+                <Button x:Name="butannuler" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" Width="57">
                 </Button>
-                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,422,976,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>
-                <Label Content="Suivant" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,425,989,0" HorizontalAlignment="Right"/>
-                <Button x:Name="butannul" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,425,981,0" Width="64" Click="butenregistrer_Click">
+                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,422,976,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="102"/>
+                <Label Content="choisir la catégorie" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,425,977,0" HorizontalAlignment="Right"/>
+                <Button x:Name="butchoixtype" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,425,984,0" Width="83" Click="butenregistrer_Click">
                 </Button>
             </Grid>
             <TextBox x:Name="ProduitNomText" HorizontalAlignment="Left" Margin="20,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="190" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2"/>
-            <Label Content="Recette" HorizontalAlignment="Left" Margin="410,149,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
-            <TextBox x:Name="recetteText" HorizontalAlignment="Left" Margin="410,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="176" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" Height="148"/>
+            <Label Content="Recette" HorizontalAlignment="Left" Margin="410,125,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
+            <TextBox x:Name="recetteText" HorizontalAlignment="Left" Margin="410,158,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="155" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" Height="245"/>
             <Label Content="Alergènes" HorizontalAlignment="Left" Margin="37,199,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
-            <DataGrid x:Name="AllergèneSelect" ItemsSource="{Binding LesAllergenes}" HorizontalAlignment="Left" Margin="40,229,0,0" VerticalAlignment="Top">
+            <DataGrid x:Name="AllergeneSelect" 
+          MaxWidth="200"
+          ItemsSource="{Binding LesAllergenes}" 
+          AutoGenerateColumns="False"
+          Margin="37,230,1104,517">
+
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="Sélection"
-                                Binding="{Binding EstSelectionne}" />
+                                Binding="{Binding EstSelectionne, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="Allergène"
+                            Binding="{Binding NomAllergene}" />
                 </DataGrid.Columns>
             </DataGrid>
+            <Label Content="Nom" HorizontalAlignment="Left" Margin="22,139,0,0" VerticalAlignment="Top" Grid.Column="1" Width="47" Background="{x:Null}"/>
         </Grid>
-        <Label Content="Nom" HorizontalAlignment="Left" Margin="22,139,0,0" VerticalAlignment="Top" Grid.Column="1" Width="47" Background="{x:Null}"/>
     </Grid>
 </UserControl>
  

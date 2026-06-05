@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
         public UCGererProduits()
         {
             InitializeComponent();
-            this.DataContext = new Classes.ChargeDonnees.ChargeProduits();
+            this.DataContext = new ChargeProduits();
         }
 
         private void tbNbParts_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +43,20 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             else if (nbParts.Text == text + "1")
             {
                 nbParts.Text = "L'unité";
+            }
+        }
+
+        private void butChangerDisponibilite_Click(object sender, RoutedEventArgs e)
+        {
+            Button estIndisponible = (Button)sender;
+
+            if (estIndisponible.Content == "Rendre indisponible")
+            {
+                estIndisponible.Content = "Rendre disponible";
+            }
+            else
+            {
+                estIndisponible.Content = "Rendre indisponible";
             }
         }
     }
