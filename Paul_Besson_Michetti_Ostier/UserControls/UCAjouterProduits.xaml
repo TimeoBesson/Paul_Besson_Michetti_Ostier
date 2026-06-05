@@ -46,14 +46,14 @@
                 <Label Content="Annuler" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,29,85,0" HorizontalAlignment="Right"/>
                 <Button x:Name="butannuler" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,29,85,0" Width="57">
                 </Button>
-                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,422,976,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="72"/>
-                <Label Content="Suivant" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,425,989,0" HorizontalAlignment="Right"/>
-                <Button x:Name="butannul" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,425,981,0" Width="64" Click="butenregistrer_Click">
+                <Rectangle Fill="#321716" Height="25" RadiusX="8" RadiusY="8" Margin="0,422,976,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="80"/>
+                <Label Content="choisir le type" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="11" Foreground="White" Margin="0,425,977,0" HorizontalAlignment="Right"/>
+                <Button x:Name="butchoixtype" Content="_Annuler" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,425,984,0" Width="64" Click="butenregistrer_Click">
                 </Button>
             </Grid>
             <TextBox x:Name="ProduitNomText" HorizontalAlignment="Left" Margin="20,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="190" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2"/>
-            <Label Content="Recette" HorizontalAlignment="Left" Margin="410,149,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
-            <TextBox x:Name="recetteText" HorizontalAlignment="Left" Margin="410,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="176" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" Height="148"/>
+            <Label Content="Recette" HorizontalAlignment="Left" Margin="410,125,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
+            <TextBox x:Name="recetteText" HorizontalAlignment="Left" Margin="410,158,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="155" BorderBrush="#FFE2E2E2" Background="#FFE2E2E2" Height="245"/>
             <Label Content="Alergènes" HorizontalAlignment="Left" Margin="37,199,0,0" VerticalAlignment="Top" Width="63" Background="{x:Null}"/>
             <DataGrid x:Name="AllergèneSelect" ItemsSource="{Binding LesAllergenes}" HorizontalAlignment="Left" Margin="40,229,0,0" VerticalAlignment="Top">
                 <DataGrid.Columns>

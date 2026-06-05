@@ -62,10 +62,10 @@
                     <Button x:Name="butGateaux" Content="_Gateaux" Opacity="0" Background="Transparent" BorderBrush="Transparent"/>
                 </Grid>
             </StackPanel>
-            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,25,0">
-                <Rectangle Fill="#321716" RadiusX="8" RadiusY="8" Height="40"/>
-                <Label Content="Ajouter un produit" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="15,2,15,2" HorizontalAlignment="Center"/>
-                <Button x:Name="butAjouterProduit" Content="_Ajouter un produit" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,29,60,0" Width="82" RenderTransformOrigin="0.5,0.5">
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15,2,15,2">
+                <Rectangle Fill="#321716" RadiusX="8" RadiusY="8" Height="40" Margin="0,20,0,0"/>
+                <Label Content="Ajouter un produit" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Work Sans" FontSize="18" Foreground="White" Margin="15,23,15,2" HorizontalAlignment="Center"/>
+                <Button x:Name="butAjouterProduit" Content="_Ajouter un produit" Opacity="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,20,15,2" Width="177" RenderTransformOrigin="0.5,0.5" Height="40">
                 </Button>
             </Grid>
             <Grid Background="Transparent" VerticalAlignment="Top">
