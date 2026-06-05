@@ -1,5 +1,6 @@
 ﻿using Paul_Besson_Michetti_Ostier.Classes;
 using Paul_Besson_Michetti_Ostier.Classes.ChargeDonnees;
+using Paul_Besson_Michetti_Ostier.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -108,6 +109,10 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
 
         private void dgClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+         
+            if (dgClients.SelectedIndex < 0 || dgClients.SelectedIndex >= tousLesClients.Count)
+                return;
+
             try
             {
                 clientSelectionne = tousLesClients[dgClients.SelectedIndex];
@@ -116,6 +121,42 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             catch
             {
                 return;
+            }
+        }
+        private void butNouveauClient_Click(object sender, RoutedEventArgs e)
+        {
+         
+            Client nouveauClient = new Client();
+
+      
+            WindowClient wc = new WindowClient(nouveauClient);
+            bool? result = wc.ShowDialog();
+
+          
+            if (result == true)
+            {
+                try
+                {
+                
+                    nouveauClient.Create();
+
+            
+                    tousLesClients.Add(nouveauClient);
+
+        
+                    AfficherClients(tousLesClients);
+
+   
+                    dgClients.SelectedItem = nouveauClient;
+                    clientSelectionne = nouveauClient;
+                    ButSuivantDisponible();
+
+                    MessageBox.Show("Le client a été créé et sélectionné avec succès !", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Impossible de créer le client en base de données.\n" + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

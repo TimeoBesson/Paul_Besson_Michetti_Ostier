@@ -58,12 +58,27 @@
                     <TextBlock x:Name="tbAnnuler" Text="Annuler" FontSize="15" FontWeight="Bold" FontFamily="Work Sans" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <Button x:Name="butAnnuler" Opacity="0"/>
                 </Grid>
-                <Grid Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="40">
-                    <Rectangle Stroke="#7F5608" StrokeThickness="1.3" Height="40" RadiusX="4" RadiusY="4"/>
-                    <Image Source="/Images/Icone_nouveau_client.png" HorizontalAlignment="Left" Height="12" Width="17" VerticalAlignment="Center" Margin="10,0,0,0" />
-                    <Label Content="Nouveau client" Foreground="#321716" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="21,0,0,0"/>
-                    <Button x:Name="butNouveauClient" Opacity="0"/>
+                <Grid Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="50">
+
+                    <Button x:Name="butNouveauClient" 
+        Content="+ Nouveau Client" 
+        Margin="0,0,10,0" 
+        Height="35" 
+        Width="150" 
+        HorizontalAlignment="Center"
+        Background="#321716" 
+        Foreground="White" 
+        FontWeight="Bold" 
+        Cursor="Hand"
+        Click="butNouveauClient_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </Grid>
+
             </Grid>
             <Grid Margin="15,151,15,0" VerticalAlignment="Top">
                 <Rectangle Fill="#F5F3EE" Height="83"/>
