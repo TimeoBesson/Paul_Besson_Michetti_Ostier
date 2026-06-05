@@ -72,7 +72,7 @@
                     <Rectangle Fill="White" Stroke="#D4C3C1" Margin="20" RadiusX="4" RadiusY="4"/>
                     <Image Source="/Images/Icone_rechercher.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16" Margin="35,0,0,0" Width="21"/>
                     <Label x:Name="labelRecherche" Foreground="#6B7280" Content="Rechercher par nom, téléphone ..." VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="55,0,0,1" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="tbRecherche" Background="Transparent" BorderBrush="Transparent" Margin="20" Padding="38,0,0,0" VerticalContentAlignment="Center" TextChanged="tbRecherche_TextChanged" LostFocus="tbRecherche_LostFocus" GotFocus="tbRecherche_GotFocus"/>
+                    <TextBox x:Name="tbRecherche" Background="Transparent" BorderBrush="Transparent" Margin="20" Padding="38,0,0,0" VerticalContentAlignment="Center" TextChanged="tbRecherche_TextChanged"/>
                 </Grid>
             </Grid>
             <Rectangle Stroke="#D4C3C1" RadiusX="4" RadiusY="4" Margin="15,81,15,15"/>

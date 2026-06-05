@@ -34,6 +34,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             List<CategorieEvenement> toutesLesCategories = new CategorieEvenement().FindAll();
             cbCategorie.ItemsSource = toutesLesCategories;
             cbCategorie.SelectedIndex = 0;
+            ButSuivantIndisponible();
         }
 
         private void ButSuivantDisponible()
@@ -48,20 +49,6 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
             fondSuivant.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4A2C2A"));
             fondSuivant.Opacity = 0.3;
             butSuivant.IsEnabled = false;
-        }
-
-        private void ButAnnulerDisponible()
-        {
-            tbAnnuler.Opacity = 1;
-            fondAnnuler.Opacity = 1;
-            butAnnuler.IsEnabled = true;
-        }
-
-        private void ButAnnulerIndisponible()
-        {
-            tbAnnuler.Opacity = 0.3;
-            fondAnnuler.Opacity = 0.3;
-            butAnnuler.IsEnabled = false;
         }
 
         private void butMoins_Click(object sender, RoutedEventArgs e)

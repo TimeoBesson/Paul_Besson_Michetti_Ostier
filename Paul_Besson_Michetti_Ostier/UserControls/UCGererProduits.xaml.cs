@@ -44,10 +44,5 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 nbParts.Text = "L'unité";
             }
         }
-
-        private void butAjout_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
