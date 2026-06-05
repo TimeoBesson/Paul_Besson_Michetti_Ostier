@@ -175,6 +175,20 @@ namespace Paul_Besson_Michetti_Ostier
             Window.Content = ajouterProduit;
             ajouterProduit.butDeconnecter.Click += RetourConnexion;
             ajouterProduit.butannuler.Click += AfficherGererProduits;
+            ajouterProduit.butchoixtype.Click += Afficherchoixcategorie;
         }
+
+        public void Afficherchoixcategorie(object sender, RoutedEventArgs e)
+        {
+            UCchoixcategorie choixtype = new UCchoixcategorie();
+            Window.Content = choixtype;
+            choixtype.butDeconnecter.Click += RetourConnexion;
+            choixtype.butannuler.Click += AfficherGererProduits;
+            
+        }
+
+
+
+
     }
 }

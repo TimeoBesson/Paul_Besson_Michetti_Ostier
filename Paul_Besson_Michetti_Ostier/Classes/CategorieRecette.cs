@@ -20,6 +20,14 @@ namespace Paul_Besson_Michetti_Ostier.Classes
         }
         public CategorieRecette() { }
 
+        private bool isSelected;
+
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set { isSelected = value; }
+        }
+
         public int IdCategorie
         {
             get
