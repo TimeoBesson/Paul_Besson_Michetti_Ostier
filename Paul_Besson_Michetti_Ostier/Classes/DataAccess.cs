@@ -9,19 +9,23 @@ namespace Paul_Besson_Michetti_Ostier.Classes
     public class DataAccess
     {
         
-        private static readonly string connectionString;
+        private static string connectionString;
         private static NpgsqlConnection connection;
 
         static DataAccess()
         {
-            connectionString = "Host=srv-peda-new;Port=5433;Username=ostiera;Password=lionelos74;Database=ostiera_sae201;Options='-c search_path=sae201'";
+        }
+
+        public static void Connexion(string login, string password)
+        {
+            connectionString = "Host=srv-peda-new;Port=5433;Username=" + login + ";Password=" + password + ";Database=ostiera_sae201;Options='-c search_path=sae201'";
             try
             {
                 connection = new NpgsqlConnection(connectionString);
             }
             catch (Exception ex)
             {
-                LogError.Log(ex, "Pb à la connexion  \n" );
+                LogError.Log(ex, "Pb à la connexion  \n");
                 throw;
             }
         }

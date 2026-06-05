@@ -218,6 +218,7 @@ namespace Paul_Besson_Michetti_Ostier.UserControls
                 }
             }
             tbPrixTotal.Text = total.ToString("0.00") + " €";
+            tbAcompte.Text = (total * 0.25m).ToString("0.00") + " €";
         }
 
         private void FiltrerProduits(string? categorie)

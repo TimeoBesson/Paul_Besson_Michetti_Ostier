@@ -89,7 +89,7 @@ namespace Paul_Besson_Michetti_Ostier
             else
             {
                 Mouse.OverrideCursor = Cursors.Wait;
-                if (Employe.Connexion(connexion.tbIdentifiant.Text, connexion.pbMdp.Password))
+                if (Employe.VerificationConnexion(connexion.tbIdentifiant.Text, connexion.pbMdp.Password))
                 {
                     Mouse.OverrideCursor = Cursors.Arrow;
                     VerifierRole(sender, e);
